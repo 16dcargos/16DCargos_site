@@ -1,7 +1,221 @@
-import React from 'react'
-
+import ImageTag from "../ImageTag/ImageTag";
+import logo from "../../assets/Logo/16Dlogo.png";
+import { Link } from "react-router-dom";
+import BlueBtn from "../Buttons/BlueBtn";
 export default function Navbar() {
     return (
-        <div>Navbar</div>
-    )
+        // <div className="justify-center max-w-screen-2xl mx-auto flex items-center relative w-full isolate overflow-hidden  py-4 md:py-8 md:px-1 lg:py-10">
+        <header
+            className="fixed inset-x-0 top-0 z-30 mx-auto w-full max-w-screen-md border border-gray-100 bg-white/80 py-3 shadow backdrop-blur-lg md:top-4 md:rounded-3xl lg:max-w-screen-lg">
+            <div className="px-4">
+                <div className="flex items-center justify-between">
+                    <div className="flex shrink-0">
+                        <Link aria-current="page" className="flex items-center" to="/">
+                            <ImageTag className="h-7 w-auto" src={logo} alt="logo" />
+                            <p className="sr-only">Website Title</p>
+                        </Link>
+                    </div>
+                    <div className="hidden md:flex md:items-center md:justify-center md:gap-5">
+                        <ul className="flex justify-center lg:gap-x-5 gap-x-3  items-center">
+                            <li className="">
+                                <Link className="rounded-lg transition-all duration-200 hover:text-gray-900 flex items-center justify-center lg:text-xs text-sm font-semibold leading-6 text-gray-900">
+                                    Home
+                                </Link>
+                            </li>
+                            <li className="relative group">
+                                <Link
+                                    type="button"
+                                    className="rounded-lg transition-all duration-200 hover:text-gray-900 flex items-center justify-center lg:text-xs text-sm font-semibold leading-6 text-gray-900"
+                                    aria-expanded="false"
+                                >
+                                    Company
+                                    <svg
+                                        className="h-5 w-5 flex-none text-slate-950  group-hover:rotate-180 transition-all duration-700 ease-in-out"
+                                        viewBox="0 0 20 20"
+                                        fill="currentColor"
+                                        aria-hidden="true"
+                                    >
+                                        <path
+                                            fillRule="evenodd"
+                                            d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                                            clipRule="evenodd"
+                                        />
+                                    </svg>
+                                </Link>
+                                <div
+                                    id="dropdown"
+                                    className={
+                                        "absolute hidden group-hover:block -left-8 top-3 z-10 mt-2 w-screen max-w-xs overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5"
+                                    }
+                                >
+                                    <div className="p-4">
+                                        <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+                                            <div className="flex-auto">
+                                                <Link className="block lg:text-xs font-semibold text-gray-900">
+                                                    About us
+                                                    <span className="absolute inset-0"></span>
+                                                </Link>
+                                            </div>
+                                        </div>
+                                        <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+                                            <div className="flex-auto">
+                                                <Link className="block lg:text-xs font-semibold text-gray-900">
+                                                    Investor Insights
+                                                    <span className="absolute inset-0"></span>
+                                                </Link>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li className="relative group">
+                                <Link
+                                    type="button"
+                                    className="rounded-lg  transition-all duration-200 hover:text-gray-900 flex items-center justify-center lg:text-xs text-sm font-semibold leading-6 text-gray-900"
+                                    aria-expanded="false"
+                                >
+                                    Products & Services
+                                    <svg
+                                        className="h-5 w-5 flex-none text-slate-950 group-hover:rotate-180 transition-all duration-700 ease-in-out"
+                                        viewBox="0 0 20 20"
+                                        fill="currentColor"
+                                        aria-hidden="true"
+                                    >
+                                        <path
+                                            fillRule="evenodd"
+                                            d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                                            clipRule="evenodd"
+                                        />
+                                    </svg>
+                                </Link>
+                                <div
+                                    id="dropdown"
+                                    className={
+                                        "absolute hidden group-hover:block -left-8 top-3 z-10 mt-2 w-screen max-w-xs overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5"
+                                    }
+                                >
+                                    <div className="p-4">
+                                        <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+                                            <div className="flex-auto">
+                                                <Link className="block lg:text-xs font-semibold text-gray-900">
+                                                    16D and Nirvaahi
+                                                    <span className="absolute inset-0"></span>
+                                                </Link>
+                                            </div>
+                                        </div>
+                                        <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+                                            <div className="flex-auto">
+                                                <Link className="block lg:text-xs font-semibold text-gray-900">
+                                                    Full Truck Load
+                                                    <span className="absolute inset-0"></span>
+                                                </Link>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li className="relative group">
+                                <Link
+                                    type="button"
+                                    className="rounded-lg  transition-all duration-200 hover:text-gray-900 flex items-center justify-center lg:text-xs text-sm font-semibold leading-6 text-gray-900"
+                                    aria-expanded="false"
+                                >
+                                    Partner with us
+                                    <svg
+                                        className="h-5 w-5 flex-none text-slate-950 group-hover:rotate-180 transition-all duration-700 ease-in-out"
+                                        viewBox="0 0 20 20"
+                                        fill="currentColor"
+                                        aria-hidden="true"
+                                    >
+                                        <path
+                                            fillRule="evenodd"
+                                            d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                                            clipRule="evenodd"
+                                        />
+                                    </svg>
+                                </Link>
+                                <div
+                                    id="dropdown"
+                                    className={
+                                        "absolute hidden group-hover:block -left-8 top-3 z-10 mt-2 w-screen max-w-xs overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5"
+                                    }
+                                >
+                                    <div className="p-4">
+                                        <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+                                            <div className="flex-auto">
+                                                <Link className="block lg:text-xs font-semibold text-gray-900">
+                                                    Fleet Owners
+                                                    <span className="absolute inset-0"></span>
+                                                </Link>
+                                            </div>
+                                        </div>
+                                        <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+                                            <div className="flex-auto">
+                                                <Link className="block lg:text-xs font-semibold text-gray-900">
+                                                    Be a Mentor
+                                                    <span className="absolute inset-0"></span>
+                                                </Link>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li className="relative group">
+                                <Link
+                                    type="button"
+                                    className="rounded-lg  transition-all duration-200 hover:text-gray-900 flex items-center justify-center lg:text-xs text-sm font-semibold leading-6 text-gray-900"
+                                    aria-expanded="false"
+                                >
+                                    Enrich and Teamup
+                                    <svg
+                                        className="h-5 w-5 flex-none text-slate-950 group-hover:rotate-180 transition-all duration-700 ease-in-out"
+                                        viewBox="0 0 20 20"
+                                        fill="currentColor"
+                                        aria-hidden="true"
+                                    >
+                                        <path
+                                            fillRule="evenodd"
+                                            d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                                            clipRule="evenodd"
+                                        />
+                                    </svg>
+                                </Link>
+                                <div
+                                    id="dropdown"
+                                    className={
+                                        "absolute hidden group-hover:block -left-8 top-3 z-10 mt-2 w-screen max-w-xs overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5"
+                                    }
+                                >
+                                    <div className="p-4">
+                                        <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+                                            <div className="flex-auto">
+                                                <Link className="block lg:text-xs font-semibold text-gray-900">
+                                                    Career
+                                                    <span className="absolute inset-0"></span>
+                                                </Link>
+                                            </div>
+                                        </div>
+                                        <div className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
+                                            <div className="flex-auto">
+                                                <Link className="block lg:text-xs font-semibold text-gray-900">
+                                                    Skill Development
+                                                    <span className="absolute inset-0"></span>
+                                                </Link>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="flex items-center justify-end gap-3">
+                        <div>
+                            <BlueBtn title={"Get a Qutoe"} to={"/Contact"} />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        // </div>
+    );
 }
