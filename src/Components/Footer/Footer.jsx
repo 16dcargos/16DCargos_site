@@ -4,7 +4,7 @@ import Img from "../ImageTag/ImageTag";
 import { Link } from "react-router-dom";
 export default function Footer() {
     return (
-        <div className="px-4 bg-white pt-16 mx-auto relative isolate overflow-hidden sm:max-w-xl md:max-w-full lg:max-w-screen-2xl md:px-24 lg:px-8">
+        <div className="px-4 bg-white pt-12 mx-auto relative isolate overflow-hidden sm:max-w-xl md:max-w-full lg:max-w-screen-2xl md:px-24 lg:px-8">
             <div className="grid gap-12  row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
                 <div className="">
                     {/* sm:col-span-2 */}
@@ -116,16 +116,16 @@ export default function Footer() {
                         Services
                     </span>
                     <div className="flex justify-start flex-col mt-2 space-y-2">
-                        <Link className="font-Poppins font-normal text-sm tracking-wide transition-colors duration-300 hover:text-gray-800">
+                        <Link className="font-Poppins font-normal text-sm active:text-orange-400 visited:bg-purple-600 tracking-wide transition-colors duration-300 hover:text-gray-800">
                             Full Truck Load (FTL) Services
                         </Link>
-                        <Link className="font-Poppins font-normal text-sm tracking-wide transition-colors duration-300 hover:text-gray-800">
+                        <Link className="font-Poppins font-normal text-sm active:text-orange-400 visited:bg-purple-600 tracking-wide transition-colors duration-300 hover:text-gray-800">
                             Partner with Us
                         </Link>
-                        <Link className="font-Poppins font-normal text-sm tracking-wide transition-colors duration-300 hover:text-gray-800">
+                        <Link className="font-Poppins font-normal text-sm active:text-orange-400 visited:bg-purple-600 tracking-wide transition-colors duration-300 hover:text-gray-800">
                             Career Opportunities
                         </Link>
-                        <Link className="font-Poppins font-normal text-sm tracking-wide transition-colors duration-300 hover:text-gray-800">
+                        <Link className="font-Poppins font-normal text-sm active:text-orange-400 visited:bg-purple-600 tracking-wide transition-colors duration-300 hover:text-gray-800">
                             Skill Development
                         </Link>
                     </div>
@@ -141,7 +141,7 @@ export default function Footer() {
                         Stay connected and updated with our latest news and insights.
                     </p>
                     <div className="mt-4 flex items-center space-x-3">
-                        <Link className="">
+                        <Link className="hover:-translate-y-2 transition duration-700 ease-in-out">
                             <svg
                                 className="h-5"
                                 viewBox="0 0 60 60"
@@ -171,7 +171,7 @@ export default function Footer() {
                                 </defs>
                             </svg>
                         </Link>
-                        <Link className="">
+                        <Link className="hover:-translate-y-2 transition duration-700 ease-in-out">
                             <svg
                                 className="h-5"
                                 viewBox="0 0 60 60"
@@ -196,7 +196,7 @@ export default function Footer() {
                                 />
                             </svg>
                         </Link>
-                        <Link className="">
+                        <Link className="hover:-translate-y-2 transition duration-700 ease-in-out">
                             <svg
                                 className="h-5"
                                 viewBox="0 0 60 60"
@@ -221,7 +221,7 @@ export default function Footer() {
                                 />
                             </svg>
                         </Link>
-                        <Link className="">
+                        <Link className="hover:-translate-y-2 transition duration-700 ease-in-out">
                             <svg
                                 className="h-5"
                                 viewBox="0 0 60 60"
