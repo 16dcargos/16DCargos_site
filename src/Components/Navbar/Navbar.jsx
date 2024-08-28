@@ -26,13 +26,12 @@ export default function Navbar() {
                         <div className="hidden md:flex md:items-center md:justify-center md:gap-5">
                             <ul className="flex justify-center lg:gap-x-5 gap-x-3  items-center">
                                 <li className="">
-                                    <Link className="rounded-lg transition-all py-3 duration-200 hover:text-gray-900 flex items-center justify-center lg:text-xs text-sm font-semibold leading-6 text-gray-900">
+                                    <Link to={'/'} className="rounded-lg transition-all py-3 duration-200 hover:text-gray-900 flex items-center justify-center lg:text-xs text-sm font-semibold leading-6 text-gray-900">
                                         Home
                                     </Link>
                                 </li>
                                 <li className="relative group">
                                     <Link
-                                        type="button"
                                         className="rounded-lg transition-all duration-200 py-3 hover:text-gray-900 flex items-center justify-center lg:text-xs text-sm font-semibold leading-6 text-gray-900"
                                         aria-expanded="false"
                                     >
@@ -59,7 +58,7 @@ export default function Navbar() {
                                         <div className="p-1">
                                             <div className="group relative  rounded-md p-3 text-sm leading-6 hover:bg-gray-100">
                                                 <div className="flex-auto">
-                                                    <Link className="block lg:text-xs font-semibold text-gray-900">
+                                                    <Link to={'/aboutus'} className="block lg:text-xs font-semibold text-gray-900">
                                                         About us
                                                         <span className="absolute inset-0"></span>
                                                     </Link>
