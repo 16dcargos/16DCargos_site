@@ -5,6 +5,7 @@ import Footer from './Components/Footer/Footer'
 import Navbar from './Components/Navbar/Navbar'
 import Home from './Pages/Home/Home'
 import Aboutus from './Pages/Company/Aboutus/Aboutus'
+import Investor from './Pages/Company/InvestorInsight/Investor'
 
 function App() {
 
@@ -13,7 +14,10 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
+
         <Route path='/aboutus' element={<Aboutus />} />
+        {/* New */}
+        <Route path='/investor-insight' element={<Investor />} />
       </Routes>
       <Footer />
     </>
