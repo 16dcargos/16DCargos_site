@@ -14,7 +14,9 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
+
         <Route path='/aboutus' element={<Aboutus />} />
+        {/* New */}
         <Route path='/investor-insight' element={<Investor />} />
       </Routes>
       <Footer />
