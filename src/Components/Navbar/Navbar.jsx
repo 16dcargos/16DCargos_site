@@ -66,7 +66,7 @@ export default function Navbar() {
                                             </div>
                                             <div className="group relative  rounded-md p-3 text-sm leading-6 hover:bg-gray-100">
                                                 <div className="flex-auto">
-                                                    <Link className="block lg:text-xs font-semibold text-gray-900">
+                                                    <Link to={'/investor-insight'} className="block lg:text-xs font-semibold text-gray-900">
                                                         Investor Insights
                                                         <span className="absolute inset-0"></span>
                                                     </Link>

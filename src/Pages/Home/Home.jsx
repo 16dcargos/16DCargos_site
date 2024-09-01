@@ -26,7 +26,7 @@ export default function Home() {
     ]
     return (
         <>
-            <div className="relative z-10 bg-gradient-to-r from-purple-600 to-blue-600 h-screen text-white overflow-hidden">
+            <section className="relative z-10 h-screen text-white overflow-hidden">
                 <div className="absolute inset-0">
                     <Img src={HomeHero} alt="Background Image" className="object-cover object-center w-full h-full" />
                     {/* <div className="absolute inset-0 bg-black opacity-10"></div> */}
@@ -45,7 +45,7 @@ export default function Home() {
 
                     <OrangeBtn text={'Learn More'} />
                 </div>
-            </div>
+            </section>
 
             <section className='relative overflow-hidden bg-[#d9d9d9] px-4 py-6 lg:px-8 lg:py-6'>
                 <div className="mx-auto max-w-full lg:max-w-3xl">
@@ -56,14 +56,14 @@ export default function Home() {
             </section>
             {/*  Our Vission */}
             <section className='relative isolate overflow-hidden px-3 py-4 lg:px-8 lg:py-6 bg-[#d9d9d9]'>
-                <div className='mx-auto max-w-md lg:max-w-7xl'>
-                    <div className="flex flex-wrap items-start flex-col lg:flex-row">
-                        <div className='w-full lg:w-1/2 rounded-xl'>
+                <div className='mx-auto max-w-5xl lg:max-w-7xl'>
+                    <div className="flex flex-wrap items-start flex-col md:flex-row">
+                        <div className='w-full md:w-1/2 rounded-xl'>
                             <div className="w-full h-auto overflow-hidden rounded-md sm:rounded-xl">
                                 <ImageTag src={vision} alt={'our vission'} className={''} />
                             </div>
                         </div>
-                        <div className="w-full lg:w-1/2">
+                        <div className="w-full md:w-1/2">
                             <div className='px-4 py-4 lg:py-0'>
                                 <h1 className='border-b-[1px] pb-1 border-orange-400 inline-block font-Poppins tracking-wide font-bold text-black text-lg lg:text-3xl'>
                                     Our Vission
@@ -79,9 +79,9 @@ export default function Home() {
 
             {/* Our Mission */}
             <section className='relative isolate overflow-hidden px-3 py-4 lg:px-8 lg:py-6 bg-[#d9d9d9]'>
-                <div className='mx-auto max-w-md lg:max-w-7xl'>
-                    <div className="flex items-start flex-col-reverse lg:flex-row">
-                        <div className="w-full lg:w-1/2">
+                <div className='mx-auto max-w-5xl lg:max-w-7xl'>
+                    <div className="flex items-start flex-col-reverse md:flex-row">
+                        <div className="w-full md:w-1/2">
                             <div className='px-4 py-4 lg:py-0'>
                                 <h1 className='border-b-[1px] pb-1 border-orange-400 inline-block font-Poppins tracking-wide font-bold text-black text-lg lg:text-3xl'>
                                     Our Mission
@@ -92,7 +92,7 @@ export default function Home() {
                             </div>
                         </div>
 
-                        <div className='w-full lg:w-1/2 rounded-xl mb-4 md:mb-0'>
+                        <div className='w-full md:w-1/2 rounded-xl mb-4 md:mb-0'>
                             <div className="w-full h-auto overflow-hidden rounded-md sm:rounded-xl">
                                 <ImageTag src={mission} alt={'Our Mission'} className={''} />
                             </div>
@@ -141,12 +141,12 @@ export default function Home() {
 
             {/* Why choose us */}
             <section className='bg-[#d9d9d9] relative isolate overflow-hidden'>
-                <div className="container mx-auto flex px-5 py-12 md:flex-row  justify-center flex-col items-center">
-                    <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-                        <img className="object-cover object-center rounded-xl" alt="whychooseus" src={whychooseus} />
+                <div className="container mx-auto flex px-5 py-12 md:flex-row md:gap-12 justify-center flex-col items-center">
+                    <div className="lg:max-w-lg lg:w-full md:w-1/2 w-full">
+                        <img className="w-full h-full object-cover object-center rounded-xl" alt="whychooseus" src={whychooseus} />
                     </div>
                     <div
-                        className="md:w-1/2 lg:pl-22 md:pl-16 flex flex-col md:items-start md:text-left mt-16 md:mt-0 items-center text-center">
+                        className="md:w-1/2 lg:pl-22  flex flex-col md:items-start md:text-left mt-12 md:mt-0 items-center text-center">
                         <h1 className="title-font md:text-2xl sm:text-4xl text-3xl mb-4 font-bold font-Poppins text-gray-900">Why Choose <span className='inline-block text-transparent bg-clip-text bg-gradient-to-br from-[#0163E0] from-50% to-20% to-[#FF8E26]'>Us</span>?
                         </h1>
                         <p className="tracking-wider font-Poppins font-normal text-black text-xs leading-6">With a commitment to excellence and a focus on innovation, we offer unparalleled logistics solutions that cater to your every need. From advanced technology to dedicated customer service, we are your trusted partner in logistics. Our strategic approach and the inclusion of top talents ensure that your goods are handled with the utmost care and efficiency. We understand the complexities of logistics and are dedicated to providing solutions that enhance your business operations and deliver outstanding results.</p>
