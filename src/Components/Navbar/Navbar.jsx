@@ -11,6 +11,14 @@ export default function Navbar() {
         setToggle((preve) => !preve)
     }
 
+    const [dropToggle, setDropToggle] = useState({})
+    const handleOpenDropToggle = (e) => {
+        const { id } = e.target
+        setDropToggle((prev) => ({
+            ...prev,
+            [id]: !prev[id], // Toggle the value
+        }));
+    }
     return (
         <>
             <header
@@ -51,9 +59,7 @@ export default function Navbar() {
                                     </Link>
                                     <div
                                         id="dropdown"
-                                        className={
-                                            "absolute hidden group-hover:block -left-8 top-8 z-10 mt-2 w-52 max-w-xs overflow-hidden rounded-md bg-white shadow-lg ring-1 ring-gray-900/5"
-                                        }
+                                        className={"absolute hidden  group-hover:block -left-8 top-8 z-10 mt-2 w-52 max-w-xs overflow-hidden rounded-md bg-white shadow-lg ring-1 ring-gray-900/5"}
                                     >
                                         <div className="p-1">
                                             <div className="group relative  rounded-md p-3 text-sm leading-6 hover:bg-gray-100">
@@ -104,7 +110,7 @@ export default function Navbar() {
                                         <div className="p-1">
                                             <div className="group relative rounded-md p-3 text-sm leading-6 hover:bg-gray-100">
                                                 <div className="flex-auto">
-                                                    <Link className="block lg:text-xs font-semibold text-gray-900">
+                                                    <Link to={'/sixteenD-and-nirvaahi'} className="block lg:text-xs font-semibold text-gray-900">
                                                         16D and Nirvaahi
                                                         <span className="absolute inset-0"></span>
                                                     </Link>
@@ -112,7 +118,7 @@ export default function Navbar() {
                                             </div>
                                             <div className="group relative rounded-md p-3 text-sm leading-6 hover:bg-gray-100">
                                                 <div className="flex-auto">
-                                                    <Link className="block lg:text-xs font-semibold text-gray-900">
+                                                    <Link to={'/full-truck-loaded'} className="block lg:text-xs font-semibold text-gray-900">
                                                         Full Truck Load
                                                         <span className="absolute inset-0"></span>
                                                     </Link>
@@ -220,7 +226,7 @@ export default function Navbar() {
                                 <BlueBtn title={"Get Link Qutoe"} to={"/Contact"} />
                             </div>
                         </div>
-                        <div className="md:hidden flex items-center justify-end gap-3">
+                        <div className="md:hidden relative flex items-center justify-end gap-3">
                             <button type="button" className="" onClick={handleToggleNav}>
                                 {!toggle ? (
                                     <svg className="w-6 h-auto" viewBox="0 0 24 24" fill="none" >
@@ -248,28 +254,81 @@ export default function Navbar() {
                                 <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
                                     <li>
                                         <Link
-                                            className="block py-2 pl-3 pr-4 text-white bg-purple-700 rounded lg:bg-transparent lg:text-purple-700 lg:p-0 dark:text-white"
+                                            onClick={handleToggleNav}
+                                            to={'/'}
+                                            className="block py-2 pl-3 pr-4 text-gray-700 hover:bg-gray-600 hover:text-white transition-all duration-500 ease-in-out"
                                             aria-current="page">Home</Link>
                                     </li>
                                     <li>
-                                        <Link
-                                            className="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Company</Link>
+                                        <button id="company" onClick={handleOpenDropToggle} className="flex items-center justify-between w-full py-2 px-3 rounded-b-none text-gray-700 hover:bg-gray-600 hover:text-white transition-all duration-500 ease-in-out">Company <svg className={`w-2.5 h-2.5 ms-2.5 ${dropToggle.company ? 'rotate-180' : ''}`} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
+                                        </svg></button>
+
+
+                                        <div className={`z-10 ${dropToggle.company ? '' : 'hidden'} font-normal  bg-white divide-y divide-gray-100 shadow w-full dark:bg-gray-700 dark:divide-gray-600`}>
+                                            <ul className="py-2 text-sm text-gray-700 transition-all duration-500 ease-in-out dark:text-gray-400" aria-labelledby="dropdownLargeButton">
+                                                <li>
+                                                    <Link onClick={handleToggleNav} to={'/aboutus'} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">About us</Link>
+                                                </li>
+                                                <li>
+                                                    <Link onClick={handleToggleNav} to={'/investor-insight'} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Investor insight</Link>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </li>
                                     <li>
-                                        <Link
-                                            className="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Marketplace</Link>
+                                        <button onClick={handleOpenDropToggle} id="product" className="flex items-center justify-between w-full py-2 px-3 rounded-b-none text-gray-700 hover:bg-gray-600 hover:text-white transition-all duration-500 ease-in-out">Product & Service <svg className={`w-2.5 h-2.5 ms-2.5 ${dropToggle.product ? 'rotate-180' : ''}`} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
+                                        </svg></button>
+
+
+                                        <div className={`z-10 ${dropToggle.product ? '' : 'hidden'} font-normal  bg-white divide-y divide-gray-100 shadow w-full dark:bg-gray-700 dark:divide-gray-600`}>
+                                            <ul className="py-2 text-sm text-gray-700 transition-all duration-500 ease-in-out dark:text-gray-400" aria-labelledby="dropdownLargeButton">
+                                                <li>
+                                                    <Link onClick={handleToggleNav} to={'/sixteenD-and-nirvaahi'} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">16D and Nirvaahi</Link>
+                                                </li>
+                                                <li>
+                                                    <Link onClick={handleToggleNav} to={'/full-truck-loaded'} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Full Truck Load</Link>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </li>
                                     <li>
-                                        <Link
-                                            className="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Features</Link>
+                                        <button onClick={handleOpenDropToggle} id="partner" className="flex items-center justify-between w-full py-2 px-3 rounded-b-none text-gray-700 hover:bg-gray-600 hover:text-white transition-all duration-500 ease-in-out">Partner with us <svg className={`w-2.5 h-2.5 ms-2.5 ${dropToggle.partner ? 'rotate-180' : ''}`} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
+                                        </svg></button>
+
+
+                                        <div className={`z-10 ${dropToggle.partner ? '' : 'hidden'} font-normal  bg-white divide-y divide-gray-100 shadow w-full dark:bg-gray-700 dark:divide-gray-600`}>
+                                            <ul className="py-2 text-sm text-gray-700 transition-all duration-500 ease-in-out dark:text-gray-400" aria-labelledby="dropdownLargeButton">
+                                                <li>
+                                                    <Link onClick={handleToggleNav} to={'/'} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Fleet Owners</Link>
+                                                </li>
+                                                <li>
+                                                    <Link onClick={handleToggleNav} to={'/Full Truck Load'} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Be Link Mentor</Link>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </li>
                                     <li>
-                                        <Link
-                                            className="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Team</Link>
+                                        <button onClick={handleOpenDropToggle} id="enrich" className="flex items-center justify-between w-full py-2 px-3 rounded-b-none text-gray-700 hover:bg-gray-600 hover:text-white transition-all duration-500 ease-in-out">Enrich and Teamup <svg className={`w-2.5 h-2.5 ms-2.5 ${dropToggle.enrich ? 'rotate-180' : ''}`} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
+                                        </svg></button>
+
+
+                                        <div className={`z-10 ${dropToggle.enrich ? '' : 'hidden'} font-normal  bg-white divide-y divide-gray-100 shadow w-full dark:bg-gray-700 dark:divide-gray-600`}>
+                                            <ul className="py-2 text-sm text-gray-700 transition-all duration-500 ease-in-out dark:text-gray-400" aria-labelledby="dropdownLargeButton">
+                                                <li>
+                                                    <Link onClick={handleToggleNav} to={'/'} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Career</Link>
+                                                </li>
+                                                <li>
+                                                    <Link onClick={handleToggleNav} to={'/'} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Skill Development</Link>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </li>
-                                    <li>
-                                        <Link
-                                            className="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Contact</Link>
+                                    <li className="px-2 pt-3">
+                                        <Link onClick={handleToggleNav} className='transition duration-300 ease-in-out hover:shadow-custom-white active:translate-y-1 font-Poppins hover:shadow-gray-600 text-white text-center bg-[#0222C9] block px-3 py-3 lg:px-4 lg:py-2 text-xs rounded-xl font-semibold' to={'/'}>Contact</Link>
                                     </li>
                                 </ul>
                             </div>

@@ -1,7 +1,4 @@
 import React from 'react'
-import investor from '../../../assets/images/investor.jpg';
-import ourjourney from '../../../assets/images/ourjourney.png';
-import joinus from '../../../assets/images/joinus.png';
 import ImageTag from '../../../Components/ImageTag/ImageTag';
 import OrangeBtn from '../../../Components/Buttons/OrangeBtn';
 import BlueBtn from '../../../Components/Buttons/BlueBtn';
@@ -11,7 +8,7 @@ const Inverstor = () => {
         <React.Fragment>
             <section className="relative z-10 h-screen text-white overflow-hidden">
                 <div className="absolute inset-0">
-                    <ImageTag src={investor} alt="Background Image" className="object-cover object-center w-full h-full" />
+                    <ImageTag src={"https://res.cloudinary.com/dmh7fwdzf/image/upload/v1725907981/investor_rq5nie.jpg"} alt="Background Image" className="object-cover object-center w-full h-full" />
                     <div className="absolute inset-0 bg-black/50"></div>
                 </div>
 
@@ -33,7 +30,7 @@ const Inverstor = () => {
                 <div className="mx-auto max-w-xl md:max-w-7xl lg:max-w-6xl px-4 py-4 md:px-6">
                     <div className="grid md:grid-cols-12 grid-cols-1 gap-3">
                         <div className="w-full md:rounded-lg md:col-span-6 rounded-md">
-                            <ImageTag src={ourjourney} alt={'ourjourney'} className={'w-full h-auto object-fill object-center'} />
+                            <ImageTag src={"https://res.cloudinary.com/dmh7fwdzf/image/upload/v1725907861/ourjourney_stk7rh.png"} alt={'ourjourney'} className={'w-full h-auto object-fill object-center'} />
                         </div>
                         <div className="px-3 w-full md:col-span-6">
                             <h1 className="md:text-xl lg:text-3xl text-xl text-black font-bold tracking-6 leading-wider">Our Journey: From Bootstrap to Breakthrough</h1>
@@ -157,7 +154,7 @@ const Inverstor = () => {
                 <div className="mx-auto max-w-full md:max-w-5xl px-3 py-3 md:px-6">
                     <div className="grid md:grid-cols-2 place-items-center gap-10 grid-cols-1">
                         <div className="w-full rounded-lg md:rounded-xl">
-                            <ImageTag src={joinus} alt={'joinus'} className={'object-fill object-center w-full h-full'} />
+                            <ImageTag src={"https://res.cloudinary.com/dmh7fwdzf/image/upload/v1725907884/joinus_jzxiz5.png"} alt={'joinus'} className={'object-fill object-center w-full h-full'} />
                         </div>
                         <div className="w-full px-3 py-3 space-y-5">
                             <h1 className="text-black text-xl font-bold font-Poppins leading-6 tracking-wide">Join Us in Shaping Tomorrow</h1>
@@ -175,7 +172,7 @@ const Inverstor = () => {
 
             <section className='relative min-h-max overflow-hidden bg-[#d9d9d9] px-4 py-6 lg:px-8 lg:py-8'>
                 <div className="mx-auto max-w-full lg:max-w-4xl space-y-5">
-                    <h2 className='font-Poppins text-3xl text-center font-extrabold tracking-wide leading-relaxed'>
+                    <h2 className='font-Poppins text-lg md:text-3xl text-center font-extrabold tracking-wide leading-relaxed'>
                         We invite you to explore this exciting opportunity and become an integral part of our journey. Contact us today to learn more about investment opportunities and join us in this transformative venture.
                     </h2>
 
