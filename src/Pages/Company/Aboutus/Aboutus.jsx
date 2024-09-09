@@ -1,11 +1,5 @@
 import React from 'react'
-import aboutus from '../../../assets/images/aboutus.jpg';
 import ImageTag from '../../../Components/ImageTag/ImageTag';
-
-import ourstory from '../../../assets/images/orustory.png';
-import ourvission from '../../../assets/images/ourvission.png';
-import ourmission from '../../../assets/images/ourmission.png';
-import corevalue from '../../../assets/images/corevalue.png';
 import { Link } from 'react-router-dom';
 export default function Aboutus() {
 
@@ -13,7 +7,8 @@ export default function Aboutus() {
         <React.Fragment>
             <section className='relative overflow-hidden isolate bg-[#d9d9d9] min-h-dvh'>
                 <div className="absolute inset-0">
-                    <ImageTag src={aboutus} alt="Background Image" className="object-cover object-center w-full h-full" />
+
+                    <ImageTag src={"https://res.cloudinary.com/dmh7fwdzf/image/upload/v1725907956/aboutus_jeafg1.jpg"} alt="Background Image" className="object-cover object-center w-full h-full" />
                     <div className="absolute inset-0 bg-black opacity-50"></div>
                 </div>
                 <div className="relative inset-x-0 z-10 flex justify-center md:justify-start items-center h-screen top-1/4 lg:left-11">
@@ -33,7 +28,7 @@ export default function Aboutus() {
                 <div className="mx-auto px-4 py-4 md:px-6 max-w-xl md:max-w-7xl lg:max-w-6xl">
                     <div className="grid grid-cols-1 md:grid-cols-12 gap-5">
                         <div className="w-full h-full md:col-span-5 overflow-hidden rounded-md sm:rounded-xl">
-                            <ImageTag src={ourstory} className={'object-fill object-center'} alt={'orustory'} />
+                            <ImageTag src={"https://res.cloudinary.com/dmh7fwdzf/image/upload/v1725907883/orustory_zloem2.png"} className={'object-fill object-center'} alt={'orustory'} />
                         </div>
                         <div className="w-full h-full md:col-span-7 ">
                             <h1 className='text-2xl font-bold  md:text-4xl font-Poppins tracking-wide  text-black'>Our Stroy</h1>
@@ -50,13 +45,13 @@ export default function Aboutus() {
                 <div className="mx-auto max-w-xl md:max-w-7xl lg:max-w-6xl px-4 py-4 md:px-6">
                     <div className="grid md:grid-cols-12 gap-5 grid-cols-1">
                         <div className="w-full md:col-span-5 md:hidden block h-full overflow-hidden rounded-md sm:rounded-xl">
-                            <ImageTag src={ourvission} className={'w-full h-full object-fill object-center'} alt={'orustory'} />
+                            <ImageTag src={"https://res.cloudinary.com/dmh7fwdzf/image/upload/v1725907845/ourvission_ns8vv7.png"} className={'w-full h-full object-fill object-center'} alt={'orustory'} />
                         </div>
                         <div className="w-full mt-4 md:mt-0 md:col-span-7">
                             <p className='text-xxs font-Poppins font-medium leading-5 tracking-normal md:tracking-widest text-[#000000]'>En<span className='inline-block text-base font-bold  md:text-4xl font-Poppins tracking-wide leading-5 text-black'>vision</span>ing to redefine the logistics landscape by integrating state-of-the-art technology and energizing the industry with visionary young talent. We are committed to spearheading a transformative revolution in logistics, setting unprecedented standards for efficiency, sustainability, and operational excellence. By leveraging innovative solutions and cultivating a culture of forward-thinking ambition, we aim to propel the industry into a future where logistics is not only seamless and intelligent but also pioneering and impactful. Our ultimate ambition is to be the benchmark for excellence in Indian logistics, driving progress and inspiring change both within our country and across the globe.</p>
                         </div>
                         <div className="w-full md:col-span-5 hidden md:block h-full overflow-hidden rounded-md sm:rounded-xl">
-                            <ImageTag src={ourvission} className={'w-full h-full object-fill object-center'} alt={'orustory'} />
+                            <ImageTag src={"https://res.cloudinary.com/dmh7fwdzf/image/upload/v1725907845/ourvission_ns8vv7.png"} className={'w-full h-full object-fill object-center'} alt={'orustory'} />
                         </div>
                     </div>
                 </div>
@@ -67,7 +62,7 @@ export default function Aboutus() {
                 <div className="mx-auto max-w-xl md:max-w-7xl lg:max-w-6xl px-4 py-4 md:px-6">
                     <div className="grid md:grid-cols-12 gap-5 grid-cols-1">
                         <div className="w-full h-full overflow-hidden md:col-span-5 rounded-md sm:rounded-xl">
-                            <ImageTag src={ourmission} className={'w-full h-full object-fill object-center'} alt={'orustory'} />
+                            <ImageTag src={"https://res.cloudinary.com/dmh7fwdzf/image/upload/v1725907857/ourmission_mhtbyk.png"} className={'w-full h-full object-fill object-center'} alt={'orustory'} />
                         </div>
                         <div className="w-full mt-4 md:mt-0 md:col-span-7">
                             <p className='text-xxs font-Poppins mt-0 font-medium leading-5 tracking-normal md:tracking-widest text-[#000000]'>Our<span className='inline-block text-base font-bold  md:text-4xl font-Poppins tracking-wide leading-6 text-black'>Mission</span>is driven by bold vision into reality through meticulous strategic planning and by leveraging the expertise of India’s leading professionals. We are committed to reshaping the logistics landscape with unparalleled service, optimized operations, and a focus on sustainability. By embracing innovation and driving progress, we seek to establish new benchmarks in Indian logistics. Our approach integrates the needs of our clients with the aspirations of our team, fostering a logistics ecosystem renowned for its operational excellence and inspiring transformative advancements across the industry.</p>
@@ -80,13 +75,13 @@ export default function Aboutus() {
                 <div className="mx-auto max-w-xl md:max-w-7xl lg:max-w-6xl px-4 py-4 md:px-6">
                     <div className="grid grid-cols-1 gap-5 md:grid-cols-12">
                         <div className="block md:hidden w-full md:col-span-5 h-full overflow-hidden rounded-md sm:rounded-xl">
-                            <ImageTag src={corevalue} className={'w-full h-full object-fill object-center'} alt={'orustory'} />
+                            <ImageTag src={"https://res.cloudinary.com/dmh7fwdzf/image/upload/v1725907965/corevalue_bl6nw2.png"} className={'w-full h-full object-fill object-center'} alt={'orustory'} />
                         </div>
                         <div className="w-full mt-4 md:mt-0 md:col-span-7">
                             <p className='text-xxs mt-0 font-Poppins font-medium leading-5 tracking-normal md:tracking-widest text-[#000000]'>Our<span className='inline-block font-bold text-base md:text-4xl font-Poppins tracking-wide leading-6 text-black'>Core values</span>drive everything we do. We are committed to Customer-Centricity, ensuring our clients’ needs and satisfaction are always our top priority. Integrity guides us in maintaining transparency and ethical practices. We champion Innovation to continuously enhance our services, while Excellence defines our pursuit of superior quality and performance. Our focus on Reliability guarantees dependable service, and our dedication to Sustainability supports environmentally responsible practices. We value Collaboration with clients and stakeholders, embrace Adaptability to meet evolving demands, uphold Accountability for our actions, and foster Empowerment within our team for growth and innovation.</p>
                         </div>
                         <div className="md:block hidden w-full md:col-span-5 h-full overflow-hidden rounded-md sm:rounded-xl">
-                            <ImageTag src={corevalue} className={'w-full h-full object-fill object-center'} alt={'orustory'} />
+                            <ImageTag src={"https://res.cloudinary.com/dmh7fwdzf/image/upload/v1725907965/corevalue_bl6nw2.png"} className={'w-full h-full object-fill object-center'} alt={'orustory'} />
                         </div>
                     </div>
                 </div>
