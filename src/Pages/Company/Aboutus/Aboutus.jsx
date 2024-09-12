@@ -179,7 +179,6 @@ export default function Aboutus() {
                 </div>
             </div>
 
-
             {/* let us reach you */}
 
             <div className="relative isolate overflow-hidden bg-custom">

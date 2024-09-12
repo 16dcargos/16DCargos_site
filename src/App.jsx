@@ -9,6 +9,8 @@ import Investor from './Pages/Company/InvestorInsight/Investor'
 import SixteenDAndNiraahi from './Pages/ProductAndService/16D&Nirvaahi/SixteenDAndNiraahi'
 import { useEffect } from 'react'
 import FullTruckLoaded from './Pages/ProductAndService/FTL/FullTruckLoaded'
+import Fleetowners from './Pages/PartnerWithUs/Fleetowners/Fleetowners'
+import Belinkmentor from './Pages/PartnerWithUs/Belinkmentor/Belinkmentor'
 
 function App() {
   const location = useLocation()
@@ -27,6 +29,8 @@ function App() {
         <Route path='/investor-insight' element={<Investor />} />
         <Route path='/sixteenD-and-nirvaahi' element={<SixteenDAndNiraahi />} />
         <Route path='/full-truck-loaded' element={<FullTruckLoaded />} />
+        <Route path='/fleet-owners' element={<Fleetowners />} />
+        <Route path='/be-link-mentor' element={<Belinkmentor />} />
       </Routes>
       <Footer />
     </>
