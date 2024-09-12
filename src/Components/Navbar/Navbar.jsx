@@ -10,8 +10,8 @@ export default function Navbar() {
     const handleToggleNav = () => {
         setToggle((preve) => !preve)
     }
-
     const [dropToggle, setDropToggle] = useState({})
+
     const handleOpenDropToggle = (e) => {
         const { id } = e.target
         setDropToggle((prev) => ({
@@ -31,8 +31,8 @@ export default function Navbar() {
                                 <p className="sr-only">Website Title</p>
                             </Link>
                         </div>
-                        <div className="hidden md:flex md:items-center md:justify-center md:gap-5">
-                            <ul className="flex justify-center lg:gap-x-5 gap-x-3  items-center">
+                        <div className="hidden md:flex md:items-center md:justify-center">
+                            <ul className="flex justify-center lg:gap-x-4 gap-x-3  items-center">
                                 <li className="">
                                     <Link to={'/'} className="rounded-lg transition-all py-3 duration-200 hover:text-gray-900 flex items-center justify-center lg:text-xs text-sm font-semibold leading-6 text-gray-900">
                                         Home
@@ -156,7 +156,7 @@ export default function Navbar() {
                                         <div className="p-1">
                                             <div className="group relative rounded-md p-3 text-sm leading-6 hover:bg-gray-100">
                                                 <div className="flex-auto">
-                                                    <Link className="block lg:text-xs font-semibold text-gray-900">
+                                                    <Link to={'/fleet-owners'} className="block lg:text-xs font-semibold text-gray-900">
                                                         Fleet Owners
                                                         <span className="absolute inset-0"></span>
                                                     </Link>
@@ -164,7 +164,7 @@ export default function Navbar() {
                                             </div>
                                             <div className="group relative rounded-md p-3 text-sm leading-6 hover:bg-gray-100">
                                                 <div className="flex-auto">
-                                                    <Link className="block lg:text-xs font-semibold text-gray-900">
+                                                    <Link to={'/be-link-mentor'} className="block lg:text-xs font-semibold text-gray-900">
                                                         Be Link Mentor
                                                         <span className="absolute inset-0"></span>
                                                     </Link>
@@ -302,10 +302,10 @@ export default function Navbar() {
                                         <div className={`z-10 ${dropToggle.partner ? '' : 'hidden'} font-normal  bg-white divide-y divide-gray-100 shadow w-full dark:bg-gray-700 dark:divide-gray-600`}>
                                             <ul className="py-2 text-sm text-gray-700 transition-all duration-500 ease-in-out dark:text-gray-400" aria-labelledby="dropdownLargeButton">
                                                 <li>
-                                                    <Link onClick={handleToggleNav} to={'/'} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Fleet Owners</Link>
+                                                    <Link onClick={handleToggleNav} to={'/fleet-owners'} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Fleet Owners</Link>
                                                 </li>
                                                 <li>
-                                                    <Link onClick={handleToggleNav} to={'/Full Truck Load'} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Be Link Mentor</Link>
+                                                    <Link onClick={handleToggleNav} to={'/be-link-mentor'} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Be Link Mentor</Link>
                                                 </li>
                                             </ul>
                                         </div>

@@ -65,7 +65,7 @@ const SixteenDAndNiraahi = () => {
                                     <p className='text-xl font-bold text-black leading-6 tracking-wide'>Nationwide Connectivity</p>
                                 </div>
                                 <div className="mt-4">
-                                    <p className='font-Poppins text-black leading-6 text-sm tracking-wide font-medium'>16D bridges the gap between local vehicle owners and businesses requiring transportation, providing access to a vast network of load opportunities throughout the country.</p>
+                                    <p className='font-Poppins text-black leading-6 text-xs tracking-wide font-medium'>16D bridges the gap between local vehicle owners and businesses requiring transportation, providing access to a vast network of load opportunities throughout the country.</p>
                                 </div>
                             </div>
                         </div>
@@ -80,7 +80,7 @@ const SixteenDAndNiraahi = () => {
                                     <p className='text-xl font-bold text-black leading-6 tracking-wide'>Nationwide Connectivity</p>
                                 </div>
                                 <div className="mt-4">
-                                    <p className='font-Poppins text-black leading-6 text-sm tracking-wide font-medium'>The application uses advanced algorithms to match vehicle owners with suitable loads in real-time, optimizing routes and reducing idle time.</p>
+                                    <p className='font-Poppins text-black leading-6 text-xs tracking-wide font-medium'>The application uses advanced algorithms to match vehicle owners with suitable loads in real-time, optimizing routes and reducing idle time.</p>
                                 </div>
                             </div>
                         </div>
@@ -108,7 +108,7 @@ const SixteenDAndNiraahi = () => {
                                     <p className='text-xl font-bold text-black leading-6 tracking-wide'>Connecting Manufacturers and Transporters</p>
                                 </div>
                                 <div className="mt-4">
-                                    <p className='font-Poppins text-black leading-6 text-sm tracking-wide font-medium'>16D directly links goods manufacturers with transporters, ensuring efficient delivery from production to market and serving societal needs by enhancing supply chain connectivity.</p>
+                                    <p className='font-Poppins text-black leading-6 text-xs tracking-wide font-medium'>16D directly links goods manufacturers with transporters, ensuring efficient delivery from production to market and serving societal needs by enhancing supply chain connectivity.</p>
                                 </div>
                             </div>
                         </div>
@@ -129,7 +129,7 @@ const SixteenDAndNiraahi = () => {
                                     <p className='text-xl font-bold text-black leading-6 tracking-wide'>User-Friendly Interface</p>
                                 </div>
                                 <div className="mt-4">
-                                    <p className='font-Poppins text-black leading-6 text-sm tracking-wide font-medium'>With an intuitive and easy-to-navigate design, 16D ensures that both vehicle owners and shippers can manage their logistics needs with minimal effort.</p>
+                                    <p className='font-Poppins text-black leading-6 text-xs tracking-wide font-medium'>With an intuitive and easy-to-navigate design, 16D ensures that both vehicle owners and shippers can manage their logistics needs with minimal effort.</p>
                                 </div>
                             </div>
                         </div>
@@ -146,7 +146,7 @@ const SixteenDAndNiraahi = () => {
                                     <p className='text-xl font-bold text-black leading-6 tracking-wide'>Efficiency and Transparency</p>
                                 </div>
                                 <div className="mt-4">
-                                    <p className='font-Poppins text-black leading-6 text-sm tracking-wide font-medium'>The platform enhances operational efficiency by streamlining booking, tracking, and payment processes, while offering transparency in pricing and service.</p>
+                                    <p className='font-Poppins text-black leading-6 text-xs tracking-wide font-medium'>The platform enhances operational efficiency by streamlining booking, tracking, and payment processes, while offering transparency in pricing and service.</p>
                                 </div>
                             </div>
                         </div>
@@ -166,7 +166,7 @@ const SixteenDAndNiraahi = () => {
                                     <p className='text-xl font-bold text-black leading-6 tracking-wide'>Analytics and Insights</p>
                                 </div>
                                 <div className="mt-4">
-                                    <p className='font-Poppins text-black leading-6 text-sm tracking-wide font-medium'>16D provides valuable analytics and performance metrics to help users make informed decisions and improve their logistics operations.</p>
+                                    <p className='font-Poppins text-black leading-6 text-xs tracking-wide font-medium'>16D provides valuable analytics and performance metrics to help users make informed decisions and improve their logistics operations.</p>
                                 </div>
                             </div>
                         </div>
