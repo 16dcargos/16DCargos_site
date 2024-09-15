@@ -202,7 +202,7 @@ export default function Navbar() {
                                         <div className="p-1">
                                             <div className="group relative rounded-md p-3 text-sm leading-6 hover:bg-gray-100">
                                                 <div className="flex-auto">
-                                                    <Link className="block lg:text-xs font-semibold text-gray-900">
+                                                    <Link to={'/career'} className="block lg:text-xs font-semibold text-gray-900">
                                                         Career
                                                         <span className="absolute inset-0"></span>
                                                     </Link>
@@ -210,7 +210,7 @@ export default function Navbar() {
                                             </div>
                                             <div className="group relative rounded-md p-3 text-sm leading-6 hover:bg-gray-100">
                                                 <div className="flex-auto">
-                                                    <Link className="block lg:text-xs font-semibold text-gray-900">
+                                                    <Link to={'/skill-development'} className="block lg:text-xs font-semibold text-gray-900">
                                                         Skill Development
                                                         <span className="absolute inset-0"></span>
                                                     </Link>
