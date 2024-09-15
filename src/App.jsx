@@ -11,6 +11,8 @@ import { useEffect } from 'react'
 import FullTruckLoaded from './Pages/ProductAndService/FTL/FullTruckLoaded'
 import Fleetowners from './Pages/PartnerWithUs/Fleetowners/Fleetowners'
 import Belinkmentor from './Pages/PartnerWithUs/Belinkmentor/Belinkmentor'
+import Career from './Pages/EnRichAndTeamUp/Careers/Career'
+import SkillDevelopment from './Pages/EnRichAndTeamUp/SkillDevelopment/SkillDevelopment'
 
 function App() {
   const location = useLocation()
@@ -31,6 +33,8 @@ function App() {
         <Route path='/full-truck-loaded' element={<FullTruckLoaded />} />
         <Route path='/fleet-owners' element={<Fleetowners />} />
         <Route path='/be-link-mentor' element={<Belinkmentor />} />
+        <Route path='/career' element={<Career />} />
+        <Route path='/skill-development' element={<SkillDevelopment />} />
       </Routes>
       <Footer />
     </>
