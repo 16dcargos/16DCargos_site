@@ -1,23 +1,94 @@
 import React, { useState } from 'react'
 import Img from '../../../Components/ImageTag/ImageTag';
 import OrangeBtn from '../../../Components/Buttons/OrangeBtn';
+import toast from 'react-hot-toast';
+import sendEmail from '../../../email/sendEmail';
 const Fleetowners = () => {
 
+    const emailTemplateId = import.meta.env.VITE_API_TEMPLATE_ID
+    const emailPattern = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g
+    const [error, setError] = useState({})
     const [formData, setFormData] = useState({
         trasport_name: '',
-        contact_number: '', mail_id: '', base_location: '', no_of_vehicles: '', type_of_vehicles: ''
+        contact_number: '', user_email: '', base_location: '', no_of_vehicles: '', type_of_vehicles: ''
     })
+
+    const validateForm = () => {
+        let isError = false;
+        const errorObj = {}
+
+        if (!formData.trasport_name.trim()) {
+            isError = true,
+                errorObj.trasport_name = 'Trasport name is required!'
+        }
+        if (!formData.base_location.trim()) {
+            isError = true,
+                errorObj.base_location = 'Base location is required!'
+        }
+        if (!formData.no_of_vehicles) {
+            isError = true,
+                errorObj.no_of_vehicles = 'No of vehicles is required!'
+        }
+        if (!formData.type_of_vehicles.trim()) {
+            isError = true,
+                errorObj.type_of_vehicles = 'Type vehicles is required!'
+        }
+        if (!formData.contact_number) {
+            isError = true,
+                errorObj.contact_number = 'Contact number is required!'
+        }
+
+
+
+        // if (!formData.user_email.trim()) {
+        //     isError = true;
+        //     errorObj.user_email = 'Email Id is required!';
+        // } else if (!emailPattern.test(formData.user_email)) { // Validate only if email is provided
+        //     isError = true;
+        //     errorObj.user_email = 'Kindly enter proper email format!';
+        // }
+
+        setError(errorObj); // Assuming you are using state to handle errors
+        return !isError;
+    }
+
+    const handleFormSubmit = async (e) => {
+        e.preventDefault()
+        if (validateForm()) {
+            await sendEmail(emailTemplateId, formData)
+            setFormData({
+                base_location: "",
+                contact_number: "",
+                no_of_vehicles: "",
+                trasport_name: "",
+                user_email: "",
+                type_of_vehicles: "",
+            })
+        } else {
+            toast.error('Form has validation error, kindly check it!')
+        }
+    }
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-
+        if (name === 'contact_number' && value.length > 10) {
+            toast.error('Contact number limit has been reached')
+            return;
+        }
         setFormData((preve) => ({
             ...preve,
             [name]: value
         }))
     }
 
+    const handleInputFocus = (e) => {
+        const { name } = e.target;
 
+        setError((preve) => ({
+            ...preve,
+            [name]: ""
+        }))
+    }
     return (
         <React.Fragment>
             <section className="relative z-10 min-h-screen bg-custom overflow-hidden">
@@ -76,33 +147,38 @@ const Fleetowners = () => {
                         </div>
 
                         <div className="w-full flex justify-center flex-col items-center h-auto">
-                            <form onSubmit={handleInputChange} className="px-5 py-4">
+                            <form noValidate onFocus={handleInputFocus} onChange={handleInputChange} onSubmit={handleFormSubmit} className="px-5 py-4">
                                 <h1 className='md:text-2xl text-center text-xl font-Poppins leading-6 tracking-wide font-bold'>Fill this form to become our FOP</h1>
                                 <div className="grid md:grid-cols-2  grid-cols-1 md:mt-6 mt-4 gap-5">
                                     <div className="">
-                                        <label htmlFor="name" className='text-gray-600 font-Poppins text-xs leading-6 tracking-wider'>Transport / Individual Name<strong className='inline-block text-red-600'>*</strong></label>
-                                        <input type="text" id='name' name='name' className='bg-[#D9D9D9] mt-1.5 text-black focus:bg-white focus:ring-1 focus:ring-black w-full rounded-lg px-2 py-1.5' required />
+                                        <label htmlFor="trasport_name" className='text-gray-600 font-Poppins text-xs leading-6 tracking-wider'>Transport / Individual Name<strong className='inline-block text-red-600'>*</strong></label>
+                                        <input type="text" id='trasport_name' name='trasport_name' value={formData.trasport_name} className={`bg-[#D9D9D9]  mt-1.5 text-black focus:bg-white focus:ring-1 focus:ring-black w-full rounded-lg px-2 py-1.5 ${error.trasport_name && 'ring-1 ring-red-500'}`} required />
+                                        {error.trasport_name && <span className='text-red-500 font-normal font-Poppins text-xs leading-3 tracking-tight'>{error.trasport_name}</span>}
                                     </div>
                                     <div className="">
-                                        <label htmlFor="contact" className='text-gray-600 font-Poppins text-xs leading-6 tracking-wider'>Contact number <strong className='inline-block text-red-600'>*</strong></label>
-                                        <input type="text" id='contact' name='contact' className='bg-[#D9D9D9] mt-1.5 text-black focus:bg-white focus:ring-1 focus:ring-black w-full rounded-lg px-2 py-1.5' required />
+                                        <label htmlFor="contact_number" className='text-gray-600 font-Poppins text-xs leading-6 tracking-wider'>Contact number <strong className='inline-block text-red-600'>*</strong></label>
+                                        <input type="number" id='contact_number' name='contact_number' value={formData.contact_number} className={`bg-[#D9D9D9]  mt-1.5 text-black focus:bg-white focus:ring-1 focus:ring-black w-full rounded-lg px-2 py-1.5 ${error.contact_number && 'ring-1 ring-red-500'}`} required />
+                                        {error.contact_number && <span className='text-red-500 font-normal font-Poppins text-xs leading-3 tracking-tight'>{error.contact_number}</span>}
                                     </div>
                                     <div className="">
-                                        <label htmlFor="mail" className='text-gray-600 font-Poppins text-xs leading-6 tracking-wider'>Mail id</label>
-                                        <input type="email" id='mail' name='mail' className='bg-[#D9D9D9] mt-1.5 text-black focus:bg-white focus:ring-1 focus:ring-black w-full rounded-lg px-2 py-1.5' required />
+                                        <label htmlFor="user_email" className='text-gray-600  font-Poppins text-xs leading-6 tracking-wider'>Mail id</label>
+                                        <input type="email" id='user_email' value={formData.user_email} name='user_email' className={`bg-[#D9D9D9]  mt-1.5 text-black focus:bg-white focus:ring-1 focus:ring-black w-full rounded-lg px-2 py-1.5`} />
                                     </div>
                                     <div className="">
-                                        <label htmlFor="BaseLocation" className='text-gray-600 font-Poppins text-xs leading-6 tracking-wider'>Base Location <strong className='inline-block text-red-600'>*</strong></label>
-                                        <input type="text" id='BaseLocation' name='Base Location' className='bg-[#D9D9D9] mt-1.5 text-black focus:bg-white focus:ring-1 focus:ring-black w-full rounded-lg px-2 py-1.5' required />
+                                        <label htmlFor="base_location" className='text-gray-600 font-Poppins text-xs leading-6 tracking-wider'>Base Location <strong className='inline-block text-red-600'>*</strong></label>
+                                        <input type="text" id='base_location' name='base_location' value={formData.base_location} className={`bg-[#D9D9D9]  mt-1.5 text-black focus:bg-white focus:ring-1 focus:ring-black w-full rounded-lg px-2 py-1.5 ${error.base_location && 'ring-1 ring-red-500'}`} required />
+                                        {error.base_location && <span className='text-red-500 font-normal font-Poppins text-xs leading-3 tracking-tight'>{error.base_location}</span>}
                                     </div>
 
                                     <div className="">
-                                        <label htmlFor="No of vehicles" className='text-gray-600 font-Poppins text-xs leading-6 tracking-wider'>No of vehicles <strong className='inline-block text-red-600'>*</strong></label>
-                                        <input type="email" id='No of vehicles' name='No of vehicles' className='bg-[#D9D9D9] mt-1.5 text-black focus:bg-white focus:ring-1 focus:ring-black w-full rounded-lg px-2 py-1.5' required />
+                                        <label htmlFor="no_of_vehicles" className='text-gray-600 font-Poppins text-xs leading-6 tracking-wider'>No of vehicles <strong className='inline-block text-red-600'>*</strong></label>
+                                        <input type="email" id='no_of_vehicles' name='no_of_vehicles' value={formData.no_of_vehicles} className={`bg-[#D9D9D9]  mt-1.5 text-black focus:bg-white focus:ring-1 focus:ring-black w-full rounded-lg px-2 py-1.5 ${error.no_of_vehicles && 'ring-1 ring-red-500'}`} required />
+                                        {error.no_of_vehicles && <span className='text-red-500 font-normal font-Poppins text-xs leading-3 tracking-tight'>{error.no_of_vehicles}</span>}
                                     </div>
                                     <div className="">
-                                        <label htmlFor="Type of vehicles" className='text-gray-600 font-Poppins text-xs leading-6 tracking-wider'>Type of vehicles <strong className='inline-block text-red-600'>*</strong></label>
-                                        <input type="text" id='Type of vehicles' name='Type of vehicles' className='bg-[#D9D9D9] mt-1.5 text-black focus:bg-white focus:ring-1 focus:ring-black w-full rounded-lg px-2 py-1.5' required />
+                                        <label htmlFor="type_of_vehicles" className='text-gray-600 font-Poppins text-xs leading-6 tracking-wider'>Type of vehicles <strong className='inline-block text-red-600'>*</strong></label>
+                                        <input type="text" id='type_of_vehicles' value={formData.type_of_vehicles} name='type_of_vehicles' className={`bg-[#D9D9D9]  mt-1.5 text-black focus:bg-white focus:ring-1 focus:ring-black w-full rounded-lg px-2 py-1.5 ${error.type_of_vehicles && 'ring-1 ring-red-500'}`} required />
+                                        {error.type_of_vehicles && <span className='text-red-500 font-normal font-Poppins text-xs leading-3 tracking-tight'>{error.type_of_vehicles}</span>}
                                     </div>
                                 </div>
                                 <div className="flex justify-center items-center mt-6">

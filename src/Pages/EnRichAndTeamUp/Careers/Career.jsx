@@ -1,7 +1,8 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import ImageTag from '../../../Components/ImageTag/ImageTag'
-import OrangeBtn from '../../../Components/Buttons/OrangeBtn'
 import { Link } from 'react-router-dom'
+import sendEmail from '../../../email/sendEmail'
+import toast from 'react-hot-toast'
 
 const Career = () => {
     const jobs = [
@@ -45,6 +46,73 @@ const Career = () => {
             });
         }
     };
+    const emailTemplateId = import.meta.env.VITE_API_TEMPLATE_ID
+    const [errors, setErrors] = useState({})
+    const [careers, setCareers] = useState({
+        name: '',
+        dob: '',
+        location: '',
+        graduation: ''
+    })
+    const validateForm = () => {
+        let isError = false
+        const errObj = {}
+
+        if (!careers.name.trim()) {
+            isError = true,
+                errObj.name = 'Name is required!'
+        }
+        if (!careers.dob) {
+            isError = true,
+                errObj.dob = 'Date of brith is required!'
+        }
+        if (!careers.location.trim()) {
+            isError = true,
+                errObj.location = 'Location is required!'
+        }
+        if (!careers.graduation.trim()) {
+            isError = true,
+                errObj.graduation = 'Graduation is required!'
+        }
+
+        setErrors(errObj)
+        return !isError
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        if (validateForm()) {
+            await sendEmail(emailTemplateId, careers)
+            setCareers({
+                dob: "",
+                graduation: "",
+                location: "",
+                name: "",
+            })
+        } else {
+            toast.error('Form has validation, kindly fill all fields!')
+        }
+    }
+
+
+    const handleInputChange = (e) => {
+
+        const { name, value } = e.target
+
+        setCareers((preve) => ({
+            ...preve,
+            [name]: value
+        }))
+    }
+
+    const handleFocus = (e) => {
+        const { name } = e.target;
+
+        setErrors((preve) => ({
+            ...preve,
+            [name]: ''
+        }))
+    }
     return (
         <React.Fragment>
             <section className="relative z-10 min-h-screen bg-custom overflow-hidden">
@@ -144,9 +212,9 @@ const Career = () => {
                     <ImageTag src={'https://res.cloudinary.com/dmh7fwdzf/image/upload/v1725985466/formbg_y7udbw.png'} alt={'Job form'} className={'w-full h-full object-fill object-center'} />
                 </div>
                 <div className="relative flex justify-center items-center h-screen px-4">
-                    <div className="max-w-md w-full  shadow shadow-white text-center  bg-white rounded-lg p-2 md:p-5">
-                        <h1 className='text-2xl font-Poppins leading-6 tracking-wide font-bold text-black'>Lets begin from here</h1>
-                        <form className='mt-5 px-5'>
+                    <div className="max-w-md w-full  shadow shadow-white bg-white rounded-lg p-2 md:p-5">
+                        <h1 className='text-2xl font-Poppins leading-6 tracking-wide font-bold text-black text-center'>Lets begin from here</h1>
+                        <form noValidate onSubmit={handleSubmit} onFocus={handleFocus} onChange={handleInputChange} className='mt-5 px-5'>
                             <div className="space-y-2">
                                 <div className="">
                                     <label htmlFor="name" className='flex justify-start mb-1.5 items-center font-Poppins leading-6 tracking-wide  text-gray-500 font-normal text-sm'>
@@ -157,7 +225,8 @@ const Career = () => {
                                         </span>
                                         Name
                                     </label>
-                                    <input type="text" id='name' className='w-full placeholder:text-[8px] placeholder:tracking-wide focus:outline-none font-Poppins text-xs rounded-md border py-1.5 px-1.5 bg-custom text-black border-none shadow shadow-gray-500' required />
+                                    <input type="text" id='name' name='name' value={careers.name} className='w-full placeholder:text-[8px] placeholder:tracking-wide focus:outline-none font-Poppins text-xs rounded-md border py-1.5 px-1.5 bg-custom text-black border-none shadow shadow-gray-500' required />
+                                    {errors.name && <span className='text-red-500 inline-block text-start font-Poppins font-normal leading-3 tracking-tight text-xs'>{errors.name}</span>}
                                 </div>
                                 <div className="">
                                     <label htmlFor="dob" className='flex justify-start mb-1.5 items-center font-Poppins leading-6 tracking-wide  text-gray-500 font-normal text-sm'>
@@ -168,7 +237,8 @@ const Career = () => {
                                         </span>
                                         Date of Birth
                                     </label>
-                                    <input type="date" id='Date of Birth' className='w-full placeholder:text-[8px] placeholder:tracking-wide focus:outline-none font-Poppins text-xs rounded-md border py-1.5 px-1.5 bg-custom text-black border-none shadow shadow-gray-500' required />
+                                    <input type="date" id='Date of Birth' name='dob' value={careers.dob} className='w-full placeholder:text-[8px] placeholder:tracking-wide focus:outline-none font-Poppins text-xs rounded-md border py-1.5 px-1.5 bg-custom text-black border-none shadow shadow-gray-500' required />
+                                    {errors.dob && <span className='text-red-500 inline-block text-start font-Poppins font-normal leading-3 tracking-tight text-xs'>{errors.dob}</span>}
                                 </div>
                                 <div className="">
                                     <label htmlFor="Location" className='flex justify-start mb-1.5 items-center font-Poppins leading-6 tracking-wide  text-gray-500 font-normal text-sm'>
@@ -179,7 +249,8 @@ const Career = () => {
                                         </span>
                                         Location
                                     </label>
-                                    <input type="text" id='Location' className='w-full placeholder:text-[8px] placeholder:tracking-wide focus:outline-none font-Poppins text-xs rounded-md border py-1.5 px-1.5 bg-custom text-black border-none shadow shadow-gray-500' required />
+                                    <input type="text" id='Location' value={careers.location} name='location' className='w-full placeholder:text-[8px] placeholder:tracking-wide focus:outline-none font-Poppins text-xs rounded-md border py-1.5 px-1.5 bg-custom text-black border-none shadow shadow-gray-500' required />
+                                    {errors.location && <span className='text-red-500 inline-block text-start font-Poppins font-normal leading-3 tracking-tight text-xs'>{errors.location}</span>}
                                 </div>
                                 <div className="">
                                     <label htmlFor="Graduation" className='flex justify-start mb-1.5 items-center font-Poppins leading-6 tracking-wide  text-gray-500 font-normal text-sm'>
@@ -190,7 +261,8 @@ const Career = () => {
                                         </span>
                                         Graduation
                                     </label>
-                                    <input type="text" id='Graduation' className='w-full placeholder:text-[8px] placeholder:tracking-wide focus:outline-none font-Poppins text-xs rounded-md border py-1.5 px-1.5 bg-custom text-black border-none shadow shadow-gray-500' required />
+                                    <input type="text" id='Graduation' name='graduation' value={careers.graduation} className='w-full placeholder:text-[8px] placeholder:tracking-wide focus:outline-none font-Poppins text-xs rounded-md border py-1.5 px-1.5 bg-custom text-black border-none shadow shadow-gray-500' required />
+                                    {errors.graduation && <span className='text-red-500 inline-block text-start font-Poppins font-normal leading-3 tracking-tight text-xs'>{errors.graduation}</span>}
                                 </div>
                             </div>
                             <div className="text-center flex justify-center items-center pt-4">

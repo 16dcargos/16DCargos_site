@@ -1,8 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Img from '../../../Components/ImageTag/ImageTag';
 import { Link } from 'react-router-dom';
-
+import toast from 'react-hot-toast';
+import sendEmail from '../../../email/sendEmail';
 const Belinkmentor = () => {
+
+
+    const [message, setMessage] = useState('')
+    const emailTemplateId = import.meta.env.VITE_API_TEMPLATE_ID
+    const [isError, setIsError] = useState('')
+    const handleInputSubmit = async (e) => {
+        e.preventDefault()
+        if (!message.trim()) {
+            toast.error('Input can not be empty!')
+            setIsError('Your suggestions is important!')
+        } else {
+            await sendEmail(emailTemplateId, { message })
+            setMessage('')
+        }
+    }
+
+
     return (
         <React.Fragment>
 
@@ -240,13 +258,15 @@ const Belinkmentor = () => {
                         <h1 className='md:text-4xl text-2xl font-Poppins tracking-wide leading-6 font-bold text-black mb-2'>Ready to get started?</h1>
                         <p className='font-Poppins text-sm leading-6 tracking-wide font-normal text-black'>Contact us today and become a mentor who makes a difference!</p>
                     </div>
-                    <form >
+                    <form noValidate onSubmit={handleInputSubmit} onFocus={() => setIsError('')} onChange={(e) => setMessage(e.target.value)}>
                         <div className="relative inset-0 mt-5">
-                            <textarea name="suggestions" id="suggestions" placeholder='Write your suggestions here' className='w-full rounded-xl bg-custom focus:bg-white focus:ring-1 focus:ring-black transition-all duration-300 ease-out font-Poppins leading-6 px-3 py-2.5 h-60 placeholder:absolute placeholder:top-[6.5rem] placeholder:left-10  tracking-wide text-xs text-black placeholder:font-Poppins placeholder:text-gray-600 focus:shadow-custom-white focus:shadow-gray-600 shadow-sm focus:outline-none'></textarea>
+                            <textarea name="suggestions" id="suggestions" value={message} placeholder='Write your suggestions here' className={`w-full rounded-xl bg-custom ${isError && 'ring-1 ring-red-500 placeholder:text-red-500'} focus:bg-white focus:ring-1 focus:ring-black transition-all duration-300 ease-out font-Poppins leading-6 px-3 py-2.5 h-60 placeholder:absolute placeholder:top-[6.5rem] placeholder:left-10  tracking-wide text-xs text-black placeholder:font-Poppins placeholder:text-gray-600 focus:shadow-custom-white focus:shadow-gray-600 shadow-sm focus:outline-none`}></textarea>
                             <div className="absolute  hidden inset-y-0 top-0 end-0 md:grid place-content-center pr-12 pointer-events-none"><svg className='size-5' viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M28.5002 45.403L46.99 26.9132C44.4735 25.866 41.493 24.1455 38.6742 21.3267C35.855 18.5074 34.1342 15.5264 33.087 13.0097L14.597 31.4997C13.1542 32.9427 12.4327 33.6642 11.8122 34.4595C11.0803 35.398 10.4528 36.4132 9.94085 37.4875C9.50682 38.3982 9.1842 39.3662 8.5389 41.302L5.13612 51.5105C4.81857 52.463 5.0665 53.5132 5.77657 54.2235C6.48665 54.9335 7.53695 55.1815 8.4896 54.864L18.6979 51.461C20.6338 50.8157 21.6017 50.4932 22.5124 50.0592C23.5867 49.5472 24.602 48.9197 25.5405 48.1877C26.3357 47.5672 27.0575 46.8457 28.5002 45.403Z" fill="#FF8E26" />
                                 <path d="M52.1207 21.7827C55.96 17.9434 55.96 11.7187 52.1207 7.87946C48.2815 4.04018 42.0567 4.04018 38.2175 7.87946L36 10.0971C36.0305 10.1888 36.0617 10.2817 36.0945 10.3759C36.9072 12.7188 38.441 15.79 41.326 18.6751C44.211 21.5601 47.2822 23.0937 49.6252 23.9066C49.719 23.9391 49.8115 23.9704 49.9028 24.0007L52.1207 21.7827Z" fill="#FF8E26" />
                             </svg></div>
+
+                            {isError && <span className='text-red-500 text-xs leading-5 tracking-tight font-normal font-Poppins'>{isError}</span>}
                         </div>
                         <button className='transition duration-300 mt-3 ease-in-out hover:shadow-custom-white active:translate-y-1 font-Poppins hover:shadow-gray-600 text-white bg-[#0222C9] block px-1.5 py-1.5 lg:px-4 lg:py-2 text-xs rounded-xl font-semibold'>Submit</button>
                     </form>
