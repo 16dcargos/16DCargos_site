@@ -319,10 +319,10 @@ export default function Navbar() {
                                         <div className={`z-10 ${dropToggle.enrich ? '' : 'hidden'} font-normal  bg-white divide-y divide-gray-100 shadow w-full dark:bg-gray-700 dark:divide-gray-600`}>
                                             <ul className="py-2 text-sm text-gray-700 transition-all duration-500 ease-in-out dark:text-gray-400" aria-labelledby="dropdownLargeButton">
                                                 <li>
-                                                    <Link onClick={handleToggleNav} to={'/'} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Career</Link>
+                                                    <Link onClick={handleToggleNav} to={'/career'} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Career</Link>
                                                 </li>
                                                 <li>
-                                                    <Link onClick={handleToggleNav} to={'/'} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Skill Development</Link>
+                                                    <Link onClick={handleToggleNav} to={'/skill-development'} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Skill Development</Link>
                                                 </li>
                                             </ul>
                                         </div>

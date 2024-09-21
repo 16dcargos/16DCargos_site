@@ -1,8 +1,64 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ImageTag from '../../../Components/ImageTag/ImageTag'
 import OrangeBtn from '../../../Components/Buttons/OrangeBtn'
+import sendEmail from '../../../email/sendEmail'
+import toast from 'react-hot-toast'
 
 const FullTruckLoaded = () => {
+
+
+    const [email, setEmail] = useState('')
+    const emailTemplateId = import.meta.env.VITE_API_TEMPLATE_ID
+    const emailPattern = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g
+    const [error, setError] = useState({})
+    const [loading, setLoading] = useState(false)
+
+    const validateForm = () => {
+        let isError = false
+        const errorObj = {}
+        if (!email.trim()) {
+            isError = true;
+            errorObj.email = 'Email Id is required!';
+            setStatus('error')
+        } else if (!emailPattern.test(email)) { // Validate only if email is provided
+            isError = true;
+            errorObj.email = 'Kindly enter proper email format!';
+            setStatus('error')
+        }
+        //  Object.keys(errorObj).length === 0
+
+        setError(errorObj); // Assuming you are using state to handle errors
+        return !isError;
+    }
+    const [status, setStatus] = useState("idle")
+    const handleNewsletterSubmit = async (e) => {
+        e.preventDefault()
+        setLoading(true)
+        setStatus('idle')
+        if (validateForm()) {
+            await sendEmail(emailTemplateId, { email }).then((res) => {
+                if (res) {
+                    setEmail('')
+                    setStatus('success')
+                    setLoading(false)
+                }
+            }).catch((err) => {
+                console.log(err)
+                setLoading(false)
+                setStatus('error')
+            }).finally(() => {
+                setLoading(false)
+            })
+        } else {
+            toast.error('Input has empty validaton error!')
+        }
+    }
+
+    const onFocus = (e) => {
+        const { name } = e.target;
+        setError((preve) => ({ ...preve, [name]: '' }))
+        setStatus('idle')
+    }
     return (
         <React.Fragment>
             <section className="relative z-10 h-screen text-white overflow-hidden">
@@ -174,14 +230,16 @@ const FullTruckLoaded = () => {
                             <p className='font-Poppins mt-3 md:mt-6 text-sm leading-6 tracking-wide text-black font-medium'>Ready to experience the best in logistics? Contact us today to learn more about our Full Truck Load (FTL) services and how we can help streamline your supply chain. Our team is here to answer any questions and provide you with a customized solution that meets your needs.</p>
                         </div>
 
-                        <div className="px-4 py-4 md:pt-5 max-w-md">
-                            <form className='space-y-4'>
+                        <div className="md:pt-5 max-w-md">
+                            <form noValidate onSubmit={handleNewsletterSubmit} onFocus={onFocus} className='space-y-4'>
                                 <div className="relative">
-                                    <input type='email' id='email' name='email' placeholder='Email' className='rounded-xl px-3 py-2.5 placeholder:font-Poppins placeholder:text-xs leading-6 tracking-wide font-Poppins  text-black text-xs focus:outline-none focus:ring-0 w-full focus:shadow-custom-white focus:shadow-gray-600 shadow-md transition-all duration-500 ease-in-out' />
-                                    <div className="absolute inset-y-0 top-0 end-0 grid place-content-center px-2 pointer-events-none">
-                                        <svg className='size-5' viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M47.4011 22.8697C47.4364 23.8632 48.2704 24.6399 49.264 24.6045C50.2574 24.5692 51.0343 23.7351 50.9987 22.7416L47.4011 22.8697ZM38.9135 13.2057V15.0057C38.9337 15.0057 38.9536 15.0053 38.9738 15.0047L38.9135 13.2057ZM23.4863 13.2057L23.4262 15.0047C23.4463 15.0053 23.4663 15.0057 23.4863 15.0057V13.2057ZM11.4011 22.7416C11.3657 23.7351 12.1424 24.5692 13.1359 24.6045C14.1294 24.6399 14.9634 23.8632 14.9988 22.8697L11.4011 22.7416ZM50.9999 22.8057C50.9999 21.8116 50.194 21.0057 49.1999 21.0057C48.2059 21.0057 47.3999 21.8116 47.3999 22.8057H50.9999ZM49.1999 37.2058L50.9987 37.2696C50.9995 37.2485 50.9999 37.2271 50.9999 37.2058H49.1999ZM38.9135 46.8058L38.9738 45.0067C38.9536 45.006 38.9337 45.0058 38.9135 45.0058V46.8058ZM23.4863 46.8058V45.0058C23.4663 45.0058 23.4463 45.006 23.4262 45.0067L23.4863 46.8058ZM13.1999 37.2058H11.3999C11.3999 37.2271 11.4003 37.2485 11.4011 37.2696L13.1999 37.2058ZM14.9999 22.8057C14.9999 21.8116 14.1941 21.0057 13.1999 21.0057C12.2058 21.0057 11.3999 21.8116 11.3999 22.8057H14.9999ZM50.1079 24.3599C50.9663 23.8585 51.2555 22.7561 50.7542 21.8978C50.2528 21.0394 49.1505 20.75 48.292 21.2514L50.1079 24.3599ZM36.5663 30.1858L35.6584 28.6313L35.6435 28.6402L36.5663 30.1858ZM25.8335 30.1858L26.7566 28.6402L26.7415 28.6315L25.8335 30.1858ZM14.1079 21.2514C13.2495 20.75 12.1471 21.0394 11.6457 21.8978C11.1443 22.7561 11.4336 23.8585 12.292 24.3599L14.1079 21.2514ZM50.9987 22.7416C50.7681 16.2609 45.3347 11.1901 38.8533 11.4067L38.9738 15.0047C43.4709 14.8544 47.2411 18.3729 47.4011 22.8697L50.9987 22.7416ZM38.9135 11.4057H23.4863V15.0057H38.9135V11.4057ZM23.5465 11.4067C17.0652 11.1901 11.6319 16.2609 11.4011 22.7416L14.9988 22.8697C15.1589 18.3729 18.929 14.8544 23.4262 15.0047L23.5465 11.4067ZM47.3999 22.8057V37.2058H50.9999V22.8057H47.3999ZM47.4011 37.1417C47.2411 41.6386 43.4709 45.157 38.9738 45.0067L38.8533 48.6046C45.3347 48.8213 50.7681 43.7506 50.9987 37.2696L47.4011 37.1417ZM38.9135 45.0058H23.4863V48.6058H38.9135V45.0058ZM23.4262 45.0067C18.929 45.157 15.1589 41.6386 14.9988 37.1417L11.4011 37.2696C11.6319 43.7506 17.0652 48.8213 23.5465 48.6046L23.4262 45.0067ZM14.9999 37.2058V22.8057H11.3999V37.2058H14.9999ZM48.292 21.2514L35.6584 28.6313L37.4743 31.74L50.1079 24.3599L48.292 21.2514ZM35.6435 28.6402C32.9066 30.2748 29.4935 30.2748 26.7566 28.6402L24.9107 31.7311C28.7843 34.0445 33.6155 34.0445 37.4891 31.7311L35.6435 28.6402ZM26.7415 28.6315L14.1079 21.2514L12.292 24.3599L24.9256 31.74L26.7415 28.6315Z" fill="black" />
-                                        </svg>
+                                    <div className="">
+                                        <input type='email' id='email' name='email' value={email} placeholder='Email' className={`rounded-xl ${error.email && 'ring-1 ring-red-500 placeholder:text-red-500'} px-3 py-2.5 placeholder:font-Poppins placeholder:text-xs leading-6 tracking-wide font-Poppins  text-black text-xs focus:outline-none focus:ring-0 w-full focus:shadow-custom-white focus:shadow-gray-600 shadow-md transition-all duration-500 ease-in-out`} />
+                                        <div className="absolute inset-y-0 end-0 grid place-content-center px-2 pointer-events-none">
+                                            <svg className={`size-5 ${error.email && 'fill-red-500'}`} viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M47.4011 22.8697C47.4364 23.8632 48.2704 24.6399 49.264 24.6045C50.2574 24.5692 51.0343 23.7351 50.9987 22.7416L47.4011 22.8697ZM38.9135 13.2057V15.0057C38.9337 15.0057 38.9536 15.0053 38.9738 15.0047L38.9135 13.2057ZM23.4863 13.2057L23.4262 15.0047C23.4463 15.0053 23.4663 15.0057 23.4863 15.0057V13.2057ZM11.4011 22.7416C11.3657 23.7351 12.1424 24.5692 13.1359 24.6045C14.1294 24.6399 14.9634 23.8632 14.9988 22.8697L11.4011 22.7416ZM50.9999 22.8057C50.9999 21.8116 50.194 21.0057 49.1999 21.0057C48.2059 21.0057 47.3999 21.8116 47.3999 22.8057H50.9999ZM49.1999 37.2058L50.9987 37.2696C50.9995 37.2485 50.9999 37.2271 50.9999 37.2058H49.1999ZM38.9135 46.8058L38.9738 45.0067C38.9536 45.006 38.9337 45.0058 38.9135 45.0058V46.8058ZM23.4863 46.8058V45.0058C23.4663 45.0058 23.4463 45.006 23.4262 45.0067L23.4863 46.8058ZM13.1999 37.2058H11.3999C11.3999 37.2271 11.4003 37.2485 11.4011 37.2696L13.1999 37.2058ZM14.9999 22.8057C14.9999 21.8116 14.1941 21.0057 13.1999 21.0057C12.2058 21.0057 11.3999 21.8116 11.3999 22.8057H14.9999ZM50.1079 24.3599C50.9663 23.8585 51.2555 22.7561 50.7542 21.8978C50.2528 21.0394 49.1505 20.75 48.292 21.2514L50.1079 24.3599ZM36.5663 30.1858L35.6584 28.6313L35.6435 28.6402L36.5663 30.1858ZM25.8335 30.1858L26.7566 28.6402L26.7415 28.6315L25.8335 30.1858ZM14.1079 21.2514C13.2495 20.75 12.1471 21.0394 11.6457 21.8978C11.1443 22.7561 11.4336 23.8585 12.292 24.3599L14.1079 21.2514ZM50.9987 22.7416C50.7681 16.2609 45.3347 11.1901 38.8533 11.4067L38.9738 15.0047C43.4709 14.8544 47.2411 18.3729 47.4011 22.8697L50.9987 22.7416ZM38.9135 11.4057H23.4863V15.0057H38.9135V11.4057ZM23.5465 11.4067C17.0652 11.1901 11.6319 16.2609 11.4011 22.7416L14.9988 22.8697C15.1589 18.3729 18.929 14.8544 23.4262 15.0047L23.5465 11.4067ZM47.3999 22.8057V37.2058H50.9999V22.8057H47.3999ZM47.4011 37.1417C47.2411 41.6386 43.4709 45.157 38.9738 45.0067L38.8533 48.6046C45.3347 48.8213 50.7681 43.7506 50.9987 37.2696L47.4011 37.1417ZM38.9135 45.0058H23.4863V48.6058H38.9135V45.0058ZM23.4262 45.0067C18.929 45.157 15.1589 41.6386 14.9988 37.1417L11.4011 37.2696C11.6319 43.7506 17.0652 48.8213 23.5465 48.6046L23.4262 45.0067ZM14.9999 37.2058V22.8057H11.3999V37.2058H14.9999ZM48.292 21.2514L35.6584 28.6313L37.4743 31.74L50.1079 24.3599L48.292 21.2514ZM35.6435 28.6402C32.9066 30.2748 29.4935 30.2748 26.7566 28.6402L24.9107 31.7311C28.7843 34.0445 33.6155 34.0445 37.4891 31.7311L35.6435 28.6402ZM26.7415 28.6315L14.1079 21.2514L12.292 24.3599L24.9256 31.74L26.7415 28.6315Z" />
+                                            </svg>
+                                        </div>
                                     </div>
                                 </div>
                                 <button type='submit' className='capitalize hover:shadow-custom-white hover:shadow-gray-500 shadow-sm transition-all duration-300 ease-in-out font-medium lg:w-1/2 inline-flex gap-2 justify-center items-center active:translate-y-[6px] w-full  bg-[#002CBF] rounded-xl px-2 py-3 text-white text-sm font-Poppins leading-6 tracking-wide'>

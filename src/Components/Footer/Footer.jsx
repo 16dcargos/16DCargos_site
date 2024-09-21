@@ -1,8 +1,58 @@
-import React from "react";
+import { useState } from "react";
 import logo from "../../assets/Logo/16Dlogo.png";
 import Img from "../ImageTag/ImageTag";
 import { Link } from "react-router-dom";
+import sendEmail from "../../email/sendEmail";
 export default function Footer() {
+
+    const [email, setEmail] = useState('')
+    const emailTemplateId = import.meta.env.VITE_API_TEMPLATE_ID
+    const emailPattern = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g
+    const [error, setError] = useState({})
+
+
+    const validateForm = () => {
+        let isError = false
+        const errorObj = {}
+        if (!email.trim()) {
+            isError = true;
+            errorObj.email = 'Email Id is required!';
+            setStatus('error')
+        } else if (!emailPattern.test(email)) { // Validate only if email is provided
+            isError = true;
+            errorObj.email = 'Kindly enter proper email format!';
+            setStatus('error')
+        }
+        //  Object.keys(errorObj).length === 0
+
+        setError(errorObj); // Assuming you are using state to handle errors
+        return !isError;
+    }
+    const [status, setStatus] = useState("idle")
+    const handleNewsletterSubmit = async (e) => {
+        e.preventDefault()
+
+        setStatus('idle')
+        if (validateForm()) {
+            await sendEmail(emailTemplateId, { email }).then((res) => {
+                if (res) {
+                    setEmail('')
+                    setStatus('success')
+                    console.log(res)
+                }
+            }).catch((err) => {
+                console.log(err)
+                setStatus('error')
+            }).finally(() => {
+            })
+        }
+    }
+
+    const onFocus = (e) => {
+        const { name } = e.target;
+        setError((preve) => ({ ...preve, [name]: '' }))
+        setStatus('idle')
+    }
     return (
         <div className="px-4 bg-white pt-12 mx-auto relative isolate overflow-hidden sm:max-w-xl md:max-w-full lg:max-w-screen-2xl md:px-24 lg:px-8">
             <div className="grid gap-12  row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -54,7 +104,7 @@ export default function Footer() {
                                 href="mailto:reachus@16dcargos.com"
                                 aria-label="Our email"
                                 title="Our email"
-                                className="text-sm   font-Poppins tracking-wider"
+                                className="text-sm after-line  font-Poppins tracking-wider"
                             >
                                 reachus@16dcargos.com
                             </a>
@@ -77,7 +127,7 @@ export default function Footer() {
                                 href="tel:850-123-5021"
                                 aria-label="Our phone"
                                 title="Our phone"
-                                className="text-sm   font-Poppins tracking-wider"
+                                className="text-sm after-line  font-Poppins tracking-wider"
                             >
                                 850-123-5021
                             </a>
@@ -102,7 +152,7 @@ export default function Footer() {
                                 rel="noopener noreferrer"
                                 aria-label="Our address"
                                 title="Our address"
-                                className="text-sm   font-Poppins tracking-wider"
+                                className="text-sm after-line  font-Poppins tracking-wider"
                             >
                                 312 Lovely Street, NY
                             </Link>
@@ -116,16 +166,16 @@ export default function Footer() {
                         Services
                     </span>
                     <div className="flex justify-start flex-col mt-2 space-y-2">
-                        <Link className="font-Poppins font-normal text-sm active:text-orange-400 visited:bg-purple-600 tracking-wide transition-colors duration-300 hover:text-gray-800">
+                        <Link to={'/full-truck-loaded'} className="after-line inline-block w-fit font-Poppins font-normal text-sm active:text-orange-400 visited:bg-purple-600 tracking-wide transition-colors duration-300 hover:text-gray-800">
                             Full Truck Load (FTL) Services
                         </Link>
-                        <Link className="font-Poppins font-normal text-sm active:text-orange-400 visited:bg-purple-600 tracking-wide transition-colors duration-300 hover:text-gray-800">
+                        <Link to={'/fleet-owners'} className="after-line inline-block w-fit font-Poppins font-normal text-sm active:text-orange-400 visited:bg-purple-600 tracking-wide transition-colors duration-300 hover:text-gray-800">
                             Partner with Us
                         </Link>
-                        <Link className="font-Poppins font-normal text-sm active:text-orange-400 visited:bg-purple-600 tracking-wide transition-colors duration-300 hover:text-gray-800">
+                        <Link to={'/career'} className="after-line inline-block w-fit font-Poppins font-normal text-sm active:text-orange-400 visited:bg-purple-600 tracking-wide transition-colors duration-300 hover:text-gray-800">
                             Career Opportunities
                         </Link>
-                        <Link className="font-Poppins font-normal text-sm active:text-orange-400 visited:bg-purple-600 tracking-wide transition-colors duration-300 hover:text-gray-800">
+                        <Link to={'/skill-development'} className="after-line inline-block w-fit font-Poppins font-normal text-sm active:text-orange-400 visited:bg-purple-600 tracking-wide transition-colors duration-300 hover:text-gray-800">
                             Skill Development
                         </Link>
                     </div>
@@ -250,19 +300,52 @@ export default function Footer() {
                     <p className="text-sm mt-2  font-Poppins tracking-wider">
                         Subscribe to our newsletter for the latest updates and industry insights.
                     </p>
-                    <form noValidate>
+                    <form noValidate onFocus={onFocus} onSubmit={handleNewsletterSubmit}>
                         <div className="relative mt-3">
                             <input
                                 placeholder="Email"
                                 type="email"
+                                name="email"
+                                id="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
                                 className="flex h-8 w-full rounded-full border-[1px] px-3 py-2 text-sm bg-[#d9d9d9] focus:bg-transparent transition-all duration-300 ease-in-out ring-offset-background font-Poppins placeholder:tracking-wide placeholder:font-Poppins placeholder:text-gray-500 focus-visible:outline-none  focus-visible:ring-offset-2 placeholder:text-xs"
                             />
-                            <button className="bg-[#FF8E26] absolute top-0 flex justify-center items-center right-0 h-8 w-8 rounded-full">
-                                <svg className="size-4" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M6.79347 20.1379C1.80148 28.3699 23.8095 35.7619 23.8095 35.7619C23.8095 35.7619 31.2016 57.7699 39.4336 52.7779C48.1696 47.4499 58.6336 14.7139 51.7216 7.8499C44.8096 0.985898 12.1215 11.4019 6.79347 20.1379Z" stroke="white" strokeWidth="3.6" strokeLinecap="round" strokeLinejoin="round" />
-                                    <path d="M37.6796 21.8867L23.8076 35.7587" stroke="white" strokeWidth="3.6" strokeLinecap="round" strokeLinejoin="round" />
-                                </svg>
+                            <button type="submit" className={`bg-[#FF8E26] absolute top-0 flex justify-center items-center right-0 h-8 w-8 rounded-full`}>
+
+                                {/* {loading && (
+                                    <div role="status">
+                                        <svg aria-hidden="true" className="inline w-4 h-4 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor" />
+                                            <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill" />
+                                        </svg>
+                                        <span className="sr-only">Loading...</span>
+                                    </div>
+                                )} */}
+                                {status === 'success' && (
+                                    <svg className="size-4" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M17.5 30L24.7269 37.2268C24.8778 37.3775 25.1225 37.3778 25.2735 37.2268L42.5 20" stroke="white" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" />
+                                    </svg>
+                                )
+                                }
+                                {status === 'error' && (
+                                    <svg className="size-4" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fillRule="evenodd" clipRule="evenodd" d="M42.3745 21.1623C43.351 20.186 43.351 18.6031 42.3745 17.6268C41.3982 16.6505 39.8152 16.6505 38.839 17.6268L30.0002 26.4656L21.1613 17.6268C20.185 16.6505 18.6021 16.6505 17.6258 17.6268C16.6495 18.6031 16.6495 20.186 17.6258 21.1623L26.4647 30.0011L17.6258 38.8399C16.6495 39.8164 16.6495 41.3991 17.6258 42.3754C18.6021 43.3519 20.185 43.3519 21.1613 42.3754L30.0002 33.5366L38.839 42.3754C39.8152 43.3519 41.3982 43.3519 42.3745 42.3754C43.351 41.3991 43.351 39.8164 42.3745 38.8399L33.5357 30.0011L42.3745 21.1623Z" fill="white" />
+                                    </svg>
+                                )}
+
+                                {status === 'idle' && (
+                                    <svg className="size-4" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6.79347 20.1379C1.80148 28.3699 23.8095 35.7619 23.8095 35.7619C23.8095 35.7619 31.2016 57.7699 39.4336 52.7779C48.1696 47.4499 58.6336 14.7139 51.7216 7.8499C44.8096 0.985898 12.1215 11.4019 6.79347 20.1379Z" stroke="white" strokeWidth="3.6" strokeLinecap="round" strokeLinejoin="round" />
+                                        <path d="M37.6796 21.8867L23.8076 35.7587" stroke="white" strokeWidth="3.6" strokeLinecap="round" strokeLinejoin="round" />
+                                    </svg>
+
+                                )}
+
                             </button>
+                            {error?.email && (
+                                <span className="inline-block text-red-500 font-Poppins text-sm leading-6 tracking-wide">{error?.email}</span>
+                            )}
                         </div>
                     </form>
                 </div>
