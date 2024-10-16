@@ -1,9 +1,90 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ImageTag from '../../../Components/ImageTag/ImageTag';
 import OrangeBtn from '../../../Components/Buttons/OrangeBtn';
-import BlueBtn from '../../../Components/Buttons/BlueBtn';
 import { Link } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
+import Model from '../../../Components/model/Model';
+import sendEmail from '../../../email/sendEmail';
+import toast from 'react-hot-toast';
 const Inverstor = () => {
+
+    const [isOpen, setIsOpen] = useState(false);
+    const [quoteErr, setQuoteErr] = useState({})
+    const [quote, setQuote] = useState({
+        full_name: "",
+        email: "",
+        phone_number: "",
+        summary: ''
+    })
+    const emailTemplateId = import.meta.env.VITE_API_TEMPLATE_ID
+    const emailPattern = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g
+
+    const fields = [
+        { placeholder: 'Full name', id: "full_name", name: "full_name", value: quote.full_name, type: 'text', isRequired: true, isTextArea: false },
+        { placeholder: 'Email', id: "email", name: "email", value: quote.email, type: 'email', isRequired: true, isTextArea: false },
+        { placeholder: 'Phone number', id: "phone_number", name: "phone_number", value: quote.phone_number, type: 'number', isRequired: true, isTextArea: false },
+        { placeholder: 'Summary', id: "summary", name: "summary", value: quote.summary, type: 'text', isRequired: true, isTextArea: true },
+    ]
+
+    const handleQuoteInputChange = (e) => {
+        const { name, value } = e.target;
+        if (name === 'phone_number' && value.length > 10) {
+            toast.error('Phone number fields limit reached!')
+            return;
+        }
+        setQuote((preve) => ({
+            ...preve,
+            [name]: value
+        }))
+    }
+
+    const validateQuoteForm = () => {
+        let isError = false;
+        const errObj = {}
+
+        if (!quote.full_name.trim()) {
+            isError = true,
+                errObj.full_name = 'Full is required!'
+        }
+
+        if (!quote.email.trim()) {
+            isError = true;
+            errObj.email = 'Email Id is required!';
+        } else if (!emailPattern.test(quote.email)) { // Validate only if email is provided
+            isError = true;
+            errObj.email = 'Kindly enter proper email format!';
+        }
+
+        if (!quote.phone_number) {
+            isError = true,
+                errObj.phone_number = 'Phone number is required!'
+        }
+
+        setQuoteErr(errObj)
+        return !isError
+
+    }
+    const handleOpenModal = () => {
+        setIsOpen(true);
+    };
+    const handleSubmitQuote = async (e) => {
+        e.preventDefault();
+        if (validateQuoteForm()) {
+            await sendEmail(emailTemplateId, quote)
+            setIsOpen(false)
+        } else {
+            toast.error('Form has validation error!')
+        }
+    }
+
+    const handleInputFoucs = (e) => {
+        const { name } = e.target;
+
+        setQuoteErr((preve) => ({
+            ...preve,
+            [name]: ""
+        }))
+    }
     return (
         <React.Fragment>
             <section className="relative z-10 h-screen text-white overflow-hidden">
@@ -150,7 +231,7 @@ const Inverstor = () => {
             </section>
 
             {/* join us */}
-            <section className='relative isolate min-h-screen flex justify-center items-center overflow-hidden bg-custom'>
+            <section className='relative isolate lg:p-8 overflow-hidden bg-custom'>
                 <div className="mx-auto max-w-full md:max-w-5xl px-3 py-3 md:px-6">
                     <div className="grid md:grid-cols-2 place-items-center gap-10 grid-cols-1">
                         <div className="w-full rounded-lg md:rounded-xl">
@@ -162,7 +243,8 @@ const Inverstor = () => {
                                 The logistics industry is at the cusp of a revolutionary transformation, and Bharatham Consortium Ventures is at the forefront of this change. By investing in us, you are not only supporting a successful and innovative enterprise but also playing a crucial role in shaping the future of logistics in India. Together, we can drive growth, create value, and redefine the industry landscape.
                             </p>
                             <div className="inline-block">
-                                <BlueBtn title={'Get a Qutoe'} />
+                                {/* <BlueBtn title={'Get a Qutoe'} /> */}
+                                <button onClick={handleOpenModal} className='transition duration-300 ease-in-out hover:shadow-custom-white active:translate-y-1 font-Poppins hover:shadow-gray-600 text-white bg-[#0222C9] block px-1.5 py-1.5 lg:px-4 lg:py-2 text-xs rounded-xl font-semibold' >Get a Qutoe</button>
                             </div>
                         </div>
                     </div>
@@ -172,7 +254,7 @@ const Inverstor = () => {
 
             <section className='relative min-h-max overflow-hidden bg-[#d9d9d9] px-4 py-6 lg:px-8 lg:py-8'>
                 <div className="mx-auto max-w-full lg:max-w-4xl space-y-5">
-                    <h2 className='font-Poppins text-lg md:text-3xl text-center font-extrabold tracking-wide leading-relaxed'>
+                    <h2 className='font-Poppins text-lg md:text-3xl text-center font-semibold  tracking-wide leading-relaxed'>
                         We invite you to explore this exciting opportunity and become an integral part of our journey. Contact us today to learn more about investment opportunities and join us in this transformative venture.
                     </h2>
 
@@ -181,6 +263,11 @@ const Inverstor = () => {
                     </div>
                 </div>
             </section>
+
+
+            <AnimatePresence>
+                <Model isOpen={isOpen} setIsOpen={setIsOpen} title={'Let us reach you!'} fields={fields} onChange={handleQuoteInputChange} onFocus={handleInputFoucs} onSubmit={handleSubmitQuote} errors={quoteErr} />
+            </AnimatePresence>
 
         </React.Fragment>
     )

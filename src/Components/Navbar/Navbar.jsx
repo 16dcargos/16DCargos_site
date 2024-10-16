@@ -22,25 +22,25 @@ export default function Navbar() {
     return (
         <>
             <header
-                className="fixed inset-x-0 top-0 z-30 mx-auto w-full   max-w-screen-md border border-gray-100 bg-white/80 shadow backdrop-blur-lg md:top-4 md:rounded-3xl lg:max-w-screen-md">
-                <div className="px-4">
+                className="fixed inset-x-0 top-0 z-30 mx-auto w-full max-w-screen-md border border-gray-100 bg-white/80 shadow backdrop-blur-lg md:top-4 md:rounded-3xl lg:max-w-screen-lg">
+                <div className="xl:px-6 px-3 md:py-2.5">
                     <div className="flex items-center justify-between">
-                        <div className="flex shrink-0">
+                        <div className="flex items-center justify-start shrink-0">
                             <Link aria-current="page" className="flex items-center md:py-0 py-3" to="/">
-                                <ImageTag className="h-7 w-auto" src={logo} alt="logo" />
+                                <ImageTag className="lg:h-12 h-7 w-auto" src={logo} alt="logo" />
                                 <p className="sr-only">Website Title</p>
                             </Link>
                         </div>
                         <div className="hidden md:flex md:items-center md:justify-center">
-                            <ul className="flex justify-center lg:gap-x-4 gap-x-3  items-center">
+                            <ul className="flex justify-center md:gap-x-3 gap-x-2 items-center">
                                 <li className="">
-                                    <Link to={'/'} className="rounded-lg transition-all py-3 duration-200 hover:text-gray-900 flex items-center justify-center lg:text-xs text-sm font-semibold leading-6 text-gray-900">
+                                    <Link to={'/'} className="rounded-lg transition-all py-3 duration-200 hover:text-gray-900 flex items-center justify-center  text-sm font-semibold leading-6 text-gray-900">
                                         Home
                                     </Link>
                                 </li>
                                 <li className="relative group">
                                     <Link
-                                        className="rounded-lg transition-all duration-200 py-3 hover:text-gray-900 flex items-center justify-center lg:text-xs text-sm font-semibold leading-6 text-gray-900"
+                                        className="rounded-lg transition-all duration-200 py-3 hover:text-gray-900 flex items-center justify-center  text-sm font-semibold leading-6 text-gray-900"
                                         aria-expanded="false"
                                     >
                                         Company
@@ -64,7 +64,7 @@ export default function Navbar() {
                                         <div className="p-1">
                                             <div className="group relative  rounded-md p-3 text-sm leading-6 hover:bg-gray-100">
                                                 <div className="flex-auto">
-                                                    <Link to={'/aboutus'} className="block lg:text-xs font-semibold text-gray-900">
+                                                    <Link to={'/aboutus'} className="block  font-semibold text-gray-900">
                                                         About us
                                                         <span className="absolute inset-0"></span>
                                                     </Link>
@@ -72,7 +72,7 @@ export default function Navbar() {
                                             </div>
                                             <div className="group relative  rounded-md p-3 text-sm leading-6 hover:bg-gray-100">
                                                 <div className="flex-auto">
-                                                    <Link to={'/investor-insight'} className="block lg:text-xs font-semibold text-gray-900">
+                                                    <Link to={'/investor-insight'} className="block  font-semibold text-gray-900">
                                                         Investor Insights
                                                         <span className="absolute inset-0"></span>
                                                     </Link>
@@ -84,10 +84,10 @@ export default function Navbar() {
                                 <li className="relative group">
                                     <Link
                                         type="button"
-                                        className="rounded-lg py-3 transition-all duration-200 hover:text-gray-900 flex items-center justify-center lg:text-xs text-sm font-semibold leading-6 text-gray-900"
+                                        className="rounded-lg py-3 transition-all duration-200 hover:text-gray-900 flex items-center justify-center  text-sm font-semibold leading-6 text-gray-900"
                                         aria-expanded="false"
                                     >
-                                        Products & Services
+                                        Products & Services Order
                                         <svg
                                             className="h-5 w-5 flex-none text-slate-950 group-hover:rotate-180 transition-all duration-700 ease-in-out"
                                             viewBox="0 0 20 20"
@@ -110,27 +110,28 @@ export default function Navbar() {
                                         <div className="p-1">
                                             <div className="group relative rounded-md p-3 text-sm leading-6 hover:bg-gray-100">
                                                 <div className="flex-auto">
-                                                    <Link to={'/sixteenD-and-nirvaahi'} className="block lg:text-xs font-semibold text-gray-900">
-                                                        16D and Nirvaahi
+                                                    <Link to={'/full-truck-loaded'} className="block  font-semibold text-gray-900">
+                                                        Full Truck Load
                                                         <span className="absolute inset-0"></span>
                                                     </Link>
                                                 </div>
                                             </div>
                                             <div className="group relative rounded-md p-3 text-sm leading-6 hover:bg-gray-100">
                                                 <div className="flex-auto">
-                                                    <Link to={'/full-truck-loaded'} className="block lg:text-xs font-semibold text-gray-900">
-                                                        Full Truck Load
+                                                    <Link to={'/sixteenD-and-nirvaahi'} className="block  font-semibold text-gray-900">
+                                                        16D and Nirvaahi
                                                         <span className="absolute inset-0"></span>
                                                     </Link>
                                                 </div>
                                             </div>
+
                                         </div>
                                     </div>
                                 </li>
                                 <li className="relative group">
                                     <Link
                                         type="button"
-                                        className="rounded-lg py-3 transition-all duration-200 hover:text-gray-900 flex items-center justify-center lg:text-xs text-sm font-semibold leading-6 text-gray-900"
+                                        className="rounded-lg py-3 transition-all duration-200 hover:text-gray-900 flex items-center justify-center  text-sm font-semibold leading-6 text-gray-900"
                                         aria-expanded="false"
                                     >
                                         Partner with us
@@ -156,7 +157,7 @@ export default function Navbar() {
                                         <div className="p-1">
                                             <div className="group relative rounded-md p-3 text-sm leading-6 hover:bg-gray-100">
                                                 <div className="flex-auto">
-                                                    <Link to={'/fleet-owners'} className="block lg:text-xs font-semibold text-gray-900">
+                                                    <Link to={'/fleet-owners'} className="block  font-semibold text-gray-900">
                                                         Fleet Owners
                                                         <span className="absolute inset-0"></span>
                                                     </Link>
@@ -164,8 +165,8 @@ export default function Navbar() {
                                             </div>
                                             <div className="group relative rounded-md p-3 text-sm leading-6 hover:bg-gray-100">
                                                 <div className="flex-auto">
-                                                    <Link to={'/be-link-mentor'} className="block lg:text-xs font-semibold text-gray-900">
-                                                        Be Link Mentor
+                                                    <Link to={'/be-link-mentor'} className="block  font-semibold text-gray-900">
+                                                        Be a Mentor
                                                         <span className="absolute inset-0"></span>
                                                     </Link>
                                                 </div>
@@ -176,7 +177,7 @@ export default function Navbar() {
                                 <li className="relative group">
                                     <Link
                                         type="button"
-                                        className="rounded-lg py-3 transition-all  duration-200 hover:text-gray-900 flex items-center justify-center lg:text-xs text-sm font-semibold leading-6 text-gray-900"
+                                        className="rounded-lg py-3 transition-all  duration-200 hover:text-gray-900 flex items-center justify-center  text-sm font-semibold leading-6 text-gray-900"
                                         aria-expanded="false"
                                     >
                                         Enrich and Teamup
@@ -202,7 +203,7 @@ export default function Navbar() {
                                         <div className="p-1">
                                             <div className="group relative rounded-md p-3 text-sm leading-6 hover:bg-gray-100">
                                                 <div className="flex-auto">
-                                                    <Link to={'/career'} className="block lg:text-xs font-semibold text-gray-900">
+                                                    <Link to={'/career'} className="block  font-semibold text-gray-900">
                                                         Career
                                                         <span className="absolute inset-0"></span>
                                                     </Link>
@@ -210,7 +211,7 @@ export default function Navbar() {
                                             </div>
                                             <div className="group relative rounded-md p-3 text-sm leading-6 hover:bg-gray-100">
                                                 <div className="flex-auto">
-                                                    <Link to={'/skill-development'} className="block lg:text-xs font-semibold text-gray-900">
+                                                    <Link to={'/skill-development'} className="block  font-semibold text-gray-900">
                                                         Skill Development
                                                         <span className="absolute inset-0"></span>
                                                     </Link>
@@ -223,7 +224,7 @@ export default function Navbar() {
                         </div>
                         <div className="hidden md:flex items-center justify-end gap-3">
                             <div >
-                                <BlueBtn title={"Get Link Qutoe"} to={"/Contact"} />
+                                <BlueBtn title={"Get Qutoe"} />
                             </div>
                         </div>
                         <div className="md:hidden relative flex items-center justify-end gap-3">

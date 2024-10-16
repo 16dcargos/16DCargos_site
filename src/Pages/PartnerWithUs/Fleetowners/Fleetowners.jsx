@@ -6,7 +6,7 @@ import sendEmail from '../../../email/sendEmail';
 const Fleetowners = () => {
 
     const emailTemplateId = import.meta.env.VITE_API_TEMPLATE_ID
-    const emailPattern = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g
+    // const emailPattern = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g
     const [error, setError] = useState({})
     const [formData, setFormData] = useState({
         trasport_name: '',
@@ -94,13 +94,14 @@ const Fleetowners = () => {
             <section className="relative z-10 min-h-screen bg-custom overflow-hidden">
                 <div className="absolute inset-0">
                     <Img src={'https://res.cloudinary.com/dmh7fwdzf/image/upload/v1725985772/Partner_with_us_sqlqmz.png'} alt="Background Image" className="object-cover object-center w-full h-full" />
-                    <div className="absolute inset-0 bg-black/50"></div>
+                    <div className="absolute inset-0 bg-black/40"></div>
                 </div>
 
-                <div className="relative space-y-5 mx-auto md:max-w-xl max-w-xs z-10 flex flex-col justify-center items-center h-screen">
-                    <h1 className="text-3xl md:text-5xl xl:text-5xl text-center text-white leading-10 p-2 tracking-normal flex justify-start flex-row font-bold font-Poppins">Empowering Fleet Owners for Success</h1>
-                    <p className='text-center font-Poppins text-xxs text-white font-medium leading-5  tracking-wider '>Join us in transforming logistics. As a fleet owner, gain access to top-tier opportunities, advanced tools, and full support. Together, we drive efficiency and elevate fleet management standards across India. Let’s lead the change, one journey at a time.</p>
-                    <OrangeBtn text={'Become a FOP Today'} />
+                <div className="relative space-y-5 mx-auto md:max-w-4xl max-w-xl z-10 flex flex-col justify-center items-center h-screen">
+                    <h1 className="text-3xl md:text-5xl lg:text-7xl text-center text-white leading-10 p-2 tracking-normal flex justify-start flex-row font-bold font-Poppins">Empowering Fleet Owners for Success</h1>
+                    <p className='text-center font-Poppins text-xs lg:text-sm text-white font-medium leading-6 md:max-w-xl max-w-full tracking-wide'>Join us in transforming logistics. As a fleet owner, gain access to top-tier opportunities, advanced tools, and full support. Together, we drive efficiency and elevate fleet management standards across India. Let’s lead the change, one journey at a time.</p>
+                    {/* <OrangeBtn text={'Become a FOP Today'} hrefLang={'/#fop'} /> */}
+                    <a href='#fop' className="bg-[#C96202] text-white active:translate-y-[6px] py-2.5 px-5 rounded-full text-xs font-medium tracking-wider font-Poppins transition duration-300 ease-in-out transform  hover:shadow-custom-white">Become a FOP Today</a>
                 </div>
             </section>
 
@@ -122,7 +123,7 @@ const Fleetowners = () => {
 
 
 
-            <section className='relative isolate overflow-hidden bg-white  lg:bg-gradient-to-r from-[#D9D9D9] from-50% to-white to-50%'>
+            <section id='fop' className='relative isolate overflow-hidden bg-white  lg:bg-gradient-to-r from-[#D9D9D9] from-50% to-white to-50%'>
                 <div className="max-w-xl md:max-w-7xl mx-auto px-4 py-4">
                     <div className="grid grid-cols-1  md:grid-cols-2 md:gap-x-20">
                         <div className="w-full flex justify-center flex-grow flex-col items-center h-auto px-5 space-y-4 py-4">

@@ -27,16 +27,19 @@ const Model = ({
                         className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
+                        exit={{ opacity: [1, 0.5] }}
                     >
                         {/* Modal content */}
-
                         <motion.div
                             className="bg-white p-6 rounded-lg w-full max-w-lg"
                             initial={{ y: "-100vh" }}
                             animate={{ y: 0 }}
                             exit={{ y: "-100vh" }}
-                            transition={{ type: "spring", stiffness: 100 }}
+                            transition={{
+                                duration: 0.6,
+                                ease: "easeInOut",
+                                delay: 0.2
+                            }}
                         >
                             <h2 className="text-xl font-semibold mb-4">{title}</h2>
 
