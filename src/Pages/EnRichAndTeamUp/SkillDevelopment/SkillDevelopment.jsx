@@ -11,9 +11,9 @@ const SkillDevelopment = () => {
                     {/* <div className="absolute inset-0 bg-black/50"></div> */}
                 </div>
 
-                <div className="relative space-y-5 mx-auto md:max-w-xl max-w-xs z-10 flex flex-col justify-center items-center h-screen">
-                    <h1 className="text-xl md:text-3xl text-center text-white md:leading-10 p-2 tracking-normal flex justify-start flex-row font-bold font-Poppins">Empowering the Youth for a Brighter Tomorrow</h1>
-                    <p className='text-center font-Poppins text-xxs text-white font-medium md:leading-5  tracking-wider'>At 16D Cargos, we believe in the boundless potential of the youth of Bharat. Our Skill Development Program is designed to bridge the gap between industry requirements and the skills possessed by young professionals. We are committed to nurturing the next generation of logistics leaders, ensuring they are equipped with the expertise needed to thrive in the ever-evolving logistics industry.</p>
+                <div className="relative space-y-5 mx-auto md:max-w-xl lg:max-w-4xl max-w-xs z-10 flex flex-col justify-center items-center h-screen">
+                    <h1 className="text-xl md:text-4xl lg:text-6xl text-center lg:leading-66 text-white p-2 tracking-wide font-bold font-Poppins">Empowering the Youth for a Brighter Tomorrow</h1>
+                    <p className='text-center font-Poppins text-xxs lgmd:text-sm max-w-md md:max-w-xl text-white font-normal md:leading-5 tracking-wider'>At 16D Cargos, we believe in the boundless potential of the youth of Bharat. Our Skill Development Program is designed to bridge the gap between industry requirements and the skills possessed by young professionals. We are committed to nurturing the next generation of logistics leaders, ensuring they are equipped with the expertise needed to thrive in the ever-evolving logistics industry.</p>
                 </div>
             </section>
 
@@ -31,8 +31,8 @@ const SkillDevelopment = () => {
             <section className='relative isolate overflow-hidden bg-custom'>
                 <div className="max-w-full md:max-w-6xl mx-auto px-4 py-4">
                     <h1 className='text-center p-3 text-black mb-5 font-bold leading-6 tracking-wide font-Poppins md:text-3xl text-xl'>Training Modules</h1>
-                    <div className="grid md:grid-cols-2 gap-x-12  grid-cols-1 place-items-start">
-                        <div className="w-full h-full  rounded-md md:rounded-lg mb-8">
+                    <div className="grid md:grid-cols-2 gap-x-12   grid-cols-1 place-items-center">
+                        <div className="w-full h-full  rounded-md md:rounded-lg">
                             <ImageTag src={"https://res.cloudinary.com/dmh7fwdzf/image/upload/v1725984003/trainingmodule_hd97q0.png"} alt={'training'} className={'w-full h-auto object-center object-fill'} />
                         </div>
 

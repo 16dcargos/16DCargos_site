@@ -1,0 +1,137 @@
+{
+  "jobsDetails": [
+    {
+      "id": 0,
+      "title": "Accounts Executive - Coimbatore",
+      "job_description": "As an Accounts Executive, you will manage day-to-day accounting operations, including processing invoices, handling tax filings, preparing financial reports, and managing payroll. You will ensure compliance with company policies and tax regulations, and collaborate with internal teams to maintain accurate financial records. Strong analytical skills and a solid understanding of accounting principles are essential for success in this role.",
+      "key_response": [
+        "Maintain financial records, invoices, and accounts payable/receivable.",
+        "Assist in the preparation of monthly and annual financial reports.",
+        "Process payroll and ensure compliance with tax regulations.",
+        "Reconcile discrepancies in accounts and resolve accounting issues.",
+        "Work with auditors during audits."
+      ],
+      "hashTag": [
+        "#AccountsExecutive",
+        "#FinanceJobs",
+        "#CoimbatoreJobs",
+        "#AccountingCareer",
+        "#FinancialManagement"
+      ]
+    },
+    {
+      "id": 1,
+      "title": "Operations Executive - Hyderabad",
+      "job_description": "As an Operations Executive, you will oversee the day-to-day logistics and supply chain operations in Hyderabad, ensuring smooth and efficient workflow. Your role will involve coordinating with internal teams, vendors, and clients to optimize delivery processes, manage inventory, and ensure timely dispatch of goods. Problem-solving skills and operational efficiency are key to success in this role.",
+      "key_response": [
+        "Manage daily operations and logistics for smooth execution.",
+        "Coordinate with vendors, partners, and internal teams to meet deadlines.",
+        "Monitor inventory levels and ensure timely delivery.",
+        "Optimize processes to improve operational efficiency.",
+        "Troubleshoot operational issues and ensure customer satisfaction."
+      ],
+      "hashTag": [
+        "#OperationsExecutive",
+        "#LogisticsJobs ",
+        "#HyderabadCareers ",
+        "#SupplyChainManagement ",
+        "#EfficiencyInAction"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Business Development Manager - Bangalore",
+      "job_description": "As a Business Development Manager, you will identify new business opportunities, forge partnerships, and drive growth in the logistics industry. You will be responsible for creating strategic plans, expanding the client base, and meeting sales targets. Strong negotiation, communication, and leadership skills are crucial, as you will lead efforts to open new markets and build lasting client relationships.",
+      "key_response": [
+        "Manage daily operations and logistics for smooth execution.",
+        "Coordinate with vendors, partners, and internal teams to meet deadlines.",
+        "Monitor inventory levels and ensure timely delivery.",
+        "Optimize processes to improve operational efficiency.",
+        "Troubleshoot operational issues and ensure customer satisfaction."
+      ],
+      "hashTag": [
+        "#OperationsExecutive",
+        "#LogisticsJobs ",
+        "#HyderabadCareers ",
+        "#SupplyChainManagement ",
+        "#EfficiencyInAction"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Operations Manager - Salem",
+      "job_description": "As an Operations Manager, you will lead and oversee all operational aspects of the logistics chain in Salem. Your role involves managing a team, streamlining processes, improving efficiency, and ensuring adherence to company policies and customer expectations. Strong leadership and organizational skills are essential for optimizing performance and delivering high-quality service.",
+      "key_response": [
+        "Oversee and manage daily operations, including warehousing, dispatch, and logistic.",
+        "Ensure compliance with safety and company policies.",
+        "Lead and develop a team of operations staff.",
+        "Implement process improvements to enhance operational efficiency.",
+        "Monitor KPIs and ensure on-time delivery and customer satisfaction."
+      ],
+      "hashTag": [
+        "#OperationsManager",
+        "#LogisticsLeadership ",
+        "#SalemJobs ",
+        "#SupplyChainManager ",
+        "#TeamManagement"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Human Resource Executive - Bangalore",
+      "job_description": "As a Human Resource Executive, you will be responsible for managing HR functions, including recruitment, employee relations, payroll, and compliance in Bangalore. You will work closely with department heads to align HR strategies with organizational goals, ensuring a positive and productive work environment. Excellent communication and organizational skills are key to ensuring smooth HR operations.",
+      "key_response": [
+        "Manage recruitment, onboarding, and employee lifecycle processes",
+        "Ensure compliance with labor laws and company policies.",
+        "Handle employee relations, grievances, and performance management.",
+        "Oversee payroll processing and benefits administration.",
+        "Support leadership with talent development and HR strategy."
+      ],
+      "hashTag": [
+        "#HRExecutive",
+        "#BangaloreHRJobs",
+        "#EmployeeManagement",
+        "#HumanResources",
+        "#RecruitmentAndPayroll"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Graphic Designer Manager - Bangalore",
+      "job_description": "As a Graphic Designer Manager, you will lead a creative team responsible for producing high-quality visual content for the company’s branding and marketing needs. Your role involves overseeing design projects, collaborating with marketing teams, and ensuring brand consistency across all platforms. You will manage timelines, mentor junior designers, and drive innovative visual strategies.",
+      "key_response": [
+        "Lead the design team to create compelling graphics for digital and print media.",
+        "Ensure brand consistency across all marketing collateral.",
+        "Collaborate with marketing and content teams to support campaigns.",
+        "Oversee the entire design process, from concept to final delivery.",
+        "Stay updated with design trends and innovations."
+      ],
+      "hashTag": [
+        "#GraphicDesignManager",
+        "#CreativeLeadership",
+        "#BangaloreDesignJobs",
+        "#BrandingAndDesign",
+        "#VisualStrategy"
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Digital Marketing Executive - Bangalore",
+      "job_description": "As a Digital Marketing Executive, you will develop and execute digital marketing strategies to increase the company’s online presence and customer engagement. You will manage campaigns across multiple platforms, including social media, SEO, email marketing, and PPC, and analyze performance to optimize results. Strong analytical skills and up-to-date knowledge of digital trends are essential.",
+      "key_response": [
+        "Develop and implement digital marketing strategies.",
+        "Manage social media, email, SEO, and PPC campaigns.",
+        "Monitor and analyze campaign performance to optimize ROI.",
+        "Collaborate with content and design teams to create engaging materials.",
+        "Stay informed of digital trends and adjust strategies accordingly."
+      ],
+      "hashTag": [
+        "#DigitalMarketing",
+        "#BangaloreDigitalJobs",
+        "#SEOAndPPC",
+        "#OnlineMarketing",
+        "#MarketingGrowth"
+      ]
+    }
+  ]
+}

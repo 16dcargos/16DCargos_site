@@ -189,7 +189,7 @@ const Belinkmentor = () => {
                                 <p className="font-Poppins text-sm font-semibold tracking-tight text-black md:font-bold md:tracking-wider">Email</p>
 
                                 <div className="mt-4 max-w-sm md:max-w-xl">
-                                    <p className="text-[9px] font-Poppins font-medium leading-4 tracking-wider text-wrap text-black">Prefer a more direct approach? Send your detailed suggestions and insights to <a href="mailto:chanakya@16dcargos.com" className='inline-block after-line text-xs font-Poppins font-semibold tracking-wide'>chanakya@16dcargos.com
+                                    <p className="text-[9px] font-Poppins font-medium leading-4 tracking-wider text-wrap text-black">Prefer a more direct approach? Send your detailed suggestions and insights to <a href="mailto:chanakya@16dcargos.com" className='inline-block after-line font-Poppins font-semibold tracking-wide'>chanakya@16dcargos.com
                                     </a> and our team will get back to you promptly.</p>
                                 </div>
                             </div>

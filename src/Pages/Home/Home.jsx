@@ -106,16 +106,15 @@ export default function Home() {
                 </div>
 
                 <div className="relative z-10 flex flex-col justify-center items-center h-full text-center">
-                    <div className='text-5xl text relative lg:text-8xl flex justify-start flex-row font-bold font-Poppins  px-6 py-4 '>
-                        <span className="hidden md:block text-xs sm:text-xs text-start font-medium tracking-wide font-Poppins mb-4 absolute inset-y-0">Welcome to</span>
+                    <div className='text-5xl text relative md:text-6xl lg:text-9xl flex justify-start flex-row font-bold font-Poppins px-6 py-4 '>
+                        <span className="hidden md:block text-xs md:text-sm lg:text-lg text-start font-medium tracking-wide font-Poppins mb-4 absolute inset-y-0">Welcome to</span>
                         <h1 className='tracking-wider'>
                             <span className='text-[#0025A9]'>16D</span> <span className='text-[#C96202]'>
                                 Cargos
                             </span>
                         </h1>
                     </div>
-                    <p className="text-xs lg:text-lg font-Poppins max-w-sm lg:max-w-lg leading-4 tracking-wider lg:tracking-wide text-gray-300 mb-6">We are dedicated to transforming logistics in India, delivering unmatched service and innovative solutions to meet all your transportation needs.</p>
-
+                    <p className="text-xs md:text-sm lg:text-xl font-Poppins max-w-md md:max-w-lg lg:max-w-xl leading-4 tracking-wider lg:tracking-wide text-gray-300 mb-6">We are dedicated to transforming logistics in India, delivering unmatched service and innovative solutions to meet all your transportation needs.</p>
                     <OrangeBtn text={'Learn More'} to={'/aboutus'} />
                 </div>
             </section>
@@ -129,14 +128,14 @@ export default function Home() {
             </section>
             {/*  Our Vission */}
             <section className='relative isolate overflow-hidden px-3 py-4 lg:px-8 lg:py-6 bg-[#d9d9d9]'>
-                <div className='mx-auto max-w-5xl lg:max-w-7xl'>
-                    <div className="flex flex-wrap items-start flex-col md:flex-row">
-                        <div className='w-full md:w-1/2 rounded-xl'>
+                <div className='mx-auto max-w-xl lg:max-w-5xl'>
+                    <div className="flex items-center gap-4 md:gap-10 justify-center flex-col md:flex-row">
+                        <div className='w-1/2 rounded-xl'>
                             <div className="w-full h-auto overflow-hidden rounded-md sm:rounded-xl">
-                                <ImageTag src={'https://res.cloudinary.com/dmh7fwdzf/image/upload/v1725907877/vision_ono5q7.png'} alt={'our vission'} className={''} />
+                                <ImageTag src={'https://res.cloudinary.com/dmh7fwdzf/image/upload/v1725907877/vision_ono5q7.png'} alt={'our vission'} className={'w-full h-full object-center object-fill'} />
                             </div>
                         </div>
-                        <div className="w-full md:w-1/2">
+                        <div className="w-1/2">
                             <div className='px-4 py-4 lg:py-0'>
                                 <h1 className='border-b-[1px] pb-1 border-orange-400 inline-block font-Poppins tracking-wide font-bold text-black text-lg lg:text-3xl'>
                                     Our Vision
@@ -152,9 +151,9 @@ export default function Home() {
 
             {/* Our Mission */}
             <section className='relative isolate overflow-hidden px-3 py-4 lg:px-8 lg:py-6 bg-[#d9d9d9]'>
-                <div className='mx-auto max-w-5xl lg:max-w-7xl'>
-                    <div className="flex items-start flex-col-reverse md:flex-row">
-                        <div className="w-full md:w-1/2">
+                <div className='mx-auto max-w-xl lg:max-w-5xl'>
+                    <div className="flex items-center justify-center md:gap-10 gap-4 flex-col-reverse md:flex-row">
+                        <div className="w-1/2">
                             <div className='px-4 py-4 lg:py-0'>
                                 <h1 className='border-b-[1px] pb-1 border-orange-400 inline-block font-Poppins tracking-wide font-bold text-black text-lg lg:text-3xl'>
                                     Our Mission
@@ -165,7 +164,7 @@ export default function Home() {
                             </div>
                         </div>
 
-                        <div className='w-full md:w-1/2 rounded-xl mb-4 md:mb-0'>
+                        <div className='w-1/2 rounded-xl mb-4 md:mb-0'>
                             <div className="w-full h-auto overflow-hidden rounded-md sm:rounded-xl">
                                 <ImageTag src={'https://res.cloudinary.com/dmh7fwdzf/image/upload/v1725907852/mission_pbze7z.png'} alt={'Our Mission'} className={''} />
                             </div>
@@ -267,7 +266,7 @@ export default function Home() {
                                         <ImageTag src={"https://res.cloudinary.com/dmh7fwdzf/image/upload/v1725907864/profile2_bgfujj.png"} className={'w-12 h-12 object-fill'} alt={'profil'} />
                                     </div>
                                     <div className="px-4 py-3">
-                                        <p className='text-sm font-Poppins tracking-tight md:tracking-wider font-semibold md:font-bold text-black'>TABP</p>
+                                        <p className='text-sm font-Poppins tracking-tight md:tracking-wider font-semibold md:font-bold text-black'>Nestle</p>
                                     </div>
                                 </div>
                                 <div className="max-w-sm md:max-w-md mt-4">
@@ -284,7 +283,8 @@ export default function Home() {
                                         <ImageTag src={"https://res.cloudinary.com/dmh7fwdzf/image/upload/v1725907879/profile3_c85qqg.png"} className={'w-12 h-12 object-fill'} alt={'profil'} />
                                     </div>
                                     <div className="px-4 py-3">
-                                        <p className='text-sm font-Poppins tracking-tight md:tracking-wider font-semibold md:font-bold text-black'>Walkaroo</p>
+                                        <p className='text-sm font-Poppins tracking-tight md:tracking-wider font-semibold md:font-bold text-black'>Hindustan Unilever Limited
+                                        </p>
                                     </div>
                                 </div>
                                 <div className="max-w-sm md:max-w-md mt-4">
@@ -301,7 +301,7 @@ export default function Home() {
                                         <ImageTag src={"https://res.cloudinary.com/dmh7fwdzf/image/upload/v1725907879/profile4_erospv.png"} className={'w-12 h-12 object-fill'} alt={'profil'} />
                                     </div>
                                     <div className="px-4 py-3">
-                                        <p className='text-sm font-Poppins tracking-tight md:tracking-wider font-semibold md:font-bold text-black'>Hatsun Agro Ltd</p>
+                                        <p className='text-sm font-Poppins tracking-tight md:tracking-wider font-semibold md:font-bold text-black'>D Mart</p>
                                     </div>
                                 </div>
                                 <div className="max-w-sm md:max-w-md mt-4">
