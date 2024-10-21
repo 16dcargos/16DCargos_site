@@ -21,7 +21,7 @@ export default function Home() {
         user_name: "", user_email: '', phone_number: "", subject: '', message: "", terms_and_condition: ""
     })
     const emailPattern = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g
-    const tempId = import.meta.env.VITE_API_REQUEST_QUOTE
+    const tempId = import.meta.env.VITE_API_TEMPLATE_ID
     const [error, setError] = useState({})
 
 

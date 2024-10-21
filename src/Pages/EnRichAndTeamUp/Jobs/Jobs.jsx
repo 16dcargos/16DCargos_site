@@ -1,8 +1,8 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+// import { useParams } from 'react-router-dom'
 
 const Jobs = () => {
-    const { id } = useParams()
+    // const { id } = useParams()
     return (
         <React.Fragment>
             <section className="relative isolate flex overflow-hidden h-screen bg-custom">
@@ -40,10 +40,6 @@ const Jobs = () => {
                     <img className="h-full w-full object-cover" src="https://images.unsplash.com/photo-1425913397330-cf8af2ff40a1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80" alt="" />
                 </div>
             </section>
-
-            <div className="relative isolate h-screen">
-
-            </div>
         </React.Fragment>
     )
 }
