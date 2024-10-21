@@ -2,15 +2,23 @@ import React, { useRef, useState } from 'react'
 import ImageTag from '../../../Components/ImageTag/ImageTag'
 import sendEmail from '../../../email/sendEmail'
 import toast from 'react-hot-toast'
+import emailjs from '@emailjs/browser'
 import { jobsDetails } from '../../../DB/Jobs.json';
-import { Link } from 'react-router-dom';
+import { AnimatePresence, motion } from 'framer-motion';
+import { uploadToCloudinary } from '../../../service/Cloudinary'
 
 
+
+// url-gen/actions/upload
 const Career = () => {
 
     const carouselRef = useRef(null);
+    const emailPattern = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g
     const emailTemplateId = import.meta.env.VITE_API_TEMPLATE_ID
+    const serviceId = import.meta.env.VITE_API_SERVICE_ID; // Get from EmailJS
+    const userId = import.meta.env.VITE_API_PUBLIC_KEY; // Get from EmailJS
     const [errors, setErrors] = useState({})
+    const [modal, setModal] = useState(false)
     const [careers, setCareers] = useState({
         name: '',
         dob: '',
@@ -117,9 +125,148 @@ const Career = () => {
         }))
     }
 
+    const [fetchDetails, setFetchDetails] = useState(null)
 
-    console.log(careers)
-    console.log(errors)
+    const [apply, setApply] = useState({
+        first_name: "",
+        last_name: "",
+        email: "",
+        phone_number: "",
+        file: null
+    })
+
+    const handleApplyFormValidation = () => {
+        const errObj = {}
+        let isError = false
+
+        if (!apply.first_name.trim()) {
+            isError = true,
+                errObj.first_name = 'First must not be empty!'
+        }
+
+        if (!apply.email?.trim()) {
+            isError = true,
+                errObj.email = "Email must not be empty!"
+        } else if (!emailPattern.test(apply?.email)) {
+            isError = true,
+                errObj.email = "Email must in email pattern!"
+        }
+
+        if (apply.phone_number === '') {
+            isError = true,
+                errObj.phone_number = "Phone number must not be empty!"
+        }
+
+        if (apply.file === null || '') {
+            isError = true,
+                errObj.file = "Resume must not be empty!"
+        }
+        setErrors(errObj)
+        return isError
+    }
+
+    // console.log(errors)
+
+    const handleApplyChange = (e) => {
+        const { name, value, files, type } = e.target
+
+        if (name === 'phone_number' && value.length > 10) {
+            toast.error('Maximum number of limit is reached!')
+            return
+        }
+
+        if (type === 'file') {
+            const file = files[0];
+
+            if (file && file.type !== 'application/pdf') {
+                setErrors({ file: "File Type must be PDF" })
+            }
+            setApply({
+                ...apply,
+                file: null,
+            });
+        }
+
+        setApply((preve) => ({
+            ...preve,
+            [name]: type === 'file' ? files[0] : value
+        }))
+    }
+
+
+    const handleApplyReset = () => {
+        setApply({
+            email: "", file: null, first_name: '', last_name: '', phone_number: ""
+        });
+    }
+
+    const handleShowModel = (id) => {
+        setModal(true)
+
+        const data = jobsDetails && jobsDetails.find((item) => item.id === id ? id : '')
+        setFetchDetails(data)
+    }
+
+    const handleApplySubmit = async (e) => {
+        e.preventDefault()
+
+        const fileUrl = uploadToCloudinary(apply.file)
+        console.log(fileUrl)
+        // if (handleApplyFormValidation()) {
+        //     toast.error('Form have validation error!')
+        // } else {
+        //     // await sendEmail(emailTemplateId, new FormData(apply))
+        //     // console.log(apply)
+        //     // setApply({
+        //     //     email: "", file: null, first_name: '', last_name: '', phone_number: ""
+        //     // });
+        //     await emailjs.send(serviceId, emailTemplateId, new FormData(apply), userId)
+        //         .then(response => {
+        //             console.log('SUCCESS!', response.status, response.text);
+        //             if (response.status === 200) {
+        //                 toast.success('Thank yor for submission, We will reach you soon')
+        //             }
+        //             return true;
+        //         })
+        //         .catch(err => {
+        //             if (err) {
+        //                 toast.error('Sothing went wroung! please try again later')
+        //             }
+        //             return false;
+        //         });
+        // }
+
+
+    }
+
+    const handleCloseModal = async () => {
+        setModal((preve) => !preve)
+    }
+
+    const modalVariants = {
+        hidden: {
+            y: '100vh', // Start off-screen at the bottom
+            opacity: 0,
+        },
+        visible: {
+            y: 0,       // Move to the top (fully visible position)
+            opacity: 1,
+            transition: {
+                type: 'spring',
+                stiffness: 100,
+                damping: 15,
+            },
+        },
+        exit: {
+            y: '100vh', // Exit back to the bottom of the screen
+            opacity: 0,
+            transition: {
+                type: 'tween',
+                duration: 0.9,
+            },
+        },
+    };
+
     return (
         <React.Fragment>
             <section className="relative z-10 min-h-screen bg-custom overflow-hidden">
@@ -177,7 +324,7 @@ const Career = () => {
                     <div className="relative px-4 py-4">
                         {/* <!-- Scrollable Container --> */}
                         <div ref={carouselRef} className="flex space-x-6 overflow-x-scroll scrollbar-hide p-0 md:p-4 snap-x snap-mandatory scroll-smooth">
-                            {/* <!-- Card 1 --> */}
+
                             {jobsDetails && jobsDetails.length > 0 ? (
                                 jobsDetails.map((item, index) => {
                                     return (
@@ -185,9 +332,9 @@ const Career = () => {
                                             <img src="https://loremflickr.com/800/600/girl" alt="Image 1" className="rounded-lg mb-4" />
                                             <div className="flex justify-between items-center gap-2">
                                                 <h3 className="text-sm font-semibold font-Poppins leading-6 tracking-tight">{item.title}</h3>
-                                                <Link to={`/jobs/${item.id}`} className='bg-[#C96202] text-white active:translate-y-[6px] py-2 px-5 rounded-lg text-xs font-medium tracking-wider font-Poppins transition duration-300 ease-in-out transform shadow-md hover:shadow-gray-600 hover:shadow-custom-white'>Apply</Link>
+                                                <button type='button' onClick={() => handleShowModel(item.id)} className='bg-[#C96202] text-white active:translate-y-[6px] py-2 px-5 rounded-lg text-xs font-medium tracking-wider font-Poppins transition duration-300 ease-in-out transform shadow-md hover:shadow-gray-600 hover:shadow-custom-white'>Apply</button>
                                             </div>
-                                            {/* <p className="text-gray-600 leading-5 tracking-wide h-10 overflow-hidden text-xs font-Poppins">{item.job_description}</p> */}
+
                                             {item.hashTag.length > 0 && (
                                                 item.hashTag.map((item, index) => (
                                                     <span key={index} className="inline-flex flex-wrap justify-start mr-2 items-center bg-gray-200 rounded-full px-3 py-1 text-xs font-semibold text-gray-700">{item}</span>
@@ -261,7 +408,7 @@ const Career = () => {
                                             Upload CV / Resume
                                         </label>
                                         <input type="file" id='resume' accept="application/pdf"  // Accept only PDF files
-                                            name='resume' className='w-full placeholder:text-[8px] placeholder:tracking-wide focus:outline-none font-Poppins text-xs rounded-md border py-1 px-1.5 bg-custom text-black border-none shadow shadow-gray-500' required />
+                                            name='resume' className='w-full placeholder:text-[8px] placeholder:tracking-wide focus:outline-none font-Poppins text-xs rounded-md border py-1.5 px-1.5 bg-custom text-black border-none shadow shadow-gray-500' required />
                                         {errors?.resume && <span className='text-red-500 inline-block text-start font-Poppins font-normal leading-3 tracking-tight text-xs'>{errors?.resume}</span>}
                                     </div>
                                     <div className="mb-3">
@@ -323,6 +470,126 @@ const Career = () => {
             </div>
 
 
+
+            {modal && (
+                <AnimatePresence>
+                    <div
+                        className="relative  overflow-auto">
+                        <motion.div
+                            variants={modalVariants}
+                            initial="hidden"
+                            animate="visible"
+                            exit="exit"
+                            className="fixed inset-0 bg-black/75 z-50 w-full flex justify-center items-center">
+                            <div className="bg-white p-6 w-full h-screen max-w-full md:max-w-7xl mt-28 rounded-3xl overflow-scroll">
+                                <div className="absolute inset-0 top-5 -z-10 px-5">
+                                    <button onClick={handleCloseModal} className='inline-block float-end group'>
+                                        <svg className="w-6 h-6 text-white group-hover:rotate-180 transition-all duration-500 ease-in-out" aria-hidden="true" xmlns="http:www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M6 18 17.94 6M18 18 6.06 6" />
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div className="max-w-md md:max-w-4xl">
+                                    <div className="md:px-6 md:py-6 p-4">
+                                        <div className="space-y-3">
+                                            <h1 className='text-xl md:text-3xl mb-3 font-bold leading-6 tracking-wide font-Poppins'>{fetchDetails && fetchDetails.id ? fetchDetails.id : ''}. {fetchDetails && fetchDetails.title ? fetchDetails.title : '-'}</h1>
+                                            <i className='font-Poppins leading-5 font-semibold tracking-wide  text-gray-700 text-sm'>Job Description :</i>
+                                            <p className='font-Poppins leading-7 tracking-wide mt-3 text-gray-700 text-sm'>{fetchDetails && fetchDetails.job_description ? fetchDetails.job_description : '-'}</p>
+                                        </div>
+                                        <div className="md:mt-6 mt-3">
+                                            {/* <h1 className='text-xl md:text-3xl mb-3 font-bold leading-6 tracking-wide font-Poppins'>{fetchDetails && fetchDetails.id ? fetchDetails.id : ''}. {fetchDetails && fetchDetails.title ? fetchDetails.title : '-'}</h1> */}
+                                            <i className='font-Poppins leading-5 font-semibold tracking-wide  text-gray-700 text-sm '>Key Responsibilities :</i>
+                                            {/* <p className='font-Poppins leading-7 tracking-wide mt-3 text-gray-700 text-sm'>{fetchDetails && fetchDetails.job_description ? fetchDetails.job_description : '-'}</p> */}
+                                            <ul className='list-disc pl-6'>
+                                                {fetchDetails && fetchDetails.key_response.length > 0 ?
+                                                    (
+                                                        fetchDetails?.key_response.map((item, index) => {
+                                                            return (
+                                                                <li key={index} className=' font-Poppins leading-7 tracking-wide mt-3 text-gray-700 text-sm'>{item}</li>
+                                                            )
+                                                        })
+                                                    ) : (
+                                                        ''
+                                                    )
+                                                }
+                                            </ul>
+                                        </div>
+                                        <div className="md:mt-6 mt-3">
+                                            {fetchDetails && fetchDetails.hashTag.length > 0 && (
+                                                <>
+                                                    <i className='font-Poppins leading-5 font-semibold tracking-wide  text-gray-700 text-sm '>Hashtags :</i>
+                                                    <div className="flex items-center justify-start flex-wrap gap-x-4 md:mt- mt-3">
+                                                        {fetchDetails && fetchDetails?.hashTag.map((item, index) => (
+                                                            <span key={index}> {item} </span>
+                                                        ))}
+                                                    </div>
+                                                </>
+                                            )}
+                                        </div>
+                                    </div>
+                                    <form noValidate onFocus={handleFocus} onReset={handleApplyReset} onSubmit={handleApplySubmit}>
+                                        <div className="mx-auto md:max-w-7xl max-w-xl mb-12">
+                                            <div className="my-4 border px-4 shadow-xl  sm:mx-4 sm:rounded-xl sm:px-4 sm:py-4 ">
+                                                <div className="flex flex-col border-b justify-center sm:flex-row sm:items-center">
+                                                    <div className="shrink-0 sm:py-3">
+                                                        <h1 className='md:text-2xl text-xl text-center font-bold leading-6 tracking-wide text-black'>Let us find you for this role.</h1>
+                                                    </div>
+                                                </div>
+                                                <div className="flex  justify-center flex-col gap-4 border-b py-4 sm:flex-row">
+                                                    <label htmlFor='first_name' className="shrink-0 w-32 font-medium">Name <span className='text-xl font-bold text-red-500 inline-block'>*</span></label>
+                                                    <div className="w-full">
+                                                        <input type='text' placeholder="First Name" name='first_name' id='first_name' value={apply.first_name} onChange={handleApplyChange} className={`mb-2 w-full rounded-md border bg-white px-2 py-2 outline-none ring-blue-600 sm:mr-4 sm:mb-0 focus:ring-1 ${errors?.first_name && 'ring-red-500 ring-1 placeholder:text-red-500'}`} />
+                                                        {errors?.first_name && (
+                                                            <span className='text-red-600 bg-red-300 text-xs mt-1 border-red-500 border rounded-xl inline-block py-1.5 font-normal font-Poppins px-1'>{errors?.first_name}</span>
+                                                        )}
+                                                    </div>
+                                                    <div className="w-full">
+                                                        <input type='text' placeholder="Last Name" name='last_name' id='last_name' value={apply.last_name} onChange={handleApplyChange} className="w-full rounded-md border bg-white px-2 py-2 outline-none ring-blue-600 focus:ring-1" />
+                                                    </div>
+                                                </div>
+                                                <div className="flex justify-center flex-col gap-4 border-b py-4 sm:flex-row">
+                                                    <label htmlFor='email' className="shrink-0 w-32 font-medium">Email <span className='text-xl font-bold text-red-500 inline-block'>*</span></label>
+                                                    <div className="w-full">
+                                                        <input placeholder="your.email@domain.com" value={apply.email} id='email' name='email' onChange={handleApplyChange} type='email' className={`w-full rounded-md border bg-white px-2 py-2 outline-none ring-blue-600 focus:ring-1 ${errors?.email && 'ring-red-500 ring-1 placeholder:text-red-500'}`} />
+                                                        {errors?.email && (
+                                                            <span className='text-red-600 bg-red-300 text-xs mt-1 border-red-500 border rounded-xl inline-block py-1.5 font-normal font-Poppins px-1'>{errors?.email}</span>
+                                                        )}
+                                                    </div>
+                                                </div>
+                                                <div className="flex justify-center flex-col gap-4 border-b py-4 sm:flex-row">
+                                                    <label htmlFor='phone_number' className="shrink-0 w-32 font-medium">Phone number <span className='text-xl font-bold text-red-500 inline-block'>*</span></label>
+                                                    <div className="w-full">
+                                                        <input type='number' placeholder="+91 1234 567 890" value={apply.phone_number} onChange={handleApplyChange} name='phone_number' id='phone_number' className={`w-full rounded-md border bg-white px-2 py-2 outline-none ring-blue-600 focus:ring-1 ${errors?.phone_number && 'ring-red-500 ring-1 placeholder:text-red-500'}`} />
+                                                        {errors?.phone_number && (
+                                                            <span className='text-red-600 bg-red-300 text-xs mt-1 border-red-500 border rounded-xl inline-block py-1.5 font-normal font-Poppins px-1'>{errors?.phone_number}</span>
+                                                        )}
+                                                    </div>
+                                                </div>
+                                                <div className="flex flex-col gap-4 py-4  lg:flex-row">
+                                                    <div className="shrink-0 w-32  sm:py-4">
+                                                        <label htmlFor='file' className="mb-auto font-medium">Reseume <span className='text-xl font-bold text-red-500 inline-block'>*</span></label>
+                                                        <p className="text-sm text-gray-600">Upload pdf file only</p>
+                                                    </div>
+                                                    <div className={`flex justify-center items-center gap-12 rounded-xl border border-dashed ${errors?.phone_number && 'border-dashed border-red-400'} border-gray-300 p-5 text-center`}>
+                                                        <input type="file" accept="application/pdf" id='file' name='file' onChange={handleApplyChange} className={`max-w-full text-center justify-center rounded-lg px-2 font-medium text-orange-500 outline-none ring-orange-500 focus:ring-1 `} />
+                                                        {errors?.file && (
+                                                            <span className='text-red-600 bg-red-300 text-xs mt-1 border-red-500 border rounded-xl inline-block py-1.5 font-normal font-Poppins px-1'>{errors?.file}</span>
+                                                        )}
+                                                    </div>
+                                                </div>
+                                                <div className="flex items-center gap-x-4 justify-end py-4">
+                                                    <button type='reset' className="rounded-lg border-2 px-4 py-2 font-medium text-gray-500 focus:outline-none focus:ring hover:bg-gray-200">Cancel</button>
+                                                    <button type='submit' className="rounded-lg border-2 border-transparent bg-orange-500 px-4 py-2 font-medium text-white focus:outline-none focus:ring hover:bg-blue-700 transition-all duration-200 ease-in-out">Submit</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </motion.div>
+                    </div>
+                </AnimatePresence>
+            )}
 
         </React.Fragment>
     )
