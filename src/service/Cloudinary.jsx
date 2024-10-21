@@ -9,12 +9,7 @@ export const uploadToCloudinary = async (file) => {
     try {
         const response = await axios.post(
             `https://api.cloudinary.com/v1_1/cjubsd1h/upload`,// Replace with your Cloudinary cloud name
-            formData, {
-            // withCredentials: true,
-            // headers: {
-            //     "Content-Type": "multipart/form-data"
-            // }
-        }
+            formData
         );
         return response.data.secure_url;
     } catch (error) {
