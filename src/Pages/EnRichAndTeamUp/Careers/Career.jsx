@@ -2,7 +2,6 @@ import React, { useRef, useState } from 'react'
 import ImageTag from '../../../Components/ImageTag/ImageTag'
 import sendEmail from '../../../email/sendEmail'
 import toast from 'react-hot-toast'
-import emailjs from '@emailjs/browser'
 import { jobsDetails } from '../../../DB/Jobs.json';
 import { AnimatePresence, motion } from 'framer-motion';
 import { uploadToCloudinary } from '../../../service/Cloudinary'
@@ -15,8 +14,6 @@ const Career = () => {
     const carouselRef = useRef(null);
     const emailPattern = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g
     const emailTemplateId = import.meta.env.VITE_API_TEMPLATE_ID
-    const serviceId = import.meta.env.VITE_API_SERVICE_ID; // Get from EmailJS
-    const userId = import.meta.env.VITE_API_PUBLIC_KEY; // Get from EmailJS
     const [errors, setErrors] = useState({})
     const [modal, setModal] = useState(false)
     const [careers, setCareers] = useState({
@@ -26,7 +23,17 @@ const Career = () => {
         email: "",
         contact_number: "",
         location: '',
-        graduation: ''
+        graduation: '',
+        from_email: "logesh.r@16dcargos.com"
+    })
+    const [fetchDetails, setFetchDetails] = useState(null)
+
+    const [apply, setApply] = useState({
+        name: "",
+        last_name: "",
+        email: "",
+        phone_number: "",
+        file: null
     })
     const scrollLeft = () => {
         if (carouselRef.current) {
@@ -66,25 +73,54 @@ const Career = () => {
             isError = true,
                 errObj.graduation = 'Graduation is required!'
         }
+        if (careers.contact_number === '') {
+            isError = true,
+                errObj.contact_number = 'contact number is required!'
+        }
+        if (!careers.email?.trim()) {
+            isError = true,
+                errObj.email = "Email must not be empty!"
+        } else if (!emailPattern.test(careers?.email)) {
+            isError = true,
+                errObj.email = "Email must in email pattern!"
+        }
 
-
+        if (careers.resume === null || '') {
+            isError = true,
+                errObj.resume = "Resume must not be empty!"
+        }
         setErrors(errObj)
-        return !isError
+        return isError
     }
-
+    console.log(careers.resume)
     const handleSubmit = async (e) => {
         e.preventDefault()
+
         if (validateForm()) {
-            await sendEmail(emailTemplateId, careers)
-            setCareers({
-                dob: "",
-                graduation: "",
-                location: "",
-                name: "",
-            })
+            toast.error('Form have validation error!')
         } else {
-            toast.error('Form has validation, kindly fill all fields!')
+            await uploadToCloudinary(careers.resume).then((res) => {
+                const data = {
+                    ...careers,
+                    resume: res.secure_url
+                }
+                sendEmail(emailTemplateId, data)
+                setCareers({
+                    dob: "",
+                    graduation: "",
+                    location: "",
+                    name: "",
+                    contact_number: "",
+                    email: "",
+                    from_email: "",
+                    resume: null
+                })
+
+            }).catch((err) => {
+                console.log(err)
+            })
         }
+
     }
 
 
@@ -125,23 +161,15 @@ const Career = () => {
         }))
     }
 
-    const [fetchDetails, setFetchDetails] = useState(null)
 
-    const [apply, setApply] = useState({
-        first_name: "",
-        last_name: "",
-        email: "",
-        phone_number: "",
-        file: null
-    })
 
     const handleApplyFormValidation = () => {
         const errObj = {}
         let isError = false
 
-        if (!apply.first_name.trim()) {
+        if (!apply.name.trim()) {
             isError = true,
-                errObj.first_name = 'First must not be empty!'
+                errObj.name = 'First must not be empty!'
         }
 
         if (!apply.email?.trim()) {
@@ -196,7 +224,7 @@ const Career = () => {
 
     const handleApplyReset = () => {
         setApply({
-            email: "", file: null, first_name: '', last_name: '', phone_number: ""
+            email: "", file: null, name: '', last_name: '', phone_number: ""
         });
     }
 
@@ -210,34 +238,27 @@ const Career = () => {
     const handleApplySubmit = async (e) => {
         e.preventDefault()
 
-        const fileUrl = uploadToCloudinary(apply.file)
-        console.log(fileUrl)
-        // if (handleApplyFormValidation()) {
-        //     toast.error('Form have validation error!')
-        // } else {
-        //     // await sendEmail(emailTemplateId, new FormData(apply))
-        //     // console.log(apply)
-        //     // setApply({
-        //     //     email: "", file: null, first_name: '', last_name: '', phone_number: ""
-        //     // });
-        //     await emailjs.send(serviceId, emailTemplateId, new FormData(apply), userId)
-        //         .then(response => {
-        //             console.log('SUCCESS!', response.status, response.text);
-        //             if (response.status === 200) {
-        //                 toast.success('Thank yor for submission, We will reach you soon')
-        //             }
-        //             return true;
-        //         })
-        //         .catch(err => {
-        //             if (err) {
-        //                 toast.error('Sothing went wroung! please try again later')
-        //             }
-        //             return false;
-        //         });
-        // }
+        // console.log(fileUrl)
+        if (handleApplyFormValidation()) {
+            toast.error('Form have validation error!')
+        } else {
+            await uploadToCloudinary(apply.file).then((res) => {
+                const data = {
+                    ...apply,
+                    file: res.secure_url
+                }
+                sendEmail(emailTemplateId, data)
+                setApply({
+                    email: "", file: null, name: '', last_name: '', phone_number: ""
+                });
 
+            }).catch((err) => {
+                console.log(err)
+            })
+        }
 
     }
+
 
     const handleCloseModal = async () => {
         setModal((preve) => !preve)
@@ -434,7 +455,7 @@ const Career = () => {
                                         Contact Number
                                     </label>
                                     <input type="number" id='contact_number' value={careers.contact_number} name='contact_number' className='w-full placeholder:text-[8px] placeholder:tracking-wide focus:outline-none font-Poppins text-xs rounded-md border py-1.5 px-1.5 bg-custom text-black border-none shadow shadow-gray-500' required />
-                                    {errors.contact_number && <span className='text-red-500 inline-block text-start font-Poppins font-normal leading-3 tracking-tight text-xs'>{errors.location}</span>}
+                                    {errors.contact_number && <span className='text-red-500 inline-block text-start font-Poppins font-normal leading-3 tracking-tight text-xs'>{errors.contact_number}</span>}
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="Location" className='flex justify-start mb-1.5 items-center font-Poppins leading-6 tracking-wide  text-gray-500 font-normal text-sm'>
@@ -536,11 +557,11 @@ const Career = () => {
                                                     </div>
                                                 </div>
                                                 <div className="flex  justify-center flex-col gap-4 border-b py-4 sm:flex-row">
-                                                    <label htmlFor='first_name' className="shrink-0 w-32 font-medium">Name <span className='text-xl font-bold text-red-500 inline-block'>*</span></label>
+                                                    <label htmlFor='name' className="shrink-0 w-32 font-medium">Name <span className='text-xl font-bold text-red-500 inline-block'>*</span></label>
                                                     <div className="w-full">
-                                                        <input type='text' placeholder="First Name" name='first_name' id='first_name' value={apply.first_name} onChange={handleApplyChange} className={`mb-2 w-full rounded-md border bg-white px-2 py-2 outline-none ring-blue-600 sm:mr-4 sm:mb-0 focus:ring-1 ${errors?.first_name && 'ring-red-500 ring-1 placeholder:text-red-500'}`} />
-                                                        {errors?.first_name && (
-                                                            <span className='text-red-600 bg-red-300 text-xs mt-1 border-red-500 border rounded-xl inline-block py-1.5 font-normal font-Poppins px-1'>{errors?.first_name}</span>
+                                                        <input type='text' placeholder="First Name" name='name' id='name' value={apply.name} onChange={handleApplyChange} className={`mb-2 w-full rounded-md border bg-white px-2 py-2 outline-none ring-blue-600 sm:mr-4 sm:mb-0 focus:ring-1 ${errors?.name && 'ring-red-500 ring-1 placeholder:text-red-500'}`} />
+                                                        {errors?.name && (
+                                                            <span className='text-red-600 bg-red-300 text-xs mt-1 border-red-500 border rounded-xl inline-block py-1.5 font-normal font-Poppins px-1'>{errors?.name}</span>
                                                         )}
                                                     </div>
                                                     <div className="w-full">

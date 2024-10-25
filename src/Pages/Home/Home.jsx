@@ -106,7 +106,7 @@ export default function Home() {
                 </div>
 
                 <div className="relative z-10 flex flex-col justify-center items-center h-full text-center">
-                    <div className='text-5xl text relative md:text-6xl lg:text-9xl flex justify-start flex-row font-bold font-Poppins px-6 py-4 '>
+                    <div className='text-5xl relative md:text-6xl lg:text-9xl flex justify-start flex-row font-bold font-Poppins px-6 py-4 '>
                         <span className="hidden md:block text-xs md:text-sm lg:text-lg text-start font-medium tracking-wide font-Poppins mb-4 absolute inset-y-0">Welcome to</span>
                         <h1 className='tracking-wider'>
                             <span className='text-[#0025A9]'>16D</span> <span className='text-[#C96202]'>
@@ -130,12 +130,12 @@ export default function Home() {
             <section className='relative isolate overflow-hidden px-3 py-4 lg:px-8 lg:py-6 bg-[#d9d9d9]'>
                 <div className='mx-auto max-w-xl lg:max-w-5xl'>
                     <div className="flex items-center gap-4 md:gap-10 justify-center flex-col md:flex-row">
-                        <div className='w-1/2 rounded-xl'>
+                        <div className='md:w-1/2 w-full rounded-xl'>
                             <div className="w-full h-auto overflow-hidden rounded-md sm:rounded-xl">
                                 <ImageTag src={'https://res.cloudinary.com/dmh7fwdzf/image/upload/v1725907877/vision_ono5q7.png'} alt={'our vission'} className={'w-full h-full object-center object-fill'} />
                             </div>
                         </div>
-                        <div className="w-1/2">
+                        <div className="md:w-1/2 w-full">
                             <div className='px-4 py-4 lg:py-0'>
                                 <h1 className='border-b-[1px] pb-1 border-orange-400 inline-block font-Poppins tracking-wide font-bold text-black text-lg lg:text-3xl'>
                                     Our Vision
@@ -153,7 +153,7 @@ export default function Home() {
             <section className='relative isolate overflow-hidden px-3 py-4 lg:px-8 lg:py-6 bg-[#d9d9d9]'>
                 <div className='mx-auto max-w-xl lg:max-w-5xl'>
                     <div className="flex items-center justify-center md:gap-10 gap-4 flex-col-reverse md:flex-row">
-                        <div className="w-1/2">
+                        <div className="md:w-1/2 w-full">
                             <div className='px-4 py-4 lg:py-0'>
                                 <h1 className='border-b-[1px] pb-1 border-orange-400 inline-block font-Poppins tracking-wide font-bold text-black text-lg lg:text-3xl'>
                                     Our Mission
@@ -164,7 +164,7 @@ export default function Home() {
                             </div>
                         </div>
 
-                        <div className='w-1/2 rounded-xl mb-4 md:mb-0'>
+                        <div className='md:w-1/2 w-full rounded-xl mb-4 md:mb-0'>
                             <div className="w-full h-auto overflow-hidden rounded-md sm:rounded-xl">
                                 <ImageTag src={'https://res.cloudinary.com/dmh7fwdzf/image/upload/v1725907852/mission_pbze7z.png'} alt={'Our Mission'} className={''} />
                             </div>
@@ -184,7 +184,7 @@ export default function Home() {
                         </div>
                     </div>
                 </div>
-                <div className="mx-auto max-w-full md:max-w-screen-lg px-4 py-4">
+                <div className="mx-auto max-w-full md:max-w-screen-xl px-4 py-4">
                     <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-4 items-stretch lg:gap-7 justify-center grid-cols-1">
                         {ourService && ourService.map((item, index) => (
                             <div className='rounded-lg bg-white shadow-custom-white shadow-gray-500' key={index}>
@@ -194,11 +194,11 @@ export default function Home() {
                                             <ImageTag src={item?.img} className={'w-3 h-3 object-fill'} alt={'profile'} />
                                         </div>
                                         <div className="px-3 py-3">
-                                            <p className='text-sm font-Poppins tracking-tight md:tracking-wider font-semibold md:font-bold text-black'>{item?.title}</p>
+                                            <p className='text-sm font-Poppins tracking-tight md:tracking-wider font-bold text-black'>{item?.title}</p>
                                         </div>
                                     </div>
-                                    <div className="max-w-full md:max-w-md mt-4">
-                                        <p className='text-[9px] leading-4 tracking-wider font-Poppins font-medium text-black'>
+                                    <div className=" mt-4">
+                                        <p className='font-Poppins text-xs mt-3 text-black font-medium lg:max-w-lg leading-6 tracking-wider'>
                                             {item?.content}
                                         </p>
                                     </div>
@@ -221,7 +221,7 @@ export default function Home() {
                         className="md:w-1/2 lg:pl-22  flex flex-col md:items-start md:text-left mt-12 md:mt-0 items-center text-center">
                         <h1 className="title-font md:text-2xl sm:text-4xl text-3xl mb-4 font-bold font-Poppins text-gray-900">Why Choose <span className='inline-block text-transparent bg-clip-text bg-gradient-to-br from-[#0163E0] from-50% to-20% to-[#FF8E26]'>Us</span>?
                         </h1>
-                        <p className="tracking-wider font-Poppins font-normal text-black text-xs leading-6">With a commitment to excellence and a focus on innovation, we offer unparalleled logistics solutions that cater to your every need. From advanced technology to dedicated customer service, we are your trusted partner in logistics. Our strategic approach and the inclusion of top talents ensure that your goods are handled with the utmost care and efficiency. We understand the complexities of logistics and are dedicated to providing solutions that enhance your business operations and deliver outstanding results.</p>
+                        <p className="font-Poppins text-xs mt-3 text-black font-medium lg:max-w-xl leading-6 tracking-wider">With a commitment to excellence and a focus on innovation, we offer unparalleled logistics solutions that cater to your every need. From advanced technology to dedicated customer service, we are your trusted partner in logistics. Our strategic approach and the inclusion of top talents ensure that your goods are handled with the utmost care and efficiency. We understand the complexities of logistics and are dedicated to providing solutions that enhance your business operations and deliver outstanding results.</p>
                     </div>
                 </div>
             </section>
@@ -253,7 +253,7 @@ export default function Home() {
                                     </div>
                                 </div>
                                 <div className="max-w-sm md:max-w-md mt-4">
-                                    <p className='text-[10px] leading-4 tracking-wider font-Poppins font-normal text-black'>
+                                    <p className='font-Poppins text-xs mt-3 text-black font-medium lg:max-w-xl leading-6 tracking-wider'>
                                         The seamless service and timely deliveries have made a significant difference in our operations.
                                     </p>
                                 </div>
@@ -270,7 +270,7 @@ export default function Home() {
                                     </div>
                                 </div>
                                 <div className="max-w-sm md:max-w-md mt-4">
-                                    <p className='text-[10px] leading-4 tracking-wider font-Poppins font-normal text-black'>
+                                    <p className='font-Poppins text-xs mt-3 text-black font-medium lg:max-w-xl leading-6 tracking-wider'>
                                         Their strategic planning and efficient execution have made our supply chain management smoother and more reliable. Highly recommend their services.
                                     </p>
                                 </div>
@@ -288,7 +288,7 @@ export default function Home() {
                                     </div>
                                 </div>
                                 <div className="max-w-sm md:max-w-md mt-4">
-                                    <p className='text-[10px] leading-4 tracking-wider font-Poppins font-normal text-black'>
+                                    <p className='font-Poppins text-xs mt-3 text-black font-medium lg:max-w-xl leading-6 tracking-wider'>
                                         Their commitment to excellence and attention to detail have significantly improved our logistics operations
                                     </p>
                                 </div>
@@ -305,14 +305,14 @@ export default function Home() {
                                     </div>
                                 </div>
                                 <div className="max-w-sm md:max-w-md mt-4">
-                                    <p className='text-[10px] leading-4 tracking-wider font-Poppins font-normal text-black'>
+                                    <p className='font-Poppins text-xs mt-3 text-black font-medium lg:max-w-xl leading-6 tracking-wider'>
                                         Their innovative approach and reliable service set them apart from the competition.
                                     </p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className="max-w-md mx-auto px-4 py-4 md:px-3 md:py-8 flex justify-center items-center text-center font-Poppins ">
+                    <div className="max-w-md hidden mx-auto px-4 py-4 md:px-3 md:py-8 justify-center items-center text-center font-Poppins ">
                         <Link className='text-orange-500 font-medium no-underline group flex items-center -tracking-tight'>
                             See more
                             <svg className='w-5 h-5 group-hover:translate-x-1 transition-transform duration-500 ease-in-out' viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg">

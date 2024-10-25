@@ -3,7 +3,8 @@ import logo from "../../assets/Logo/16Dlogo.png";
 import { Link } from "react-router-dom";
 import BlueBtn from "../Buttons/BlueBtn";
 import { useState } from "react";
-export default function Navbar() {
+
+export default function Navbar({ handleToggleModal }) {
 
     const [toggle, setToggle] = useState(false)
 
@@ -32,7 +33,7 @@ export default function Navbar() {
                             </Link>
                         </div>
                         <div className="hidden md:flex md:items-center md:justify-center">
-                            <ul className="flex justify-center md:gap-x-3 gap-x-2 items-center">
+                            <ul className="flex justify-center md:gap-x-6 gap-x-2 items-center">
                                 <li className="">
                                     <Link to={'/'} className="rounded-lg transition-all py-3 duration-200 hover:text-gray-900 flex items-center justify-center  text-sm font-semibold leading-6 text-gray-900">
                                         Home
@@ -87,7 +88,7 @@ export default function Navbar() {
                                         className="rounded-lg py-3 transition-all duration-200 hover:text-gray-900 flex items-center justify-center  text-sm font-semibold leading-6 text-gray-900"
                                         aria-expanded="false"
                                     >
-                                        Products & Services Order
+                                        Products & Services
                                         <svg
                                             className="h-5 w-5 flex-none text-slate-950 group-hover:rotate-180 transition-all duration-700 ease-in-out"
                                             viewBox="0 0 20 20"
@@ -224,7 +225,7 @@ export default function Navbar() {
                         </div>
                         <div className="hidden md:flex items-center justify-end gap-3">
                             <div >
-                                <BlueBtn title={"Get Qutoe"} />
+                                <BlueBtn onClick={handleToggleModal} title={"Get Quote"} />
                             </div>
                         </div>
                         <div className="md:hidden relative flex items-center justify-end gap-3">
@@ -329,7 +330,7 @@ export default function Navbar() {
                                         </div>
                                     </li>
                                     <li className="px-2 pt-3">
-                                        <Link onClick={handleToggleNav} className='transition duration-300 ease-in-out hover:shadow-custom-white active:translate-y-1 font-Poppins hover:shadow-gray-600 text-white text-center bg-[#0222C9] block px-3 py-3 lg:px-4 lg:py-2 text-xs rounded-xl font-semibold' to={'/'}>Contact</Link>
+                                        <button type="button" onClick={handleToggleModal} className='transition w-full duration-300 ease-in-out hover:shadow-custom-white active:translate-y-1 font-Poppins hover:shadow-gray-600 text-white text-center bg-[#0222C9] block px-3 py-3 lg:px-4 lg:py-2 text-xs rounded-xl font-semibold'>Contact</button>
                                     </li>
                                 </ul>
                             </div>

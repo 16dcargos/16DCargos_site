@@ -356,7 +356,7 @@ export default function Footer() {
                     © 2024 16D Cargos. All Rights Reserved
                 </p>
                 <div className="flex flex-col mb-3 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row">
-                    <p className="font-Poppins text-xl font-semibold tracking-normal">Move, Manage, Master</p>
+                    <p className="font-Poppins text-xl font-semibold tracking-normal">We Move, Manage and Deliver</p>
                 </div>
                 <ul className="flex flex-col mb-3 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row">
                     <li>
