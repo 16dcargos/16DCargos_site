@@ -4,7 +4,7 @@ import OrangeBtn from '../../../Components/Buttons/OrangeBtn'
 import sendEmail from '../../../email/sendEmail'
 import toast from 'react-hot-toast'
 
-const FullTruckLoaded = () => {
+const FullTruckLoaded = ({ handleToggleModal }) => {
 
 
     const [email, setEmail] = useState('')
@@ -67,11 +67,11 @@ const FullTruckLoaded = () => {
                     <div className="absolute inset-0 bg-black/50"></div>
                 </div>
 
-                <div className="relative  max-w-xl md:max-w-4xl px-4 py-4 md:py-12 md:px-12 z-10 flex flex-col justify-center items-start h-screen">
-                    <h1 className="text-2xl md:text-3xl xl:text-4xl text-center md:text-start leading-6 mb-5 tracking-wide flex justify-start flex-row font-bold font-Poppins">Streamline Your Logistics with Our Full Truck Load (FTL) Services</h1>
-                    <p className='md:text-sm font-Poppins leading-normal md:leading-6 md:text-start text-center  tracking-wider text-white text-xs max-w-lg font-medium mb-6'>Experience unmatched efficiency and reliability in transporting full truckloads across India. Optimize your operations with our advanced FTL solutions.</p>
+                <div className="relative max-w-xl md:max-w-4xl px-4 py-4 md:py-12 md:px-12 z-10 flex flex-col justify-center items-start h-screen">
+                    <h1 className="text-2xl md:text-3xl xl:text-5xl text-center mb-5 md:text-start xl:leading-tight tracking-wide font-bold font-Poppins">Streamline Your Logistics with Our Full Truck Load (FTL) Services</h1>
+                    <p className='md:text-sm lg:text-lg font-Poppins leading-normal md:leading-7 md:text-start text-center tracking-wider text-white text-xs max-w-xl lg:max-w-2xl font-medium mb-6'>Experience unmatched efficiency and reliability in transporting full truckloads across India. Optimize your operations with our advanced FTL solutions.</p>
                     <div className="md:text-start text-center w-full">
-                        <OrangeBtn text={'Book your Truck'} />
+                        <button className="bg-[#C96202] text-white active:translate-y-[6px] py-2.5 px-5 rounded-full text-xs font-medium tracking-wider font-Poppins transition duration-300 ease-in-out transform  hover:shadow-custom-white" type='button' onClick={handleToggleModal}>Book your Truck</button>
                     </div>
                 </div>
             </section>

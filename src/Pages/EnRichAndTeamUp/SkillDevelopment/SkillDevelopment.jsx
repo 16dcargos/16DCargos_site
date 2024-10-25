@@ -12,8 +12,8 @@ const SkillDevelopment = () => {
                 </div>
 
                 <div className="relative space-y-5 mx-auto md:max-w-xl lg:max-w-4xl max-w-xs z-10 flex flex-col justify-center items-center h-screen">
-                    <h1 className="text-xl md:text-4xl lg:text-6xl text-center lg:leading-66 text-white p-2 tracking-wide font-bold font-Poppins">Empowering the Youth for a Brighter Tomorrow</h1>
-                    <p className='text-center font-Poppins text-xxs lgmd:text-sm max-w-md md:max-w-xl text-white font-normal md:leading-5 tracking-wider'>At 16D Cargos, we believe in the boundless potential of the youth of Bharat. Our Skill Development Program is designed to bridge the gap between industry requirements and the skills possessed by young professionals. We are committed to nurturing the next generation of logistics leaders, ensuring they are equipped with the expertise needed to thrive in the ever-evolving logistics industry.</p>
+                    <h1 className="text-2xl md:text-4xl lg:text-6xl text-center lg:leading-tight text-white p-2 tracking-wide font-bold font-Poppins">Empowering the Youth for a Brighter Tomorrow</h1>
+                    <p className='text-center font-Poppins text-sm md:px-4 px-3 lg:text-xl md:text-sm max-w-md md:max-w-3xl lg:max-w-5xl font-medium text-white md:leading-5 tracking-wider'>At 16D Cargos, we believe in the boundless potential of the youth of Bharat. Our Skill Development Program is designed to bridge the gap between industry requirements and the skills possessed by young professionals. We are committed to nurturing the next generation of logistics leaders, ensuring they are equipped with the expertise needed to thrive in the ever-evolving logistics industry.</p>
                 </div>
             </section>
 

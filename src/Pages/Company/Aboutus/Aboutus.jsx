@@ -153,7 +153,7 @@ export default function Aboutus() {
                 <div className="relative inset-x-0 z-10 flex justify-center md:justify-start items-center h-screen top-1/4 lg:left-11">
                     <div className="max-w-sm md:max-w-xl lg:max-w-5xl px-4 py-4 md:px-8 space-y-6">
                         <h1 className="text-white font-bold lg:max-w-2xl tracking-wide text-lg text-center md:text-start md:text-xl lg:text-3xl font-Poppins leading-6">We are shaping the future of logistics, committed to elevating your experience and delivering excellence nationwide.</h1>
-                        <p className='max-w-md md:text-start text-center text-white font-Poppins font-normal text-xs md:text-sm tracking-wide leading-6'>Whether it's last-mile delivery or nationwide distribution, we’re here to simplify logistics and make sure your products reach their destination on time, every time.</p>
+                        <p className='max-w-md md:text-start text-center text-white font-Poppins font-medium text-xs md:text-sm lg:max-w-xl lg:text-xl tracking-wide leading-6'>Whether it's last-mile delivery or nationwide distribution, we’re here to simplify logistics and make sure your products reach their destination on time, every time.</p>
                         <div className="flex justify-center md:justify-normal items-center">
                             <Link onClick={handleOpenModal} type='button' className="bg-[#C96202] text-white absolute mt-12 active:translate-y-[6px] py-2.5 px-5 rounded-full text-xs font-medium tracking-wider font-Poppins transition duration-300 ease-in-out transform  hover:shadow-custom-white">Get a Quote</Link>
                         </div>
@@ -184,7 +184,7 @@ export default function Aboutus() {
                     </div>
                     <div
                         className="md:w-1/2 lg:pl-22  flex flex-col md:items-start md:text-left mt-12 md:mt-0 items-center text-center">
-                        <h1 className=" md:text-4xl sm:text-4xl text-3xl mb-4 font-bold font-Poppins text-gray-900">Our Stroy
+                        <h1 className=" md:text-4xl sm:text-4xl text-3xl mb-4 font-bold font-Poppins text-gray-900">Our Story
                         </h1>
                         <p className="tracking-wider font-Poppins font-normal text-black md:text-xs lg:text-sm leading-6">began as a bold startup with a clear vision to disrupt and elevate the logistics industry in India. Recognizing an opportunity to transform the landscape, we embarked on a mission to innovate and lead with unwavering determination. Driven by a commitment to excellence and a sense of responsibility, we set out to redefine industry standards. As we navigate early challenges and achieve significant milestones, 16D Cargos is emerging as a powerful force poised to conquer the national logistics space, setting new benchmarks and shaping a future where logistics excellence is the new standard.</p>
                     </div>
@@ -250,8 +250,6 @@ export default function Aboutus() {
                     </div>
                     <div
                         className="md:w-1/2 lg:pl-22  flex flex-col md:items-start md:text-left mt-12 md:mt-0 items-center text-center">
-                        {/* <h1 className=" md:text-4xl sm:text-4xl text-3xl mb-4 font-bold font-Poppins text-gray-900">Our Stroy
-                        </h1> */}
                         <p className="tracking-wider font-Poppins font-normal text-black md:text-xs lg:text-sm leading-6">Our <span className='inline-block text-base font-bold  md:text-4xl font-Poppins tracking-wide leading-6 text-black'>Mission</span> is driven by bold vision into reality through meticulous strategic planning and by leveraging the expertise of India’s leading professionals. We are committed to reshaping the logistics landscape with unparalleled service, optimized operations, and a focus on sustainability. By embracing innovation and driving progress, we seek to establish new benchmarks in Indian logistics. Our approach integrates the needs of our clients with the aspirations of our team, fostering a logistics ecosystem renowned for its operational excellence and inspiring transformative advancements across the industry.</p>
                     </div>
                 </div>

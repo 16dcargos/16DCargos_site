@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import Img from '../../../Components/ImageTag/ImageTag';
-import OrangeBtn from '../../../Components/Buttons/OrangeBtn';
 import toast from 'react-hot-toast';
 import sendEmail from '../../../email/sendEmail';
 const Fleetowners = () => {
@@ -99,8 +98,7 @@ const Fleetowners = () => {
 
                 <div className="relative space-y-5 mx-auto md:max-w-4xl max-w-xl z-10 flex flex-col justify-center items-center h-screen">
                     <h1 className="text-3xl md:text-5xl lg:text-7xl text-center text-white leading-10 p-2 tracking-normal flex justify-start flex-row font-bold font-Poppins">Empowering Fleet Owners for Success</h1>
-                    <p className='text-center font-Poppins text-xs lg:text-sm text-white font-medium leading-6 md:max-w-xl max-w-full tracking-wide'>Join us in transforming logistics. As a fleet owner, gain access to top-tier opportunities, advanced tools, and full support. Together, we drive efficiency and elevate fleet management standards across India. Let’s lead the change, one journey at a time.</p>
-                    {/* <OrangeBtn text={'Become a FOP Today'} hrefLang={'/#fop'} /> */}
+                    <p className='text-center font-Poppins text-xs md:text-sm lg:text-xl text-white font-medium leading-6 md:max-w-3xl max-w-full tracking-wide'>Join us in transforming logistics. As a fleet owner, gain access to top-tier opportunities, advanced tools, and full support. Together, we drive efficiency and elevate fleet management standards across India. Let’s lead the change, one journey at a time.</p>
                     <a href='#fop' className="bg-[#C96202] text-white active:translate-y-[6px] py-2.5 px-5 rounded-full text-xs font-medium tracking-wider font-Poppins transition duration-300 ease-in-out transform  hover:shadow-custom-white">Become a FOP Today</a>
                 </div>
             </section>
@@ -115,7 +113,7 @@ const Fleetowners = () => {
 
                         <div className="w-full px-4 py-4 md:py-6">
                             <h1 className='md:text-3xl text-xl font-Poppins text-black font-bold leading-6 tracking-wide'>The Crucial Role of Fleet Owners</h1>
-                            <p className='md:text-xs text-xxs font-Poppins leading-7 tracking-widest font-medium text-black mt-3 md:mt-5'>Fleet owners are the backbone of our logistics operations. They play an essential role in ensuring that goods are transported efficiently, safely, and on time. Their expertise in managing vehicles and drivers directly impacts the quality and reliability of our Full Truck Load (FTL) services. By partnering with us, fleet owners help drive operational excellence, optimize routes, reduce transit times, and enhance customer satisfaction. Their contribution is vital in maintaining the seamless flow of goods across India, making them indispensable in our mission to revolutionize logistics.</p>
+                            <p className='font-Poppins text-xs md:text-sm mt-4 text-black font-medium lg:max-w-lg leading-6 tracking-wider'>Fleet owners are the backbone of our logistics operations. They play an essential role in ensuring that goods are transported efficiently, safely, and on time. Their expertise in managing vehicles and drivers directly impacts the quality and reliability of our Full Truck Load (FTL) services. By partnering with us, fleet owners help drive operational excellence, optimize routes, reduce transit times, and enhance customer satisfaction. Their contribution is vital in maintaining the seamless flow of goods across India, making them indispensable in our mission to revolutionize logistics.</p>
                         </div>
                     </div>
                 </div>
@@ -127,7 +125,7 @@ const Fleetowners = () => {
                 <div className="max-w-xl md:max-w-7xl mx-auto px-4 py-4">
                     <div className="grid grid-cols-1  md:grid-cols-2 md:gap-x-20">
                         <div className="w-full flex justify-center flex-grow flex-col items-center h-auto px-5 space-y-4 py-4">
-                            <h1 className='md:text-4xl text-xl font-Poppins font-bold leading-6 tracking-wide'>Join Us as a Fleet Owner Partner</h1>
+                            <h1 className='md:text-4xl text-xl font-Poppins font-bold leading-6 tracking-wide'>Join Us as a Fleet Owner Partner.</h1>
                             <p className='text-black md:text-xs text-xxs leading-6 tracking-wider font-Poppins font-medium'>Ready to make a significant impact in the logistics industry? Partner with us and take your fleet operations to new heights. Contact us today to explore this exciting opportunity:</p>
                             <div className="inline-flex w-full justify-start items-center gap-3">
                                 <span>

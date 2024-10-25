@@ -31,16 +31,16 @@ const Belinkmentor = () => {
                     <div className="absolute inset-0 bg-black opacity-50"></div>
                 </div>
 
-                <div className="relative z-10 flex  flex-col justify-center items-center h-full max-w-md md:max-w-3xl mx-auto text-center">
-                    <h1 className="md:text-5xl text-2xl mb-4 font-Poppins font-bold leading-relaxed  tracking-wider text-white">Be a Mentor: Share Your Insights and Ideas</h1>
-                    <p className="md:text-xs text-xxs font-Poppins font-medium leading-5 md:max-w-xl mx-auto md:tracking-widest tracking-wider text-white mb-8">We believe in the power of collaboration and value the wisdom of experienced professionals. As part of our commitment to excellence, we're inviting you to share your insights, suggestions, and innovative ideas with us. Your mentorship can help us improve and grow, ensuring we continue to deliver top-notch logistics services.</p>
-                    <Link className="bg-[#C96202]  text-white active:translate-y-[6px] py-2.5 px-5 rounded-full text-xs font-medium tracking-wider font-Poppins transition duration-300 ease-in-out transform  hover:shadow-custom-white">Guide us through your wisdom</Link>
+                <div className="relative z-10 flex  flex-col justify-center items-center h-screen max-w-md md:max-w-6xl mx-auto text-center">
+                    <h1 className="md:text-5xl text-2xl mb-4 font-Poppins font-bold leading-relaxed lg:max-w-3xl tracking-wider text-white">Be a Mentor: Share Your Insights and Ideas</h1>
+                    <p className="md:text-xs lg:text-lg text-xs font-Poppins font-medium leading-5 md:max-w-5xl md:px-4 px-3 mx-auto md:tracking-widest tracking-wider text-white mb-8">We believe in the power of collaboration and value the wisdom of experienced professionals. As part of our commitment to excellence, we're inviting you to share your insights, suggestions, and innovative ideas with us. Your mentorship can help us improve and grow, ensuring we continue to deliver top-notch logistics services.</p>
+                    <a href='#guide-us' className="bg-[#C96202] no-underline  text-white active:translate-y-[6px] py-2.5 px-5 rounded-full text-xs font-medium tracking-wider font-Poppins transition duration-300 ease-in-out transform  hover:shadow-custom-white">Guide us through your wisdom</a>
                 </div>
             </section>
 
             <section className='relative overflow-hidden bg-[#d9d9d9] px-4 py-6 lg:px-8 lg:py-6'>
                 <div className="mx-auto max-w-full lg:max-w-2xl">
-                    <p className='font-Poppins text-xs font-medium tracking-wider leading-relaxed'>
+                    <p className='font-Poppins text-xs md:text-sm mt-4 text-black font-medium text-center leading-6 tracking-wider'>
                         At the heart of our growth and innovation lies collaboration. We recognize the immense value that experienced professionals bring to the table. That’s why we’re opening our doors to mentors who can help us elevate our services and set new standards in the logistics industry.
                     </p>
                 </div>
@@ -55,7 +55,7 @@ const Belinkmentor = () => {
                         </div>
                         <div className="w-full px-3 py-3 space-y-5">
                             <h1 className="text-black text-xl md:text-3xl font-bold font-Poppins mb-5 md:mb-8 xl:mb-12  leading-6 tracking-wide">Why Your Insights Matter:</h1>
-                            <p className='text-black font-Poppins leading-5 tracking-wider text-xs font-medium '>
+                            <p className='font-Poppins text-xs md:text-sm mt-4 text-black font-medium lg:max-w-xl leading-6 tracking-wider'>
                                 Your experience and knowledge are invaluable to us. By sharing your insights, suggestions, and innovative ideas, you play a crucial role in shaping the future of our logistics solutions. Your guidance can help us refine our processes, introduce new technologies, and better serve our clients.
                             </p>
                         </div>
@@ -180,7 +180,7 @@ const Belinkmentor = () => {
                                 <p className="font-Poppins text-sm font-semibold tracking-tight text-black md:font-bold md:tracking-wider">Online Form</p>
 
                                 <div className="mt-4 max-w-sm md:max-w-xl">
-                                    <p className="text-[9px] font-Poppins font-medium leading-4 tracking-wider text-black">Easily share your thoughts and ideas by filling out our mentorship and suggestion form. Your contributions will be reviewed and considered by our team.</p>
+                                    <p className="font-Poppins text-xs md:text-sm mt-4 text-black font-medium lg:max-w-lg leading-6 tracking-wider">Easily share your thoughts and ideas by filling out our mentorship and suggestion form. Your contributions will be reviewed and considered by our team.</p>
                                 </div>
                             </div>
                         </div>
@@ -189,7 +189,7 @@ const Belinkmentor = () => {
                                 <p className="font-Poppins text-sm font-semibold tracking-tight text-black md:font-bold md:tracking-wider">Email</p>
 
                                 <div className="mt-4 max-w-sm md:max-w-xl">
-                                    <p className="text-[9px] font-Poppins font-medium leading-4 tracking-wider text-wrap text-black">Prefer a more direct approach? Send your detailed suggestions and insights to <a href="mailto:chanakya@16dcargos.com" className='inline-block after-line font-Poppins font-semibold tracking-wide'>chanakya@16dcargos.com
+                                    <p className="font-Poppins text-xs md:text-sm mt-4 text-black font-medium lg:max-w-lg leading-6 tracking-wider">Prefer a more direct approach? Send your detailed suggestions and insights to <a href="mailto:chanakya@16dcargos.com" className='inline-block after-line font-Poppins font-semibold tracking-wide'>chanakya@16dcargos.com
                                     </a> and our team will get back to you promptly.</p>
                                 </div>
                             </div>
@@ -199,7 +199,7 @@ const Belinkmentor = () => {
                                 <p className="font-Poppins text-sm font-semibold tracking-tight text-black md:font-bold md:tracking-wider">Discussion Forum</p>
 
                                 <div className="mt-4 max-w-sm md:max-w-xl">
-                                    <p className="text-[9px] font-Poppins font-medium leading-4 tracking-wider text-black">Join our community forum through social channels to engage in discussions, exchange ideas, and collaborate with other mentors and our team. This platform allows for a dynamic and ongoing conversation about the future of logistics.</p>
+                                    <p className="font-Poppins text-xs md:text-sm mt-4 text-black font-medium lg:max-w-lg leading-6 tracking-wider">Join our community forum through social channels to engage in discussions, exchange ideas, and collaborate with other mentors and our team. This platform allows for a dynamic and ongoing conversation about the future of logistics.</p>
                                 </div>
                             </div>
                         </div>
@@ -213,7 +213,7 @@ const Belinkmentor = () => {
                     <div className="flex justify-center h-full md:py-12 py-2 items-center md:flex-row flex-col gap-5">
                         <div className="md:w-1/2 w-full">
                             <h2 className='md:text-4xl text-2xl font-Poppins text-black leading-6 tracking-wider font-bold'>Benefits of Mentorship:</h2>
-                            <p className='font-medium font-Poppins mt-3 md:mt-6 text-xxs md:text-xs leading-5 tracking-wider text-gray-800'>Join Us in Shaping the Future: We are on a mission to revolutionize the logistics industry, and we believe that with your help, we can achieve great things. Join us as a mentor and be part of a transformative journey. Your expertise and guidance can make a significant difference. Let’s work together to build a brighter future for logistics in India.</p>
+                            <p className='font-Poppins text-xs md:text-sm mt-4 text-black font-medium lg:max-w-xl leading-6 tracking-wider'>Join Us in Shaping the Future: We are on a mission to revolutionize the logistics industry, and we believe that with your help, we can achieve great things. Join us as a mentor and be part of a transformative journey. Your expertise and guidance can make a significant difference. Let’s work together to build a brighter future for logistics in India.</p>
                         </div>
 
                         <div className="md:w-1/2 w-full">
@@ -223,7 +223,7 @@ const Belinkmentor = () => {
                                         <p className="font-Poppins text-sm font-semibold tracking-tight text-black md:font-bold md:tracking-wider">Impactful Contribution</p>
 
                                         <div className="mt-4 max-w-sm md:max-w-xl">
-                                            <p className="text-[9px] font-Poppins font-medium leading-4 tracking-wider text-black">Your ideas can lead to real changes and improvements in our operations.</p>
+                                            <p className="font-Poppins text-xs md:text-sm mt-4 text-black font-medium lg:max-w-lg leading-6 tracking-wider">Your ideas can lead to real changes and improvements in our operations.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -232,7 +232,7 @@ const Belinkmentor = () => {
                                         <p className="font-Poppins text-sm font-semibold tracking-tight text-black md:font-bold md:tracking-wider">Networking Opportunities</p>
 
                                         <div className="mt-4 max-w-sm md:max-w-xl">
-                                            <p className="text-[9px] font-Poppins font-medium leading-4 tracking-wider text-black">Connect with other industry professionals and expand your network.</p>
+                                            <p className="font-Poppins text-xs md:text-sm mt-4 text-black font-medium lg:max-w-lg leading-6 tracking-wider">Connect with other industry professionals and expand your network.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -241,7 +241,7 @@ const Belinkmentor = () => {
                                         <p className="font-Poppins text-sm font-semibold tracking-tight text-black md:font-bold md:tracking-wider">Recognition</p>
 
                                         <div className="mt-4 max-w-sm md:max-w-xl">
-                                            <p className="text-[9px] font-Poppins font-medium leading-4 tracking-wider text-black">Your contributions will be acknowledged and celebrated within our community.</p>
+                                            <p className="font-Poppins text-xs md:text-sm mt-4 text-black font-medium lg:max-w-lg leading-6 tracking-wider">Your contributions will be acknowledged and celebrated within our community.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -252,7 +252,7 @@ const Belinkmentor = () => {
             </section>
 
 
-            <section className='bg-white overflow-hidden isolate relative'>
+            <section id='guide-us' className='bg-white overflow-hidden isolate relative'>
                 <div className="max-w-full mx-auto md:max-w-6xl px-3 py-3 md:px-6">
                     <div className="">
                         <h1 className='md:text-4xl text-2xl font-Poppins tracking-wide leading-6 font-bold text-black mb-2'>Ready to get started?</h1>
