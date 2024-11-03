@@ -92,7 +92,6 @@ const Career = () => {
         setErrors(errObj)
         return isError
     }
-    console.log(careers.resume)
     const handleSubmit = async (e) => {
         e.preventDefault()
 
@@ -350,7 +349,7 @@ const Career = () => {
                                 jobsDetails.map((item, index) => {
                                     return (
                                         <div key={index} className="space-y-2 md:min-w-[350px] min-w-[300px] bg-custom rounded-lg shadow-lg p-4 transform transition-transform duration-500 hover:scale-105 snap-center">
-                                            <img src="https://loremflickr.com/800/600/girl" alt="Image 1" className="rounded-lg mb-4" />
+                                            <img src={item?.img ? item?.img : "https://loremflickr.com/800/600/cats"} alt="Image 1" className="rounded-lg mb-4" />
                                             <div className="flex justify-between items-center gap-2">
                                                 <h3 className="text-sm font-semibold font-Poppins leading-6 tracking-tight">{item.title}</h3>
                                                 <button type='button' onClick={() => handleShowModel(item.id)} className='bg-[#C96202] text-white active:translate-y-[6px] py-2 px-5 rounded-lg text-xs font-medium tracking-wider font-Poppins transition duration-300 ease-in-out transform shadow-md hover:shadow-gray-600 hover:shadow-custom-white'>Apply</button>

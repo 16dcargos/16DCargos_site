@@ -17,7 +17,9 @@
         "#CoimbatoreJobs",
         "#AccountingCareer",
         "#FinancialManagement"
-      ]
+      ],
+
+      "img": "https://res.cloudinary.com/dmh7fwdzf/image/upload/v1730621841/discussing-financial-papers_vl8hgb.jpg"
     },
     {
       "id": 2,
@@ -36,7 +38,8 @@
         "#HyderabadCareers ",
         "#SupplyChainManagement ",
         "#EfficiencyInAction"
-      ]
+      ],
+      "img": "https://res.cloudinary.com/dmh7fwdzf/image/upload/v1730622044/1165_njkyvm.jpg"
     },
     {
       "id": 3,
@@ -55,7 +58,8 @@
         "#HyderabadCareers ",
         "#SupplyChainManagement ",
         "#EfficiencyInAction"
-      ]
+      ],
+      "img": "https://res.cloudinary.com/dmh7fwdzf/image/upload/v1730622101/6989_txr5te.jpg"
     },
     {
       "id": 4,
@@ -74,7 +78,8 @@
         "#SalemJobs ",
         "#SupplyChainManager ",
         "#TeamManagement"
-      ]
+      ],
+      "img": "https://res.cloudinary.com/dmh7fwdzf/image/upload/v1730622187/2150461318_kc0ahg.jpg"
     },
     {
       "id": 5,

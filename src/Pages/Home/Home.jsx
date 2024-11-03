@@ -120,15 +120,15 @@ export default function Home() {
             </section>
 
             <section className='relative overflow-hidden bg-[#d9d9d9] px-4 py-6 lg:px-8 lg:py-6'>
-                <div className="mx-auto max-w-full lg:max-w-3xl">
-                    <p className='font-Poppins text-xs font-medium tracking-wider leading-relaxed'>
+                <div className="mx-auto max-w-full lg:max-w-6xl">
+                    <p className='font-Poppins text-sm md:text-lg font-medium tracking-wider leading-relaxed'>
                         Our services are designed to provide seamless and dependable transportation solutions across India. We pride ourselves on delivering large volumes of goods swiftly and securely from origin to destination. With a robust network and a fleet of meticulously maintained trucks, we cater to various industries, offering tailored logistics solutions to meet unique needs. Whether it’s long-haul routes or regional deliveries, our FTL services ensure punctual deliveries and cost-efficiency. Partner with us for a hassle-free logistics experience, as we commit to exceeding your expectations and driving your business success throughout the Nation.
                     </p>
                 </div>
             </section>
             {/*  Our Vission */}
             <section className='relative isolate overflow-hidden px-3 py-4 lg:px-8 lg:py-6 bg-[#d9d9d9]'>
-                <div className='mx-auto max-w-xl lg:max-w-5xl'>
+                <div className='mx-auto max-w-full lg:max-w-5xl'>
                     <div className="flex items-center gap-4 md:gap-10 justify-center flex-col md:flex-row">
                         <div className='md:w-1/2 w-full rounded-xl'>
                             <div className="w-full h-auto overflow-hidden rounded-md sm:rounded-xl">
@@ -137,10 +137,10 @@ export default function Home() {
                         </div>
                         <div className="md:w-1/2 w-full">
                             <div className='px-4 py-4 lg:py-0'>
-                                <h1 className='border-b-[1px] pb-1 border-orange-400 inline-block font-Poppins tracking-wide font-bold text-black text-lg lg:text-3xl'>
+                                <h1 className='border-b-[1px] pb-1 border-orange-400 inline-block font-Poppins tracking-wide font-bold text-black text-xl lg:text-4xl'>
                                     Our Vision
                                 </h1>
-                                <p className='font-Poppins text-xs mt-3 text-black font-medium lg:max-w-lg leading-6 tracking-wider'>
+                                <p className='font-Poppins text-sm md:text-lg mt-3 text-black font-medium lg:max-w-lg leading-6 tracking-wider'>
                                     To transform the logistics industry in Bharat by harnessing the power of strategic planning and the best talents in the country, setting a new benchmark for efficiency and reliability.
                                 </p>
                             </div>
@@ -151,14 +151,14 @@ export default function Home() {
 
             {/* Our Mission */}
             <section className='relative isolate overflow-hidden px-3 py-4 lg:px-8 lg:py-6 bg-[#d9d9d9]'>
-                <div className='mx-auto max-w-xl lg:max-w-5xl'>
+                <div className='mx-auto max-w-full lg:max-w-5xl'>
                     <div className="flex items-center justify-center md:gap-10 gap-4 flex-col-reverse md:flex-row">
                         <div className="md:w-1/2 w-full">
                             <div className='px-4 py-4 lg:py-0'>
-                                <h1 className='border-b-[1px] pb-1 border-orange-400 inline-block font-Poppins tracking-wide font-bold text-black text-lg lg:text-3xl'>
+                                <h1 className='border-b-[1px] pb-1 border-orange-400 inline-block font-Poppins tracking-wide font-bold text-black text-xl lg:text-4xl'>
                                     Our Mission
                                 </h1>
-                                <p className='font-Poppins text-xs mt-3 text-black font-medium lg:max-w-lg leading-6 tracking-wider'>
+                                <p className='font-Poppins text-sm md:text-lg mt-3 text-black font-medium lg:max-w-lg leading-6 tracking-wider'>
                                     To lead the logistics sector with unwavering commitment, strategic innovation, and operational excellence, ensuring seamless and efficient delivery solutions across the nation.
                                 </p>
                             </div>
