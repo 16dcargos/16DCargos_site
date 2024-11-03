@@ -140,6 +140,8 @@ function App() {
     setQuote({
       date: "", contact_number: "", email: "", loading_pin: "", material: "", open_or_container: "", unloading_pin: "", vehicle_type: ""
     })
+    setError({})
+    setContactModal(false)
   }
 
   const handleQuoteFocus = (e) => {
