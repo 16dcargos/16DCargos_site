@@ -121,7 +121,7 @@ const Fleetowners = () => {
 
 
 
-            <section id='fop' className='relative isolate overflow-hidden bg-white  lg:bg-gradient-to-r from-[#D9D9D9] from-50% to-white to-50%'>
+            <section id='fop' className='relative scroll-p-60 isolate overflow-hidden bg-white  lg:bg-gradient-to-r from-[#D9D9D9] from-50% to-white to-50%'>
                 <div className="max-w-xl md:max-w-7xl mx-auto px-4 py-4">
                     <div className="grid grid-cols-1  md:grid-cols-2 md:gap-x-20">
                         <div className="w-full flex justify-center flex-grow flex-col items-center h-auto px-5 space-y-4 py-4">

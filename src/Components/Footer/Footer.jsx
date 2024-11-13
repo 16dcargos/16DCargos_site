@@ -75,7 +75,7 @@ export default function Footer() {
                         </p>
                     </div>
                     <div className="space-y-4 mt-6 lg:mt-4">
-                        <div className="flex justify-start gap-x-1 items-center">
+                        <div className="flex justify-start gap-x-2 items-center">
                             <span>
                                 <svg
                                     className="w-5 h-5 mr-1"
@@ -109,7 +109,7 @@ export default function Footer() {
                                 reachus@16dcargos.com
                             </a>
                         </div>
-                        <div className="flex justify-start gap-x-1 items-center">
+                        <div className="flex justify-start gap-x-2 items-center">
                             <span>
                                 <svg
                                     className="h-5 w-5 mr-1"
@@ -124,15 +124,15 @@ export default function Footer() {
                                 </svg>
                             </span>
                             <a
-                                href="tel:850-123-5021"
+                                href="tel:+91 9677904120"
                                 aria-label="Our phone"
                                 title="Our phone"
                                 className="text-sm after-line  font-Poppins tracking-wider"
                             >
-                                850-123-5021
+                                +91 9677904120
                             </a>
                         </div>
-                        <div className="flex justify-start gap-x-1 items-center">
+                        <div className="flex justify-start gap-x-2 items-center">
                             <span>
                                 <svg
                                     className="h-5 w-5 mr-1"
@@ -146,16 +146,15 @@ export default function Footer() {
                                     />
                                 </svg>
                             </span>
-                            <Link
-                                href="https://www.google.com/maps"
-                                target="_blank"
-                                rel="noopener noreferrer"
+                            <p
                                 aria-label="Our address"
                                 title="Our address"
-                                className="text-sm after-line  font-Poppins tracking-wider"
+                                className="text-sm w-full font-Poppins tracking-wider"
                             >
-                                312 Lovely Street, NY
-                            </Link>
+                                #7/11, 10th Cross Street, Anna Nagar,
+                                Near National Model School,
+                                Peelamedu, Coimbatore - 641004.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -166,20 +165,16 @@ export default function Footer() {
                         Services
                     </span>
                     <div className="flex justify-start flex-col mt-2 space-y-2">
-                        <Link to={'/full-truck-loaded'} className="after-line inline-block w-fit font-Poppins font-normal text-sm active:text-orange-400 visited:bg-purple-600 tracking-wide transition-colors duration-300 hover:text-gray-800">
+                        <p title="Full Truck Load" className="after-line inline-block w-fit font-Poppins font-normal text-sm active:text-orange-400 visited:bg-purple-600 tracking-wide transition-colors duration-300 hover:text-gray-800">
                             Full Truck Load (FTL) Services
-                        </Link>
-                        <Link to={'/fleet-owners'} className="after-line inline-block w-fit font-Poppins font-normal text-sm active:text-orange-400 visited:bg-purple-600 tracking-wide transition-colors duration-300 hover:text-gray-800">
-                            Partner with Us
-                        </Link>
-                        <Link to={'/career'} className="after-line inline-block w-fit font-Poppins font-normal text-sm active:text-orange-400 visited:bg-purple-600 tracking-wide transition-colors duration-300 hover:text-gray-800">
-                            Career Opportunities
-                        </Link>
-                        <Link to={'/skill-development'} className="after-line inline-block w-fit font-Poppins font-normal text-sm active:text-orange-400 visited:bg-purple-600 tracking-wide transition-colors duration-300 hover:text-gray-800">
-                            Skill Development
-                        </Link>
+                        </p>
+                        <p title="16D - Load App" className="after-line inline-block w-fit font-Poppins font-normal text-sm active:text-orange-400 visited:bg-purple-600 tracking-wide transition-colors duration-300 hover:text-gray-800">
+                            16D - Load App
+                        </p>
+                        <p title="Nirvahi" className="after-line inline-block w-fit font-Poppins font-normal text-sm active:text-orange-400 visited:bg-purple-600 tracking-wide transition-colors duration-300 hover:text-gray-800">
+                            Nirvahi
+                        </p>
                     </div>
-
                 </div>
 
 

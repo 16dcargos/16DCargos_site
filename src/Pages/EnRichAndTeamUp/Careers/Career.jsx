@@ -340,8 +340,8 @@ const Career = () => {
                     </div>
                 </div>
 
-                <div className="max-w-xl md:max-w-6xl mx-auto">
-                    <div className="relative px-4 py-4">
+                <div className="max-w-xl scroll-p-60 md:max-w-6xl mx-auto" id='applyForm'>
+                    <div className="relative px-4 py-4" >
                         {/* <!-- Scrollable Container --> */}
                         <div ref={carouselRef} className="flex space-x-6 overflow-x-scroll scrollbar-hide p-0 md:p-4 snap-x snap-mandatory scroll-smooth">
 
@@ -374,7 +374,7 @@ const Career = () => {
             </section>
 
 
-            <div id='applyForm' className="relative  isolate overflow-hidden min-h-screen bg-custom">
+            <section className="relative  isolate overflow-hidden min-h-screen bg-custom">
                 <div className="absolute inset-x-0 text-center z-50">
                     <span className="py-1.5 px-12 w-max rounded bg-[#ff8f26ad] text-black font-xs font-Poppins font-normal leading-6 tracking-wide">
                         JOB
@@ -487,7 +487,7 @@ const Career = () => {
                         </form>
                     </div>
                 </div>
-            </div>
+            </section>
 
 
 

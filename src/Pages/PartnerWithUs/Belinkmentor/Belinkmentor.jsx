@@ -252,7 +252,7 @@ const Belinkmentor = () => {
             </section>
 
 
-            <section id='guide-us' className='bg-white overflow-hidden isolate relative'>
+            <section id='guide-us' className='bg-white scroll-p-60 overflow-hidden isolate relative'>
                 <div className="max-w-full mx-auto md:max-w-6xl px-3 py-3 md:px-6">
                     <div className="">
                         <h1 className='md:text-4xl text-2xl font-Poppins tracking-wide leading-6 font-bold text-black mb-2'>Ready to get started?</h1>

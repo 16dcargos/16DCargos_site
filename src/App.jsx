@@ -159,13 +159,13 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/aboutus" element={<Aboutus />} />
-        <Route path="/investor-insight" element={<Investor />} />
+        <Route path="/investor-insight" element={<Investor handleToggleModal={handleToggleModal} />} />
         <Route path="/sixteenD-and-nirvaahi" element={<SixteenDAndNiraahi />} />
         <Route path="/full-truck-loaded" element={<FullTruckLoaded handleToggleModal={handleToggleModal} />} />
         <Route path="/fleet-owners" element={<Fleetowners />} />
         <Route path="/be-link-mentor" element={<Belinkmentor />} />
         <Route path="/career" element={<Career />} />
-        <Route path="/skill-development" element={<SkillDevelopment />} />
+        <Route path="/skill-development" element={<SkillDevelopment handleToggleModal={handleToggleModal} />} />
       </Routes>
       <Footer />
 
@@ -205,15 +205,12 @@ function App() {
                   </button>
                 </div>
                 <div className="max-w-full md:max-w-5xl mx-auto">
-                  <div className="md:max-w-xl max-w-md mx-auto">
-                    <h1 className="text-center md:text-4xl text-xl mb-4 leading-6 tracking-wide font-bold font-Poppins text-black">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  <div className="md:max-w-3xl max-w-md mx-auto">
+                    <h1 className="text-center md:text-4xl text-xl mb-4 leading-relaxed tracking-wide font-bold font-Poppins text-black">
+                      Your logistics partner—reliable, responsible, every time.
                     </h1>
-                    <p className="text-center font-medium leading-5 tracking-tight font-Poppins text-sm text-gray-500">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Amet ea voluptas ullam, eum qui dolorum autem tempora
-                      delectus molestiae quo doloribus cum nobis quis, nemo et
-                      eveniet harum beatae quae?
+                    <p className="text-center font-medium leading-5 tracking-wide font-Poppins text-sm text-gray-500">
+                      With every shipment, we bring reliability, dedication, and trust. From loading dock to final destination, we handle your freight with care, so you can focus on what matters most—your business.
                     </p>
                   </div>
                 </div>
@@ -221,12 +218,6 @@ function App() {
                   <div className="md:max-w-7xl max-w-xl mx-auto py-12">
                     <div className="bg-gray-500 w-full flex md:flex-row flex-col min-h-screen justify-center items-start rounded-2xl">
                       <div className="md:block hidden md:w-1/2 md:h-screen w-full h-full">
-                        {/* <img
-                          src="https://res.cloudinary.com/dmh7fwdzf/image/upload/v1725907997/Home_dztofa.png"
-                          alt=""
-                          loading="lazy"
-                          className="w-full md:rounded-r-none rounded-2xl h-full object-fill object-center"
-                        /> */}
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30767694.11883084!2d60.92944751922805!3d19.72019948337311!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30635ff06b92b791%3A0xd78c4fa1854213a6!2sIndia!5e0!3m2!1sen!2sin!4v1729885384791!5m2!1sen!2sin" className="w-full md:rounded-r-none rounded-2xl h-full object-fill object-center"
                           allowfullscreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
                       </div>
@@ -371,8 +362,8 @@ function App() {
                         </div>
 
                         <div className="flex justify-center md:mt-8 mt-4 items-center gap-6">
-                          <button type="submit" className="bg-[#C96202] text-white active:translate-y-[6px] py-2.5 px-5 rounded-lg text-xs font-medium tracking-wider font-Poppins transition duration-300 ease-in-out transform hover:ring-[#C96202] hover:bg-transparent hover:ring-2">Submit</button>
                           <button type="reset" className="bg-[#C96202] text-white bg-transparent ring-2 ring-[#C96202] active:translate-y-[6px] py-2.5 px-5 rounded-lg text-xs font-medium tracking-wider font-Poppins transition duration-300 ease-in-out transform hover:bg-[#de8b3e]">Cancel</button>
+                          <button type="submit" className="bg-[#C96202] text-white active:translate-y-[6px] py-2.5 px-5 rounded-lg text-xs font-medium tracking-wider font-Poppins transition duration-300 ease-in-out transform hover:ring-[#C96202] hover:bg-transparent hover:ring-2">Submit</button>
                         </div>
                       </div>
                     </div>

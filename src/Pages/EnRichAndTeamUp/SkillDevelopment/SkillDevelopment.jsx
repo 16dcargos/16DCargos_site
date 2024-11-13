@@ -2,7 +2,7 @@ import React from 'react'
 import ImageTag from '../../../Components/ImageTag/ImageTag'
 import { Link } from 'react-router-dom'
 
-const SkillDevelopment = () => {
+const SkillDevelopment = ({ handleToggleModal }) => {
     return (
         <React.Fragment>
             <section className="relative z-10 min-h-screen bg-custom overflow-hidden">
@@ -22,7 +22,7 @@ const SkillDevelopment = () => {
                     <h2 className='text-xl md:text-3xl font-bold font-Poppins leading-6 tracking-wide text-black'>
                         Unlocking Potential, Creating Professionals
                     </h2>
-                    <p className='font-Poppins text-xs font-medium tracking-wider mt-4 leading-relaxed'>
+                    <p className='font-Poppins text-sm font-medium tracking-wider mt-4 leading-relaxed'>
                         Our program focuses on comprehensive training that covers all aspects of logistics management, from understanding the intricacies of Full Truck Load (FTL) services to mastering advanced fleet management techniques. We provide hands-on experience, enabling participants to gain practical knowledge and develop critical skills that set them apart in the competitive job market.
                     </p>
                 </div>
@@ -36,22 +36,22 @@ const SkillDevelopment = () => {
                             <ImageTag src={"https://res.cloudinary.com/dmh7fwdzf/image/upload/v1725984003/trainingmodule_hd97q0.png"} alt={'training'} className={'w-full h-auto object-center object-fill'} />
                         </div>
 
-                        <div className="relative space-y-2">
-                            <div className="">
-                                <h2 className='font-bold font-Poppins leading-6 tracking-wide xl:text-lg md:text-sm text-sm'>Logistics Fundamentals</h2>
-                                <p className='font-medium mt-2 font-Poppins leading-6  tracking-wide text-black md:text-xs text-xs'>Gain a solid foundation in logistics principles and practices.</p>
+                        <div className="relative space-y-2 ">
+                            <div className="md:mt-0 mt-6">
+                                <h2 className='font-bold font-Poppins leading-6 tracking-wide xl:text-xl md:text-sm text-sm'>Logistics Fundamentals</h2>
+                                <p className='font-medium mt-2 font-Poppins leading-6  tracking-wide text-black md:text-sm text-xs'>Gain a solid foundation in logistics principles and practices.</p>
                             </div>
                             <div className="">
-                                <h2 className='font-bold font-Poppins leading-6 tracking-wide xl:text-lg md:text-sm text-sm'>FTL Services</h2>
-                                <p className='font-medium mt-2 font-Poppins leading-6 tracking-wide text-black md:text-xs text-xs'>Learn the nuances of managing full truck load operations efficiently.</p>
+                                <h2 className='font-bold font-Poppins leading-6 tracking-wide xl:text-xl md:text-sm text-sm'>FTL Services</h2>
+                                <p className='font-medium mt-2 font-Poppins leading-6 tracking-wide text-black md:text-sm text-xs'>Learn the nuances of managing full truck load operations efficiently.</p>
                             </div>
                             <div className="">
-                                <h2 className='font-bold font-Poppins leading-6 tracking-wide xl:text-lg md:text-sm text-sm'>Fleet and Driver Management</h2>
-                                <p className='font-medium mt-2 font-Poppins leading-6 tracking-wide text-black md:text-xs text-xs'>Understand the best practices in managing fleets and drivers using tools like Nirvaahi.</p>
+                                <h2 className='font-bold font-Poppins leading-6 tracking-wide xl:text-xl md:text-sm text-sm'>Fleet and Driver Management</h2>
+                                <p className='font-medium mt-2 font-Poppins leading-6 tracking-wide text-black md:text-sm text-xs'>Understand the best practices in managing fleets and drivers using tools like Nirvaahi.</p>
                             </div>
                             <div className="">
-                                <h2 className='font-bold font-Poppins leading-6 tracking-wide xl:text-lg md:text-sm text-sm'>Technology Integration</h2>
-                                <p className='font-medium mt-2 font-Poppins leading-6 tracking-wide text-black md:text-xs text-xs'>Explore how digital tools like the 16D application can streamline logistics operations.</p>
+                                <h2 className='font-bold font-Poppins leading-6 tracking-wide xl:text-xl md:text-sm text-sm'>Technology Integration</h2>
+                                <p className='font-medium mt-2 font-Poppins leading-6 tracking-wide text-black md:text-sm text-xs'>Explore how digital tools like the 16D application can streamline logistics operations.</p>
                             </div>
                         </div>
                     </div>
@@ -65,9 +65,9 @@ const SkillDevelopment = () => {
                             <img src="https://res.cloudinary.com/dmh7fwdzf/image/upload/v1725985173/mentorship_l7exbh.png" alt={''} className={' object-fill object-center w-full h-full'} />
                         </div>
                         <div className="w-full px-3 py-3 space-y-5">
-                            <h1 className="text-black text-xl md:text-2xl font-bold font-Poppins leading-6 tracking-wide">Mentorship and Guidance
+                            <h1 className="text-black text-lg md:text-4xl font-bold font-Poppins leading-6 tracking-wide">Mentorship and Guidance
                             </h1>
-                            <p className='text-black font-Poppins leading-5 tracking-wider text-xs font-medium '>
+                            <p className='text-black font-Poppins leading-5 tracking-wider text-xs md:text-sm font-medium '>
                                 Participants in our Skill Development Program benefit from the guidance of industry experts and experienced mentors. We believe that learning from those who have excelled in the field is crucial to personal and professional growth. Our mentors are dedicated to helping participants navigate the complexities of the logistics sector, providing invaluable insights and advice.
                             </p>
                         </div>
@@ -86,9 +86,9 @@ const SkillDevelopment = () => {
                             <img src="https://res.cloudinary.com/dmh7fwdzf/image/upload/v1725985106/opportunitgrowth_lorm8r.png" alt={''} className={' object-fill object-center w-full h-full'} />
                         </div>
                         <div className="w-full px-3 py-3 space-y-5">
-                            <h1 className="text-black text-xl md:text-2xl font-bold font-Poppins leading-6 tracking-wide">Opportunities for Growth
+                            <h1 className="text-black text-xl md:text-4xl font-bold font-Poppins leading-6 tracking-wide">Opportunities for Growth
                             </h1>
-                            <p className='text-black font-Poppins leading-5 tracking-wider text-xs font-medium '>
+                            <p className='text-black font-Poppins leading-5 tracking-wider text-xs md:text-sm font-medium '>
                                 We are not just training individuals; we are creating opportunities for them to join our dynamic team. Outstanding performers in our Skill Development Program are given the chance to work with us, contributing to our mission of revolutionizing the logistics industry. This is more than a job; it is a pathway to a fulfilling career in a sector that is vital to the nation’s economy.
                             </p>
                         </div>
@@ -106,9 +106,9 @@ const SkillDevelopment = () => {
                             <img src="https://res.cloudinary.com/dmh7fwdzf/image/upload/v1725985065/shapeingfuture_xim37j.png" alt={''} className={' object-fill object-center w-full h-full'} />
                         </div>
                         <div className="w-full px-3 py-3 space-y-5">
-                            <h1 className="text-black text-xl md:text-2xl font-bold font-Poppins leading-6 tracking-wide">Join Us in Shaping the Future
+                            <h1 className="text-black text-xl md:text-4xl font-bold font-Poppins leading-6 tracking-wide">Join Us in Shaping the Future
                             </h1>
-                            <p className='text-black font-Poppins leading-5 tracking-wider text-xs font-medium '>
+                            <p className='text-black font-Poppins leading-5 tracking-wider text-xs md:text-sm font-medium '>
                                 We invite ambitious youngsters to be part of this transformative journey. By developing the skills that matter, you can make a significant impact on the logistics landscape of Bharat. Together, we will build a network of professionals who are not only skilled but also passionate about driving change in the industry.
                             </p>
                         </div>
@@ -122,9 +122,9 @@ const SkillDevelopment = () => {
             <section className='relative isolate bg-custom'>
                 <div className="max-w-2xl mx-auto px-4 py-4 md:p-12">
                     <div className="text-center space-y-3">
-                        <h1 className='text-black font-bold leading-6 tracking-wide md:text-3xl text-xl font-Poppins'>Contact Us to Learn More</h1>
-                        <p className='leading-6 mt-4 tracking-wider font-medium font-Poppins text-sm text-black'>For more information about our Skill Development Program, please reach out to us. We are excited to help you take the first step towards a successful and rewarding career in logistics.</p>
-                        <button className="bg-[#C96202] mt-3 text-white active:translate-y-[6px] py-2.5 px-5 rounded-full text-xs font-medium tracking-wider font-Poppins transition duration-300 ease-in-out transform hover:shadow-gray-500 hover:shadow-custom-white">Contact us</button>
+                        <h1 className='text-black font-bold leading-6 tracking-wide md:text-3xl text-2xl font-Poppins'>Contact Us to Learn More</h1>
+                        <p className='leading-6 mt-4 tracking-wider font-medium font-Poppins text-xs md:text-sm text-black'>For more information about our Skill Development Program, please reach out to us. We are excited to help you take the first step towards a successful and rewarding career in logistics.</p>
+                        <button type='button' onClick={handleToggleModal} className="bg-[#C96202] mt-3 text-white active:translate-y-[6px] py-2.5 px-5 rounded-full text-xs font-medium tracking-wider font-Poppins transition duration-300 ease-in-out transform hover:shadow-gray-500 hover:shadow-custom-white">Contact us</button>
                     </div>
                 </div>
             </section>

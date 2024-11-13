@@ -6,7 +6,7 @@ import { AnimatePresence } from 'framer-motion';
 import Model from '../../../Components/model/Model';
 import sendEmail from '../../../email/sendEmail';
 import toast from 'react-hot-toast';
-const Inverstor = () => {
+const Inverstor = ({ handleToggleModal }) => {
 
     const [isOpen, setIsOpen] = useState(false);
     const [quoteErr, setQuoteErr] = useState({})
@@ -95,13 +95,13 @@ const Inverstor = () => {
 
                 <div className="relative mx-auto max-w-5xl z-10 flex flex-col justify-center items-center h-screen">
                     <h1 className="text-2xl md:text-5xl xl:text-6xl text-center leading-10 mb-5 p-2 tracking-normal flex justify-start flex-row font-bold font-Poppins">Get ahead of the curve—invest with us and fuel the future of logistics.</h1>
-                    <OrangeBtn text={'Learn More'} />
+                    <OrangeBtn text={'Invest in Us'} />
                 </div>
             </section>
 
             <section className='relative overflow-hidden bg-[#d9d9d9] px-4 py-6 lg:px-8 lg:py-6'>
                 <div className="mx-auto max-w-full lg:max-w-3xl">
-                    <p className='font-Poppins text-xs font-medium tracking-wider leading-relaxed'>
+                    <p className='font-Poppins text-sm font-medium tracking-wider leading-relaxed'>
                         We’re eager to embark on the next stage of our journey and invite investors to play a key role in shaping the future of logistics. As a bootstrapped enterprise, we’ve achieved impressive milestones and driven innovation with our own resources. Now, with a solid foundation and proven success, we’re ready for accelerated growth. We seek strategic investment to enhance capabilities and seize new market opportunities. Join us in this transformative venture and be a part of redefining the logistics landscape in India.
                     </p>
                 </div>
@@ -114,8 +114,8 @@ const Inverstor = () => {
                             <ImageTag src={"https://res.cloudinary.com/dmh7fwdzf/image/upload/v1725907861/ourjourney_stk7rh.png"} alt={'ourjourney'} className={'w-full h-auto object-fill object-center'} />
                         </div>
                         <div className="px-3 w-full md:col-span-6 space-y-7">
-                            <h1 className="md:text-xl lg:text-3xl text-xl text-black font-bold tracking-6 leading-wider">Our Journey: From Bootstrap to Breakthrough</h1>
-                            <p className='font-Poppins text-xs text-black font-medium lg:max-w-xl leading-6 tracking-wider'>At <span className='inline-block text-xs lg:text-lg font-bold text-black'>Bharatham Consortium Ventures</span>, we’ve embarked on a transformative journey that began with a vision and a bootstrapped budget. Over the years, our unwavering commitment, innovation, and relentless pursuit of excellence have propelled us to achieve remarkable milestones in the logistics industry. We’ve built a solid foundation through our resourcefulness and creativity, proving our ability to drive change and deliver results. As we stand on the threshold of a new chapter, we invite visionary investors to join us in accelerating our growth and reshaping the logistics landscape in India.</p>
+                            <h1 className="md:text-2xl lg:text-4xl text-xl text-black font-bold tracking-6 leading-wider">Our Journey: From Bootstrap to Breakthrough</h1>
+                            <p className='font-Poppins text-sm text-black font-medium lg:max-w-xl leading-6 tracking-wider'>At <span className='inline-block text-xs lg:text-lg font-bold text-black'>Bharatham Consortium Ventures</span>, we’ve embarked on a transformative journey that began with a vision and a bootstrapped budget. Over the years, our unwavering commitment, innovation, and relentless pursuit of excellence have propelled us to achieve remarkable milestones in the logistics industry. We’ve built a solid foundation through our resourcefulness and creativity, proving our ability to drive change and deliver results. As we stand on the threshold of a new chapter, we invite visionary investors to join us in accelerating our growth and reshaping the logistics landscape in India.</p>
                         </div>
                     </div>
                 </div>
@@ -259,7 +259,7 @@ const Inverstor = () => {
                     </h2>
 
                     <div className="text-center">
-                        <Link to={'#'} className="bg-[#C96202] text-white active:translate-y-[6px] py-2.5 px-5 rounded-full text-xs font-medium tracking-wider font-Poppins transition duration-300 ease-in-out transform  hover:shadow-custom-white hover:shadow-gray-600">Contact us</Link>
+                        <Link onClick={handleToggleModal} className="bg-[#C96202] text-white active:translate-y-[6px] py-2.5 px-5 rounded-full text-xs font-medium tracking-wider font-Poppins transition duration-300 ease-in-out transform  hover:shadow-custom-white hover:shadow-gray-600">Contact us</Link>
                     </div>
                 </div>
             </section>

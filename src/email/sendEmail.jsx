@@ -7,7 +7,6 @@ const sendEmail = async (templateId, formData) => {
 
     return await emailjs.send(serviceId, templateId, formData, userId)
         .then(response => {
-            console.log('SUCCESS!', response.status, response.text);
             if (response.status === 200) {
                 toast.success('Thank yor for submission, We will reach you soon')
             }
@@ -15,7 +14,7 @@ const sendEmail = async (templateId, formData) => {
         })
         .catch(err => {
             if (err) {
-                toast.error('Sothing went wroung! please try again later')
+                toast.error('Sothing went wrong! please try again later')
             }
             return false;
         });
